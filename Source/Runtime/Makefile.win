@@ -1,0 +1,60 @@
+# Project: Debug
+# Makefile created by Dev-C++ 5.4.0
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = ./obj/Run_private.res
+OBJ      = ./obj/basic_def.o ./obj/runtime_main.o ./obj/runtime_cmd.o ./obj/runtime_cui.o ./obj/runtime_data.o ./obj/runtime_debug.o ./obj/runtime_fileIO.o ./obj/runtime_loader.o ./obj/FileIO.o ./obj/stringExt.o $(RES)
+LINKOBJ  = ./obj/basic_def.o ./obj/runtime_main.o ./obj/runtime_cmd.o ./obj/runtime_cui.o ./obj/runtime_data.o ./obj/runtime_debug.o ./obj/runtime_fileIO.o ./obj/runtime_loader.o ./obj/FileIO.o ./obj/stringExt.o $(RES)
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib" -static-libstdc++ -static-libgcc -mwindows
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include"
+BIN      = ../../Distribution/Runtime/Debug.exe
+CXXFLAGS = $(CXXINCS) -D_COMPONENT_DEBUGGER -Wfatal-errors
+CFLAGS   = $(INCS)  -Wfatal-errors
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+./obj/basic_def.o: ../basic_def.cpp
+	$(CPP) -c ../basic_def.cpp -o ./obj/basic_def.o $(CXXFLAGS)
+
+./obj/runtime_main.o: runtime_main.cpp
+	$(CPP) -c runtime_main.cpp -o ./obj/runtime_main.o $(CXXFLAGS)
+
+./obj/runtime_cmd.o: runtime_cmd.cpp
+	$(CPP) -c runtime_cmd.cpp -o ./obj/runtime_cmd.o $(CXXFLAGS)
+
+./obj/runtime_cui.o: runtime_cui.cpp
+	$(CPP) -c runtime_cui.cpp -o ./obj/runtime_cui.o $(CXXFLAGS)
+
+./obj/runtime_data.o: runtime_data.cpp
+	$(CPP) -c runtime_data.cpp -o ./obj/runtime_data.o $(CXXFLAGS)
+
+./obj/runtime_debug.o: runtime_debug.cpp
+	$(CPP) -c runtime_debug.cpp -o ./obj/runtime_debug.o $(CXXFLAGS)
+
+./obj/runtime_fileIO.o: runtime_fileIO.cpp
+	$(CPP) -c runtime_fileIO.cpp -o ./obj/runtime_fileIO.o $(CXXFLAGS)
+
+./obj/runtime_loader.o: runtime_loader.cpp
+	$(CPP) -c runtime_loader.cpp -o ./obj/runtime_loader.o $(CXXFLAGS)
+
+./obj/FileIO.o: ../../../[Libraries]/File\ IO/FileIO.cpp
+	$(CPP) -c "../../../[Libraries]/File IO/FileIO.cpp" -o ./obj/FileIO.o $(CXXFLAGS)
+
+./obj/stringExt.o: ../../../[Libraries]/String\ Extension/stringExt.cpp
+	$(CPP) -c "../../../[Libraries]/String Extension/stringExt.cpp" -o ./obj/stringExt.o $(CXXFLAGS)
+
+./obj/Run_private.res: Run_private.rc 
+	$(WINDRES) -i Run_private.rc --input-format=rc -o ./obj/Run_private.res -O coff 
