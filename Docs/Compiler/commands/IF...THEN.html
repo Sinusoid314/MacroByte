@@ -1,0 +1,62 @@
+<html>
+<!-- Creation date: 4/20/2003 -->
+<head>
+<title></title>
+</head>
+<body>
+
+<h3>
+IF expression THEN {command} <br>
+<h5><i>~OR~</i></h5> 
+IF expression THEN<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+{code} <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+ELSEIF expression THEN <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+{code} <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+ELSE <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+{code} <br>
+END IF
+</h3>
+<br>
+<b><u>Description:</u></b>
+<br>
+<br>
+Executes a certain block of code based on the given expressions. The first form
+accepts an <b>expression</b> that is to be evaluated. If the expression is true,
+the <b>{command}</b> after it will be executed, otherwise the line is skipped. The
+second form allows for multiple lines of code in one block. If the <b>expression</b>
+after the <b>IF</b> statement is true, the <b>{code}</b> after it is executed. If not,
+the <b>ELSEIF</b> expressions are evaluated. There is no limit to the amount of
+<b>ELSEIF</b> statements that can be in one <b>IF</b> block. The <b>{code}</b> after
+the first true <b>ELSEIF</b> expression will be executed. If none of the <b>ELSEIF</b>
+expressions are true, the <b>{code}</b> after the <b>ELSE</b> statement will be
+executed. The <b>END IF</b> statement marks the end of the <b>IF</b> block.
+<br>
+<br>
+<br>
+<b><u>Usage:</u></b>
+<br>
+<br>
+showconsol <br>
+var num as number <br>
+input "Enter a number: ", num <br>
+<b>If num < 10 Then</b> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+print "Number is less than 10" <br>
+<b>ElseIf num > 10 Then</b> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+print "Number is greater than 10" <br>
+<b>Else</b> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+print "Number is 10" <br>
+<b>End If</b>
+
+</body>
+</html>

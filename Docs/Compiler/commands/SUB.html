@@ -1,0 +1,57 @@
+<html>
+<!-- Creation date: 4/20/2003 -->
+<head>
+<title></title>
+</head>
+<body>
+
+<h3>
+SUB subName(param1 AS type, param2 AS type, ...) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+{code} <br>
+END SUB <br>
+</h3>
+<br>
+<b><u>Description:</u></b>
+<br>
+<br>
+Subs are blocks of code that are seperate from the rest of the program code,
+and can be called from anywhere within a program using the <a href="CALL.html">
+CALL</a> command. They are much like <a href="FUNCTION.html">Functions</a>, except
+they do not return anything. <b>subName</b> specifies the name by which the sub will
+called. A sub can have in any number of parameters, each of which is specified
+after <b>subName</b> much like a varible declaration in the <a href="VAR.html">VAR</a>
+command. Subs can be placed anywhere within the program code, since the compiler clips all
+function and sub definitions out before running the program. The only place a sub
+definition cannot be is within another sub or function definition. All variables
+and arrays declared within a sub can only be used by
+the <b>{code}</b> within the sub. Things such as window names and file handles
+are global, and can be seen anywhere in the program code. Globally declared
+variables and arrays are also recognized within all subs and functions, but are
+recognized only if there is not a local variable or array of the same name. For
+example, if a varaible called <b>num</b> was declared globally (not in a sub or
+function), as well as in a the sub <b>GetVal</b>, the local version of <b>num</b>
+(inside of <b>GetVal</b>) will be recognized instead of the global version.
+<br>
+<br>
+<br>
+<b><u>Usage:</u></b>
+<br>
+<br>
+showconsol <br>
+var nameStr, descStr as string <br>
+input "Enter a name: ", nameStr <br>
+input "Enter a description: ", descStr <br>
+Call Describe nameStr, descStr <br>
+<br>
+<b>Sub Describe(name As String, desc As String)</b> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+print <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+print name & " is " & desc <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+print <br>
+<b>End Sub</b> <br>
+
+</body>
+</html>

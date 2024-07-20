@@ -1,0 +1,97 @@
+000 - AddExp dataRefTagSrc<ID Tag>, dataRefIdxSrc<number>
+
+000 - RemoveExp expIdx<number>
+
+000 - ClearExpStack
+
+000 - AddData dataRefTagSrc<ID Tag>, dataRefIdxSrc<number>
+
+000 - RemoveData
+
+000 - ClearDataStack
+
+000 - CopyData(sourceData) dataRefTagDest<ID Tag>, dataRefIdxDest<number>
+
+000 - CallSubProg subProgIdx<number>
+
+000 - ADD(operand2, operand1)
+
+000 - SUB(operand2, operand1)
+
+000 - DIV(operand2, operand1)
+
+000 - MUL(operand2, operand1)
+
+000 - MOD(operand2, operand1)
+
+000 - EXP(operand2, operand1)
+
+000 - STRCON(operand2, operand1)
+
+000 - EQUAL(operand2, operand1)
+
+000 - LESS(operand2, operand1)
+
+000 - GREATER(operand2, operand1)
+
+000 - LESSOREQUAL(operand2, operand1)
+
+000 - GREATEROREQUAL(operand2, operand1)
+
+000 - NOTEQUAL(operand2, operand1)
+
+000 - LAND(operand2, operand1)
+
+000 - LOR(operand2, operand1)
+
+000 - LXOR(operand2, operand1)
+
+000 - BAND(operand2, operand1)
+
+000 - BOR(operand2, operand1)
+
+000 - BXOR(operand2, operand1)
+
+000 - LABEL
+
+000 - ArrayIdx(indexVal) indexCount
+
+000 - Goto line<number>
+
+000 - Gosub line<number>
+
+000 - Return
+
+000 - If(testVal) trueBlockLen<number>, falseBlockLen<number>
+
+000 - PrintToConsol(output$)
+
+000 - InputFromConsol dataRefTagDest<ID Tag>, dataRefIdxDest<number>
+
+000 - ShowConsol
+
+000 - HideConsol
+
+000 - PrintBlank
+
+000 - For(startVal,endVal,stepVal) dataRefTagCounter<ID Tag>, dataRefIdxCounter<number>, codeBlockLen<number>
+
+000 - ClearConsol
+
+000 - InputEvents
+
+000 - FlushEvents
+
+000 - Pause(milliseconds)
+
+000 - End
+
+000 - Message(messageStr, titleStr)
+
+000 - Str$(number) :returns string version of number
+
+000 - Int(number) :returns integer portion of number
+
+000 - Rnd() :returns random number between 0 and 1
+
+000 - Val(string) :returns number version of string

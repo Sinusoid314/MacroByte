@@ -1,0 +1,47 @@
+<html>
+<!-- Creation date: 4/20/2003 -->
+<head>
+<title></title>
+</head>
+<body>
+
+<h3>
+FUNCTION funcName(param1 AS type, param2 AS type, ...) AS type <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+{code} <br>
+END FUNCTION <br>
+</h3>
+<br>
+<b><u>Description:</u></b>
+<br>
+<br>
+Functions are much like <a href="SUB.html">Subs</a>, with the exception that
+functions return a value, whose type is specified by the <b>type</b> at the end
+of the parameter list (either String or Number). A function can have any number
+of parameters, each of which is specified inside the parenthesis much like a varible declaration in the <a href="VAR.html">VAR</a> command. To return a value from a function, just set the value of the variable with the same name of the function (which is
+specified by <b>funcName</b>). Like subs, all variables and arrays declared within
+functions can only be recognized and used within the function they are declared. Also
+like subs, functions can be placed anywhere in the program code except for other
+function or sub definitions.
+<br>
+<br>
+<br>
+<b><u>Usage:</u></b>
+<br>
+<br>
+showconsol <br>
+var num as number <br>
+input "Enter a number: ", num <br>
+print num & " times 5 is " & str( <b>TimesFive(num)</b> ) <br>
+<br>
+<b>Function TimesFive(num As Number) As Number</b> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+var newNum as number <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+newNum = num * 5 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+TimesFive = newNum  'return the new number <br>
+<b>End Function</b>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="@branchLabel">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\@branchLabel.html">
+		<param name="Local" value="commands\@branchLabel.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Abs">
+		<param name="Local" value="functions\ABS.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Array">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\ARRAY.html">
+		<param name="Local" value="commands\ARRAY.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Asc">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\functions\ASC.html">
+		<param name="Local" value="functions\ASC.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Call">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\CALL.html">
+		<param name="Local" value="commands\CALL.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Chr">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\functions\CHR.html">
+		<param name="Local" value="functions\CHR.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Close">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\CLOSE.html">
+		<param name="Local" value="commands\CLOSE.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Cls">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\CLS.html">
+		<param name="Local" value="commands\CLS.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Dim">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\DIM.html">
+		<param name="Local" value="commands\DIM.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="End">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\END.html">
+		<param name="Local" value="commands\END.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Eof">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\functions\EOF.html">
+		<param name="Local" value="functions\EOF.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="FlushEvents">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\FlushEvents.html">
+		<param name="Local" value="commands\FlushEvents.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="For...Next">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\FOR...NEXT.html">
+		<param name="Local" value="commands\FOR...NEXT.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Function">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\FUNCTION.html">
+		<param name="Local" value="commands\FUNCTION.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Gosub">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\GOSUB.html">
+		<param name="Local" value="commands\GOSUB.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Goto">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\GOTO.html">
+		<param name="Local" value="commands\GOTO.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HideConsol">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\HIDECONSOL.html">
+		<param name="Local" value="commands\HIDECONSOL.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="If...Then">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\IF...THEN.html">
+		<param name="Local" value="commands\IF...THEN.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Input">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\INPUT.html">
+		<param name="Local" value="commands\INPUT.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Input">
+		<param name="Local" value="functions\INPUT.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="InputEvents">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\InputEvents.html">
+		<param name="Local" value="commands\InputEvents.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Int">
+		<param name="Local" value="functions\INT.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Left">
+		<param name="Local" value="functions\LEFT.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Len">
+		<param name="Local" value="functions\LEN.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Let">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\LET.html">
+		<param name="Local" value="commands\LET.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Line Input #">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\LineInput.html">
+		<param name="Local" value="commands\LineInput.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Loc">
+		<param name="Local" value="functions\LOC.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Lof">
+		<param name="Local" value="functions\LOF.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Lower">
+		<param name="Local" value="functions\LOWER.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="LTrim">
+		<param name="Local" value="functions\LTRIM.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Message">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\MESSAGE.html">
+		<param name="Local" value="commands\MESSAGE.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Mid">
+		<param name="Local" value="functions\MID.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Not">
+		<param name="Local" value="functions\NOT.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="OnError">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\ONERROR.html">
+		<param name="Local" value="commands\ONERROR.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Open">
+		<param name="Local" value="commands\OPEN.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Pause">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\SEEK.html">
+		<param name="Local" value="commands\PAUSE.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Print">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\PRINT.html">
+		<param name="Local" value="commands\PRINT.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Rem">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\REM.html">
+		<param name="Local" value="commands\REM.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Return">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\RETURN.html">
+		<param name="Local" value="commands\RETURN.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Right">
+		<param name="Local" value="functions\RIGHT.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Rnd">
+		<param name="Local" value="functions\RND.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="RTrim">
+		<param name="Local" value="functions\RTRIM.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Seek">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\SEEK.html">
+		<param name="Local" value="commands\SEEK.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ShowConsol">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\SHOWCONSOL.html">
+		<param name="Local" value="commands\SHOWCONSOL.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Str">
+		<param name="Local" value="functions\STR.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Sub">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\SUB.html">
+		<param name="Local" value="commands\SUB.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Trim">
+		<param name="Local" value="functions\TRIM.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Upper">
+		<param name="Local" value="functions\UPPER.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Val">
+		<param name="Local" value="functions\VAL.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Var">
+		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\VAR.html">
+		<param name="Local" value="commands\VAR.html">
+		</OBJECT>
+</UL>
+</BODY></HTML>

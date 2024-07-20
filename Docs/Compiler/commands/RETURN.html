@@ -1,0 +1,49 @@
+<html>
+<!-- Creation date: 4/20/2003 -->
+<head>
+<title></title>
+</head>
+<body>
+
+<h3>RETURN</h3>
+<br>
+<b><u>Description:</u></b>
+<br>
+<br>
+Returns code execution to the last <a href="GOSUB.html">GOSUB</a> line that
+was executed. If no GOSUB command was executed, an error will occur.
+<br>
+<br>
+<br>
+<b><u>Usage:</u></b>
+<br>
+<br>
+showconsol <br>
+var n as number <br>
+<br>
+for n = 1 to 3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+gosub @printMulti <br>
+next n <br>
+<br>
+end <br>
+<br>
+@printMulti <br>
+print n*1 <br>
+print n*2 <br>
+print n*3 <br>
+print <br>
+<b>Return</b> <br>
+<br>
+<br>
+<u>Produces:</u> <br>
+<b>
+1<br>2<br>3<br>
+<br>
+2<br>4<br>6<br>
+<br>
+3<br>6<br>9<br>
+</b>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<!-- Creation date: 4/20/2003 -->
+<head>
+<title></title>
+</head>
+<body>
+
+<h3>@branchLabel</h3>
+<br>
+<b><u>Description:</u></b>
+<br>
+<br>
+Branch labels divide code into sections that can be jumped to by using the
+<a href="GOTO.html">GOTO</a> or <a href="GOSUB.html">GOSUB</a> commands. The label name can be anything, but must
+always begin with a <b>@</b>.
+<br>
+<br>
+<br>
+<b><u>Usage:</u></b>
+<br>
+<br>
+showconsol <br>
+print "one" <br>
+goto @skipTwo <br>
+print "two" <br>
+<br>
+<b>@skipTwo</b> <br>
+print "three" <br>
+print "four" <br>
+<br>
+<br>
+<u>Produces:</u> <br>
+<b>one <br> three <br> four </b>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<!-- Creation date: 4/20/2003 -->
+<head>
+<title></title>
+</head>
+<body>
+
+<h3>ONERROR subName</h3>
+<br>
+<b><u>Description:</u></b>
+<br>
+<br>
+Calls the <a href="Sub.html">Sub</a> specified by <b>subName</b> when a runtime error
+occurs, instead of displaying an error message. <b>subName</b> must have either
+no parameters, or one string parameter to recieve the error message text.
+<br>
+<br>
+<br>
+<b><u>Usage:</u></b>
+<br>
+<br>
+array testArr(3) as string <br>
+<br>
+<b>OnError CatchError</b> <br>
+<br>
+testArr(5) = "New string" <br>
+end <br>
+<br>
+sub CatchError(errorMsg as string) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+message errorMsg, "CatchError"<br>
+end sub <br>
+
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Macrobyte v1.0 Help.chm
+Contents file=Table of Contents.hhc
+Default topic=index.html
+Display compile progress=No
+Index file=Index.hhk
+Language=0x409 English (United States)
+Title=Macrobyte v1.0 Help
+
+
+[FILES]
+commands\@branchLabel.html
+commands\ARRAY.html
+commands\CALL.html
+commands\CLOSE.html
+commands\CLS.html
+commands\DIM.html
+commands\END.html
+commands\FOR...NEXT.html
+commands\FUNCTION.html
+commands\GOSUB.html
+commands\GOTO.html
+commands\HIDECONSOL.html
+commands\IF...THEN.html
+commands\INPUT.html
+commands\LET.html
+commands\MESSAGE.html
+commands\ONERROR.html
+commands\OPEN.html
+commands\PAUSE.html
+commands\PRINT.html
+commands\REM.html
+commands\RETURN.html
+commands\SEEK.html
+commands\SHOWCONSOL.html
+commands\SUB.html
+commands\VAR.html
+functions\ABS.html
+functions\ASC.html
+functions\CHR.html
+functions\EOF.html
+functions\INPUT.html
+functions\INT.html
+functions\LEFT.html
+functions\LEN.html
+functions\LOC.html
+functions\LOF.html
+functions\LOWER.html
+functions\MID.html
+functions\NOT.html
+functions\RIGHT.html
+functions\RND.html
+functions\STR.html
+functions\TRIM.html
+functions\UPPER.html
+functions\VAL.html
+index.html
+commands\LineInput.html
+commands\FlushEvents.html
+commands\InputEvents.html
+
+[INFOTYPES]
+

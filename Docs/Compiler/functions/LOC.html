@@ -1,0 +1,33 @@
+<html>
+<!-- Creation date: 4/20/2003 -->
+<head>
+<title></title>
+</head>
+<body>
+
+<h3>LOC(#handle)</h3>
+<br>
+<b><u>Description:</u></b>
+<br>
+<br>
+Returns the current read/write position of an open file specified
+by <b>#handle</b>. This function is intended for files opened in <b>binary</b>
+mode.
+<br>
+<br>
+<br>
+<b><u>Usage:</u></b>
+<br>
+<br>
+showconsol <br>
+<br>
+var ff as string <br>
+<br>
+open "test.txt" for binary as #file <br>
+    input #file, ff <br>
+    print <b>LOC(#file)</b> <br>
+close #file <br>
+
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+<!-- Creation date: 4/20/2003 -->
+<head>
+<title></title>
+</head>
+<body>
+
+<h3>INPUT(#handle, length)</h3>
+<br>
+<b><u>Description:</u></b>
+<br>
+<br>
+Returns a string containing a section of bytes from the file <b>#handle</b>. The number
+of bytes to retrieve from the file is specified by <b>length</b>.
+<br>
+<br>
+<br>
+<b><u>Usage:</u></b>
+<br>
+<br>
+var n as number <br>
+var fn as string <br>
+<br>
+showconsol <br>
+<br>
+fn = fileopen("Open...","Text Files (*.txt) | *.txt") <br>
+<br>
+open fn for input as #file <br>
+<br>
+for n = 1 to lof(#file) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+print <b>Input(#file, 1)</b> <br>
+next n <br>
+<br>
+close #file <br> 
+
+</body>
+</html>

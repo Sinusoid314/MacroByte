@@ -1,0 +1,30 @@
+<html>
+<!-- Creation date: 4/20/2003 -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title></title>
+</head>
+<body>
+
+<h3>EOF(#handle)</h3>
+<br>
+<b><u>Description:</u></b>
+<br>
+<br>
+Returns -1 if the end of the file specified by <b>#handle</b> has been reached, or 0 if it hasn't.
+<br>
+<br>
+<br>
+<b><u>Usage:</u></b>
+<br>
+<br>
+showconsol <br>
+open "file.txt" for input as #file <br>
+while <b>EOF(#file)</b> = 0 <br>
+input #file, entry <br>
+print entry <br>
+wend <br>
+close #file <br>
+
+</body>
+</html>

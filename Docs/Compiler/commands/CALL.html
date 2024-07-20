@@ -1,0 +1,39 @@
+<html>
+<!-- Creation date: 4/20/2003 -->
+<head>
+<title></title>
+</head>
+<body>
+
+<h3>CALL subName arg1, arg2, ...</h3>
+<br>
+<b><u>Description:</u></b>
+<br>
+<br>
+Runs a <a href="SUB.html">Sub</a> specified by <b>subName</b> with the appropriate
+arguments. The number of arguments must match up with the number of parameters of
+the sub being called. The data types of each argument must also match up with the
+types of their corisponding parameter.
+<br>
+<br>
+<br>
+<b><u>Usage:</u></b>
+<br>
+<br>
+showconsol <br>
+var nameStr, descStr as string <br>
+input "Enter a name: ", nameStr <br>
+input "Enter a description: ", descStr <br>
+<b>Call Describe nameStr, descStr</b> <br>
+<br>
+Sub Describe(name As String, desc As String) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+print <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+print name & " is " & desc <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+print <br>
+End Sub <br>
+
+</body>
+</html>

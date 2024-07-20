@@ -1,0 +1,46 @@
+<html>
+<!-- Creation date: 4/20/2003 -->
+<head>
+<title></title>
+</head>
+<body>
+
+<h3>OPEN fileName FOR mode AS #handle</h3>
+<br>
+<b><u>Description:</u></b>
+<br>
+<br>
+Opens a file specified by <b>fileName</b>. The file is given a <b>#handle</b>
+to use when reading or writing to it. Close the file with the <a href="CLOSE.html">
+CLOSE</a> command. There are four different <b>mode</b>s the file can be opened in:
+<br>
+<br>
+<i>input</i> - Opens the file for reading. The file specified by <b>fileName</b>
+must already exist.
+<br>
+<i>output</i> - Opens the file for writting to. If the file already exists, the
+data in it is erased. Otherwise, a new file is created to be written to.
+<br>
+<i>append</i> - Opens the file for writting to, like output, but does not erase
+the file's data if it already exist.
+<br>
+<i>binary</i> - Opens a file for both reading and writting. This mode works with the
+file byte by byte, ignoring line delimiters.
+<br>
+<br>
+<br>
+<b><u>Usage:</u></b>
+<br>
+<br>
+showconsol <br>
+var fileDat as string <br>
+<br>
+input "Enter file data: ", fileDat <br>
+<br>
+<b>Open "c:\file.dat" For output As #1</b> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+print #1, fileDat <br>
+close #1 <br>
+
+</body>
+</html>

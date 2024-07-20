@@ -1,0 +1,48 @@
+<html>
+<!-- Creation date: 4/20/2003 -->
+<head>
+<title></title>
+</head>
+<body>
+
+<h3>
+INPUT prompt, variable <br>
+<h5><i>~OR~</i></h5>
+INPUT #handle, variable <br>
+</h3>
+
+<br>
+<b><u>Description:</u></b>
+<br>
+<br>
+Takes in a value from either a file or the consol. If <b>prompt</b>
+and <b>variable</b> are specified, the <b>prompt</b> expression is
+evaluated and printed onto the consol window and the consol waits for
+the user to enter something. If <b>prompt</b> is omitted, then the
+consol waits for input without printing a prompt. <br>
+<br>
+If <b>#handle</b> and <b>variable</b> are specified instead, a value is
+read into <b>variable</b> from the file specified by <b>#handle</b>.
+<br>
+<br>
+<br>
+<b><u>Usage:</u></b>
+<br>
+<br>
+showconsol <br>
+var entry as string <br>
+<br>
+<b>Input "Enter text to print to file: ", entry</b> <br>
+<br>
+open "file.txt" for output as #1 <br>
+print #1, entry <br>
+close #1 <br>
+<br>
+open "file.txt" for input as #1 <br>
+<b>Input #1, entry</b> <br>
+close #1 <br>
+<br>
+print entry <br>
+
+</body>
+</html>

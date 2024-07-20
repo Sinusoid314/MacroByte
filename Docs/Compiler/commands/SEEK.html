@@ -1,0 +1,37 @@
+<html>
+<!-- Creation date: 4/20/2003 -->
+<head>
+<title></title>
+</head>
+<body>
+
+<h3>SEEK #handle, position</h3>
+<br>
+<b><u>Description:</u></b>
+<br>
+<br>
+Sets the read/write <b>position</b> of the file specified by <b>#handle</b>. When
+data is printed to or read from the file, it will begin from this byte position.
+<br>
+<br>
+<br>
+<b><u>Usage:</u></b>
+<br>
+<br>
+var n as number <br>
+<br>
+open "testFile.txt" for binary as #1 <br>
+<br>
+print #1, "123456789" <br>
+<br>
+for n = 2 to 8 step 2 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<b>Seek #1, n</b> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+print #1, "*"; <br>
+next n <br>
+<br>
+close #1 <br>
+
+</body>
+</html>
