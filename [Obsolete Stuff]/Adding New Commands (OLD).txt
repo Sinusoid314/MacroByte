@@ -1,0 +1,21 @@
+COMPILER
+--------
+
+Commands:
+	-Add ID tag to TagDefinitions module
+	-Add command reference to CompileCmd() in CompilerCode module
+	-Add parsing/bytecode-generator subroutine to CompilerCode module [Cmd_*()]
+
+Functions:
+	-Add ID tag to TagDefinitions module
+	-Add function reference to EvalFunction() in CompilerCode module
+	-Add parsing/bytecode-generator subroutine to CompilerCode module [Func_*()]
+
+
+
+RUNTIME
+--------
+
+Commands AND Functions:
+	-Add command/function reference to RunCmd() in SubProgClass module
+	-Add execution subroutine to SubProgClass module [Cmd_*()]

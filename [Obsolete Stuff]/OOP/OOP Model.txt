@@ -1,0 +1,29 @@
+------------------------
+|  COMPILER            |
+------------------------
+
+(X) Cmd_New()
+(X) Cmd_Delete()
+(X) CompileMethodCall()
+
+(X) CalssDef_Window.InitObject()
+(X) ClassDef_Window.MethodCall()
+(X) ClassDef_Window.Meth_GetHandle()
+
+
+
+
+------------------------
+|  RUNTIME             |
+------------------------
+
+(X) IntCmd_NewObject([instantiation arguments]) varRef<ID Tag>, varIdx<number>, class<ID Tag> 
+                                                [,intrinsic instantiation arguments]
+(X) IntCmd_CallObjectMethod(objectID [,method arguments]) method<ID Tag>,
+                                                          [,intrinsic method arguments]
+(X) IntCmd_DeleteObject(objectID)
+
+
+(X) CObjWindow::CObjWindow()
+(X) CObjWindow::~CObjWindow()
+(X) CObjWindow::InvokeMethod()

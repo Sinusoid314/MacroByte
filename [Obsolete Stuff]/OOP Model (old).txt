@@ -1,0 +1,51 @@
+Object-Oriented Programming Model for Lithium Basic
+-------------------------------------------------------------------------------------
+
+
+- A Class will represented as a list of variable, object, and array definitions, as well as a list of
+  FUNCTION and SUB definitions/codeLists. [ClassDefClass]
+
+- An Object will be represented as a list of variable, object, and array data, along with the index of
+  the class the object was instantiated from. [ObjectClass]
+
+- ClassDefList - global array of ClassDefClass objects (created at program start)
+
+- ObjectList - global array of ObjectClass objects
+	- Objects in Lithium Basic will be treated on the same footing as variables and arrays; each
+	  SubProg will have a list of ObjectNames and a correponding list of ObjectIdxs (an array
+	  of indexes that reference the global ObjectList).
+
+- Allow member FUNCTIONS/SUBS to run as independent SubProgs, while their definitions/codeLists are
+  kept in ClassDefClass objects. Also allow them to recognize members of their own objects through a
+  reference to the currObjCall stack (array of indexes referencing the ObjectList).
+	- FUNCTION/SUB scope order (when referencing variables, objects, or arrays):
+		- Check local SubProg
+		- <IF currObjCall STACK IS NOT EMPTY> Check current object members
+		- Check mainCode SubProg
+
+- Objects will be created from CLASS definitions through the OBJECT command and deleted
+  using the DELETEOBJECT command.
+	- OBJECT objName AS className
+	- DELETEOBJECT objName
+
+- All objects created within a SubProg block will be removed when the code block
+  is done execution (garbage collection).
+
+- Members will be normal variable, array, object, function, and sub definitions placed
+  within a CLASS block.
+
+- Support for sublasses, inheritance, and overloading through nested (CLASS/END CLASS) blocks.
+	- CLASS className
+	  <Members/Subclasses>
+	  END CLASS
+	- The members of different classes in a nest will not be treated as
+	  having different scopes (like global/function variables), but rather
+	  the members of a parent class will be copied into its subclasses (inheritance);
+	  when a parent and subclass share an identical member (variable/function/sub name),
+	  the subclass's member definition will be maintained (overloading).
+
+- Support for private members through a HIDE command or (HIDE/END HIDE) block.
+	- The HIDE will apply to one line if it is followed by a SUB, FUNCTION, VAR, ARRAY, DIM, or OBJECT
+	  command; if there is nothing after it on the same line, then it will make all member definitions inbetween
+	  it and the next END HIDE command; HIDE blocks cannot be nested, and CLASS blocks cannot be nested
+	  in HIDE blocks.

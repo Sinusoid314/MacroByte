@@ -1,0 +1,32 @@
+void CVariant::SetData(void* srcPtr, int newSize, int newType)
+//Deallocate current memory, allocate new memory,
+//and copy data from srcPtr to new memory location
+{
+     char tmpStr = '\0';
+     double tmpNum = 0;
+     
+     if(dataType > 0) return;
+     if(newType != 0) dataType=newType;
+     
+     if(newSize == 0)
+     {
+         if(newType == DT_VOID) return;
+         if(newType == DT_NUMBER)
+         {
+             newSize = sizeof(double);
+             srcPtr = &tmpNum;
+         }
+         else if(newType == DT_STRING)
+         {
+             newSize = 1;
+             srcPtr = &tmpStr;
+         }
+     }
+     if(newSize != dataLen)
+     {
+         free(dataPtr);
+         dataPtr = malloc(newSize);
+         dataLen = newSize;
+     }
+     memcpy(dataPtr, srcPtr, newSize);
+}

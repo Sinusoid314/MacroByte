@@ -1,0 +1,657 @@
+=================
+BETA 2
+=================
+
+
+December 11, 2012
+-----------------
+-Added fileErrorStr to CFile.
+-Moved CFile class from runtime_fileIO to basic_fileIO to be shared by both Compiler and Runtime.
+-Modified CFile to store error messages in fileErrorStr, and use return codes to signal an error;
+
+
+December 10, 2012
+-----------------
+-Added OpenFile() and CloseFile() member functions to CFile.
+-Modified CFile destructor to call CloseFile().
+-Modified CFile constructor to NOOP.
+-Modified AddFile() to call CFile::OpenFile() when creating a new CFile object.
+
+
+December 2, 2012
+-----------------
+-Moved #define MBWM_RUN_THREAD_DONE from basic_tags to runtime_main.
+
+
+November 27, 2012
+-----------------
+-Modified ConsolWinProc() to handle the MBWM_RUN_THREAD_DONE message.
+-Modified RuntimeMain() to post the MBWM_RUN_THREAD_DONE message to
+ the consol window before terminating.
+-Modified RuntimeMain() to run the main subprogram in a try/catch block.
+-Modified CSubProg::Cmd_End() to throw an exception.
+-Modified RuntimeError() to throw an exception instead of calling ExitProcess().
+-Modified CSubProg::RunCodeBlock() to throw an exception if exitFlag is set.
+-Modified CSubProg::Cmd_InputFromConsol() to throw an exception if exitFlag is set.
+-Added CDataCellRef::Initialize() function.
+-Modified CSubProg::Cmd_InputLineFromFile(), ::Cmd_InputFieldFromFile(), ::Cmd_For(),
+ ::Cmd_InputFromConsol(), ::Cmd_CopyData(), and ::Cmd_AddData() functions to use
+ CDataCellRef object references instead of pointers.
+
+
+November 25, 2012
+-----------------
+-Moved the calls to RuntimeSetup() and RuntimeCleanup() from RuntimeMain() to WinMain().
+-Moved the calls to ConsolSetup() and DebugSetup() from WinMain() to RuntimeSetup().
+-Moved the calls to ConsolCleanup() and DebugCleanup() from WinMain() to RuntimeCleanup().
+
+
+November 21, 2012
+-----------------
+-Moved CloseHanlde(inputting) from RuntimeCleanup() to ConsolCleanup().
+
+
+November 6, 2012
+-----------------
+-Moved rtFilePath, rtFileName, ReadRunFile(), ExtractRunData(), DTask(), and SplitLines()
+ into the new module runtime_loader.
+-Renamed ReadRunFile() to LoadRunFile().
+
+October 16, 2012
+-----------------
+-Modified DTask() to modify the input string instead of generating a new return string.
+
+
+October 6, 2012
+------------------
+-Replaced all string-to-number conversions using atoi() with istringstream conversions.
+
+
+October 5, 2012
+------------------
+-Replaced all string-to-number conversions using atof() with istringstream conversions.
+
+
+October 3, 2012
+------------------
+-Modified CFile constructor to take a string reference as an argument instead of a string pointer.
+-Modified AddFile(), CFile::Print(), CFile::InputField(), CFile::InputLine(), and CFile::InputBytes()
+ functions to take a string reference as an argument instead of a string pointer.
+-Replaced all number-to-string conversions using sprintf() with ostringstream conversions.
+
+
+October 1, 2012
+------------------
+-Removed lineCount and lineCountStr variables from SplitLines().
+
+
+September 27, 2012
+------------------
+-Modified the blockStack member of CSubProg to be a deque<int> array.
+-Modified ArrayIdxStack to be a deque<int> array.
+-Added CDataCell(CDataCell*) constructor.
+-Added CDataCell::Initialize() function.
+-Added CDataCell(const CDataCell&) constructor.
+-Added CDataCell::operator=() function.
+
+
+September 26, 2012
+------------------
+-Removed CList class.
+-Added PushDataCell() function.
+-Added PopDataCell() function.
+-Modified CSubProg::Cmd_RemoveData() to remove the top item from DataStack instead of an arbitrary item.
+-Modified DataStack to be a deque of CDataCell pointers.
+
+
+September 25, 2012
+------------------
+-Removed operator ID tags.
+-Added command ID tags for each arithmetic operator.
+-Added CSubProg methods for each arithmetic command.
+-Removed CSubProg::EvalExp().
+
+
+September 5, 2012
+-----------------
+-Renamed the arrayItem member of CArray to elementList and modified it be a vector of CDataCell pointers.
+
+
+September 4, 2012
+-----------------
+-Modified GetFileIndex() to return a bool to indicate success or failure.
+-Modified fileList to be a vector of CFile pointers.
+-Modified the dcrArrayIdxList member of CDataCellRef to be a vector<int> array.
+
+
+September 3, 2012
+-----------------
+-Modified spList to be a vector of CSubProg pointers.
+
+
+September 2, 2012
+-----------------
+-Modified the arrayList member of CSubProg to be a vector of CArray pointers.
+-Modified the blockStack member of CSubProg to be a vector<int> array.
+
+
+August 31, 2012
+-----------------
+-Changed the byteCodeList member of CSubProgDef from a vector of CCommand objects
+ to a vector of CCommand pointers.
+-Modified the varList member of CSubProg to be a vector of CDataCell pointers.
+
+
+August 30, 2012
+-----------------
+-Changed LiteralList from a vector of CDataCell objects to a vector of CDataCell pointers.
+-Changed spDefList from a vector of CSubProgDef objects to a vector of CSubProgDef pointers.
+-Changed the arrayDefList member of CSubProgDef from a vector of CArray objects
+ to a vector of CArray pointers.
+
+
+August 24, 2012
+-----------------
+-Replaced all ExpStack occurrences with DataStack.
+
+
+August 21, 2012
+-----------------
+-Added the compiler definition _COMPONENT_RUNTIME.
+-Changed ArrayIdxStack from a CDataCell pointer array to an std::vector<int> array.
+-Modified Cmd_ArrayIdx() to take the new index value off the DataStack.
+-Modified Cmd_CopyData() to take it's source argument off the DataStack.
+
+
+August 15, 2012
+-----------------
+-Added CArray::Initialize() to replace the functionality of the CArray constructor.
+-Added CSubProg::Initialize() to replace the functionality of the CSubProg constructor.
+
+
+August 8, 2012
+-----------------
+-Modified spDefList to be a vector list.
+-Modified LiteralList to be a vector list.
+-Removed CDataCellRefDef class from basic_def.h.
+
+
+August 5, 2012
+-----------------
+-Added CDataCell::CDataCell(void) constructor.
+
+
+July 23, 2012
+-----------------
+-Modified ExtractRunData(), DTask(), SplitLines(), and AppendValToStr() functions
+ to use reference parameters instead of pointers.
+
+
+July 14, 2012
+-----------------
+-Modified CDataCell::SetData() to reallocate memory only when necessary.
+-Modified all CDataCell::Op_*() functions to place the operation result
+ into an already existing CDataCell object, as opposed to creating a
+ new CDataCell object in which to place the result.
+
+
+July 9, 2012
+-----------------
+-Replaced CDataCell::operator=(CDataCell*) with CDataCell::SetData(CDataCell*).
+
+
+May 19, 2012
+-----------------
+-Moved rtMode and workingDir from runtime_main.cpp to basic_def.cpp.
+
+
+May 16, 2012
+-----------------
+-Decoupled CDataCell class from runtime_data.cpp and placed it in basic_datacell.cpp.
+-Moved LiteralList from runtime_data.cpp to basic_def.cpp.
+
+
+May 15, 2012
+-----------------
+-Modified runtime source file dependencies, moving basic_tags.h, basic_def.h, and basic_def.cpp
+ up to the Source directory so it can used by the Compiler.
+-Changed runtime source file names from "basic_*.cpp" to "runtime_*.cpp".
+
+
+May 8, 2012
+-----------------
+-Modified versionNum to the string versionStr.
+
+
+April 17, 2012
+-----------------
+-Decoupled file handling code from main runtime code.
+
+
+April 9, 2012
+-----------------
+-Modified RuntimeMain() to set hDebugCodeView's selection before the main subprog is unloaded.
+
+
+April 8, 2012
+-----------------
+-Modified Cmd_For() and Cmd_While() to reset lineNum even if the code block doesn't execute.
+-Modified Cmd_PrintToConsol(), Cmd_PrintToFile(), Cmd_Str(), and AppendValToStr()
+ to determine if the input number is a decimal without using fabs().
+
+
+April 2, 2012
+-----------------
+-Modified ReadRunFile() to check rtMode against the compile mode.
+
+
+March 29, 2012
+-----------------
+-Refactored runtime source file dependencies.
+-Renamed _RTMODE_xxx to _COMPILE_MODE_xxx.
+
+
+March 8, 2012
+-----------------
+-Made runtime-mode marker (_RTMODE_xxx) a compiler-switch #define.
+
+
+November 19, 2011
+-----------------
+-Modified DebugWinProc() to handle the MBWM_RUN_THREAD_DONE message by signaling
+ runtime-thread completion by setting the debug window's caption.
+
+
+November 18, 2011
+-----------------
+-Added MBWM_RUN_THREAD_DONE declaration to basic_main.h.
+-Modified RuntimeMain() to post the MBWM_RUN_THREAD_DONE message to hDebugWin.
+
+
+November 3, 2011
+-----------------
+-Added CSubProg::debugCurrBreakpointLine.
+-Modified CSubProg::Cmd_DebugBreakpoint() to set debugCurrBreakpointLine to sourceLineIdx.
+-Modified RuntimeMain() to set the current line for hDebugCodeView to mainSubProg->debugCurrBreakpointLine.
+
+
+September 24, 2011
+-----------------
+-Tested specs in [CDataCellRef Spec].
+
+
+September 23, 2011
+-----------------
+-Replaced each reference to GetDatumPtr() with creation of CDataCellRef
+ object in functions CSubProg::Cmd_AddExp, ::Cmd_AddData, ::Cmd_ArrayIdx,
+ ::Cmd_PopExp, ::Cmd_PopData, ::Cmd_CopyData, ::Cmd_InputFromConsol,
+ ::Cmd_InputLineFromFile, ::Cmd_InputFieldFromFile, ::Cmd_For
+ 
+-Removed CSubProg::GetDatumPtr().
+
+
+September 22, 2011
+-----------------
+-Modified CArray::Item() to not delete the items read from from idxList.
+-Added CDataCellRef::SetCellData().
+-Added CDataCellRef destructor.
+-Added CDataCellRef constructor.
+
+
+August 16, 2011
+-----------------
+-Added definition of CDataCellRef.
+-Added definition of CDataCellRefDef.
+-Edited CArrayDef constructor to initialize dimCount and dimSize.
+-Edited CCommand constructor to initialize argNum and argList.
+
+
+August 10, 2011
+-----------------
+-Put the declarations in basic_main.h into their own respective header files.
+-Placed the basic_def header file #inlude statements before the basic_data header file includes.
+-Put CArrayDef code in basic_def header files.
+
+
+July 6, 2011
+-----------------
+-Modified DebugWinProc() to size controls relative to the debug window.
+
+
+July 1, 2011
+-----------------
+-Modified RuntimeMain() to signal program termination on the Debug window caption.
+
+
+June 26, 2011
+-----------------
+-Added CSubProg::Cmd_DebugBreakpoint().
+
+
+June 25, 2011
+-----------------
+-Modified ReadRunFile() - If in debug mode, read sourceLineNum and sourceLineText[]
+ into the debug window's code list.
+-Modified ReadRunFile() - If in debug mode, read in subProgName, varNameList[], 
+ and arrayName.
+
+
+June 24, 2011
+-----------------
+-Modified DebugWinProc() - On WM_CREATE, create hDebugStepBtn button.
+-Modified DebugWinProc() - On click event for hDebugStepBtn, set
+ debugInBreakpoint to FALSE only if it is currently TRUE.
+-Modified CSubProgDef::~CSubProgDef() - If in debug mode, delete
+ subProgName and varNameList[].
+-Modified CArrayDef::~CArrayDef() - If in debug mode, delete arrayName.
+
+
+June 21, 2011
+-----------------
+-Added CSubProgDef::varNameList[] and CArrayDef::arrayName.
+
+
+June 7, 2011
+-----------------
+-Removed InitDebugWin()
+
+-Added DebugSetup() and DebugCleanup()
+
+-Modified WinMain() in Debug_main.cpp to call
+ DebugSetup() and DebugCleanup().
+
+-Modified ConsolWinProc() to hide consol window
+ on WM_CLOSE if in debug mode
+
+-Modified RuntimeMain() to not send WM_CLOSE
+ event to consol window if in debug mode.
+
+
+June 6, 2011
+-----------------
+-Modified WinMain() to create and delete progDone event.
+
+
+June 3, 2011
+-----------------
+-Removed ConsolMain().
+-Modified WinMain() in Run_main.cpp to create the consol in its thread.
+
+
+June 2, 2011
+-----------------
+-Added ConsolMain().
+-Added ConsolSetup()
+-Added ConsolCleanup()
+-Modified WinMain() to create a consol thread and wait
+ for it to terminate along with the runtime thread
+
+
+May 25, 2011
+-----------------
+-Removed debugBlockCount[], hDebugDisplay, DebugPrintLine(), DebugDumpCmdInfo(),
+ DebugDumpData(), DebugDumpDataBlockCount(), and cmdNameList[]
+-Added hDebugCodeView list box
+
+
+May 21, 2011
+-----------------
+-Add CSubProg::RunCodeBlock() to centralize the code
+ that executes a block of bytecode
+-Modified CSubProg::RunProg() to use CSubProg::RunCodeBlock().
+-Modified CSubProg::Cmd_Gosub() to use CSubProg::RunCodeBlock().
+-Modified CSubProg::Cmd_If() to use CSubProg::RunCodeBlock().
+-Modified CSubProg::Cmd_For() to use block stack and CSubProg::RunCodeBlock().
+-Modified CSubProg::Cmd_While() to use block stack and CSubProg::RunCodeBlock().
+-Added Cmd_ExitFor() command.
+-Added Cmd_ExitWhile() command.
+-Added Cmd_ExitSubProg() command.
+
+
+May 18, 2011
+-----------------
+-Removed gosub stack
+-Added code block stack & constants
+-Added CSubProg::AddCodeBlock() function.
+-Added CSubProg::RemoveCodeBlock() function.
+-Added CSubProg::SetBlockToExit() function.
+-Modified CSubProg::RunProg() to use block stack.
+-Modified CSubProg::Cmd_Gosub() to use block stack.
+-Modified CSubProg::Cmd_Return() to use block stack.
+-Modified CSubProg::Cmd_If() to use block stack.
+
+
+May 5, 2011
+-----------------
+-Added Cmd_While() command.
+
+
+April 20, 2011
+-----------------
+-Added CSubProg::ReDimAdd() function.
+
+-Add CSubProg::ReDimRemove() function.
+
+
+April 13, 2011
+-----------------
+-Modified ControlProc() to give focus to the display
+ control when recieving the WM_ACTIVATE message.
+ 
+-Modified CSubProg::Cmd_ShowConsol() to use SetForegroundWindow()
+ to set focus to the consol window.
+
+
+April 11, 2011
+-----------------
+-Modified RuntimeError() to display error message box
+ in the foreground.
+
+-Modified CArray::ReDim() to check if each dimension size
+ is greater than zero.
+
+
+April 10, 2011
+-----------------
+-Added ConsolTitle command
+
+
+April 9, 2011
+-----------------
+-Added Redim command
+
+-Added CArray::ReDim() member
+
+-Modified CSubProg::GetDatumPtr() to take the datum ID Tag and Index, instead of
+ a line number and parameter index
+
+
+April 5, 2011
+-----------------
+-Modified CArray to hold a pointer to the array's CArrayDef object, instead of
+ copying the arrayType and dimCount members
+
+
+April 4, 2011
+-----------------
+-Modified CDatum::Op_Addition() to use C-strings instead of string objects.
+
+-Modified Cmd_PrintToFile() to use C-strings instead of string objects.
+
+-Modified Cmd_InputByteFromFile() to input data in one ReadFile() call instead
+ of calling ReadFile() for each byte
+
+
+
+
+=================
+BETA 1
+=================
+
+
+March 23, 2011
+-----------------
+-Fixed bug in RuntimeError() that cut off most of the error message.
+
+-Fixed bug in Cmd_PrintToConsol(), Cmd_InputBytesFromFile(),
+ Cmd_InputLineFromFile() and Cmd_InputFieldFromFile() that
+ used OR instead of AND to check the file type.
+
+
+March 21, 2011
+-----------------
+-Added AppendValtoStr() function to append a number to a string
+
+-Changed RuntimeError() to get the error message from errorMsg
+ string instead of its argument.
+
+
+March 19, 2011
+-----------------
+-Added calls to RuntimeError() when error occurs.
+
+
+March 14, 2011
+-----------------
+-Added OnError command.
+
+
+March 10, 2011
+-----------------
+-Added Abs() function.
+
+-Added Not() function.
+
+-Modified Cmd_Str() to use the absolute value of the number
+ when checking if it is an integer.
+
+
+March 8, 2011
+-----------------
+-Modified Cmd_PrintToFile to provide bytesWritten pointer to WriteFile() call.
+
+
+February 26, 2011
+-----------------
+-Modified Cmd_InputFieldFromFile to use WinAPI file routines
+
+-Modified Cmd_InputLineFromFile to use WinAPI file routines
+
+-Modified Cmd_InputBytesFromFile to use WinAPI file routines
+
+-Added SetFilePos command
+
+-Added GetFilePos command
+
+-Added FileLength command
+
+-Added EndOfFile command
+
+-Added CFile::Eof() member function
+
+
+February 21, 2011
+-----------------
+-Modified CFile members to use WinAPI file routines
+-Modified Cmd_PrintToFile to use WinAPI file routines
+
+
+February 18, 2011
+-----------------
+-Added InputFieldFromFile command
+-Added InputLineFromFile command
+
+
+February 11, 2011
+-----------------
+-Added InputBytesFromFile command
+
+
+February 10, 2011
+-----------------
+-Added PrintToFile command
+
+
+January 4, 2011
+-----------------
+-Added OpenFile command.
+
+-Added CloseFile command.
+
+
+December 13, 2010
+-----------------
+-Added LTrim() function
+
+-Added RTrim() function
+
+-Added Trim() function
+
+-Added Left() function
+
+-Added Mid() function
+
+-Added Right() function
+
+
+December 09, 2010
+-----------------
+-Added Upper() function.
+
+-Added Lower() function
+
+
+November 23, 2010
+-----------------
+-Added Len() function.
+
+-Added Not() function.
+
+
+November 21, 2010
+-----------------
+-Fixed a bug where setting focus to the consol display caused a crash.
+
+
+November 20, 2010
+-----------------
+-Added Asc() function
+
+
+November 17, 2010
+-----------------
+-Changed CVariant to CDatum
+
+
+November 10, 2010
+-----------------
+-Added Val() function.
+
+-Added Chr() function.
+
+
+November 4, 2010
+-----------------
+-Fixed bug in CSubProg::RunProg() function where the return variable reference wasn't
+ being removed from the CSubProg object after being placed on the DataStack.
+
+-Added DebugDumpDataBlock() function to Debugger in order to track the creation and
+ destruction of memory (malloc).
+
+
+October 29, 2010
+-----------------
+-Added code- and data-dumping to debugger.
+
+
+October 22, 2010
+-----------------
+-Added primitive debugging code in basic_debug.h, Debug_main.cpp, and basic_main.h.
+
+
+
+FIRST SUCESSFUL TEST:
+
+  [[October 28, 2009]]
+  
+  print 2 + 2

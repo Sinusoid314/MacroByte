@@ -1,0 +1,70 @@
+------------------------
+|  COMPILER            |
+------------------------
+
+-Modify:
+	(X) Change DT_NUMBER and DT_STRING to negative values
+	(X) Cmd_Let()
+	(X) Cmd_Input()
+	(X) EvalExpression()
+	(X) Compile()
+	(X) Cmd_Var()
+	(X) Cmd_Array()
+	(X) CompileVarRef()
+	(X) CompileArrayRef()
+	(X) AssembleFile()
+
+-Create:
+	(X) CompileTypeRef()
+	(X) CompileArrayArgs()
+	(X) IDC_TYPEDATAPATH = 24
+	(X) TypeDefClass
+	(X) typeDefList As New ArrayClass
+	(X) CompileTypeDef()
+	(X) AssembleTypeDef()
+
+
+
+
+------------------------
+|  RUNTIME             |
+------------------------
+
+(X) Change DT_NUMBER and DT_STRING to negative values (custom types will have 
+    positive numbers indicating the index of the type definition).
+
+-Modify:
+	-CVariant
+	    (X) Constructor
+	    (X) Destructor
+	-CSubProg
+	    (X) GetVarRef()
+	(X) ReadRunFile()
+	(X) RuntimeCleanup()
+
+-Create:
+	-CTypeDef [similar to CSubProgDef]
+             (X) int varNum;
+             (X) int* varTypeList;
+             (X) int arrayNum;
+             (X) CArrayDef* arrayDefList;
+	     (X) Destructor
+	    
+	-CType [similar to CSubProg]
+             (X) CTypeDef* typeDefPtr;
+             (X) CVariant** varList;
+             (X) CArray** arrayList;
+	     (X) Constructor
+	     (X) Destructor
+	     (X) GetVarRef(int)
+	    
+	(X) int typeDefCount = 0;
+	(X) CTypeDef** typeDefList;
+	(X) int typeCount = 0;
+	(X) CType** typeList = new CType*[1];
+	(X) int typePathCount = 0;
+	(X) int* typePathLine = new int[1];
+	
+	(X) const int IDC_TYPEDATAPATH = 24;
+	(X) IntCmd_TypeDataPath varRef<ID Tag>, varIdx<number>, ... , varRef<ID Tag>, varIdx<number>
+	

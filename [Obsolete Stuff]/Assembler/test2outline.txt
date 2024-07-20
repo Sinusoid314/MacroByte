@@ -1,0 +1,8 @@
+LET moo(2) = moo2
+LET moo2(1,4) = 12
+LET nn = 21
+LET ss = jOOp
+PRINT moo(1)
+PRINT moo(2)
+PRINT moo2(1,5)
+PRINT moo2(1,4)

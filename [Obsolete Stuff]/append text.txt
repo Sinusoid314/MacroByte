@@ -1,0 +1,22 @@
+NEW
+
+  //Add outText to display
+    dispTextLen = GetWindowTextLength( hDisplay );
+    SendMessage( hDisplay, EM_SETSEL, (WPARAM)dispTextLen, (LPARAM)dispTextLen );
+    SendMessage( hDisplay, EM_REPLACESEL, 0, (LPARAM) ((LPSTR) outText) );
+
+
+
+OLD
+
+  //Get current display text
+    dispTextLen = GetWindowTextLength(hDisplay) + outTextLen;
+    dispText = new char[dispTextLen];
+    GetWindowText(hDisplay, dispText, dispTextLen);
+    
+  //Add outText to display
+    for(int n=1; n <= outTextLen; n++)
+    {
+        dispText[dispTextLen-n] = outText[outTextLen-n];
+    }
+    SetWindowText(hDisplay, dispText);

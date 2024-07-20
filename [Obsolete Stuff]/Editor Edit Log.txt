@@ -1,0 +1,76 @@
+=================
+BETA 2
+=================
+
+
+October 9, 2011
+-----------------
+-Added while.bas to test While/Wend loop.
+
+
+May 5, 2011
+-----------------
+-Added onerror.bas to test OnError command.
+
+-Added elseif.bas to test ElseIf command.
+
+
+April 20, 2011
+-----------------
+-Added redim3.bas to test RedimAdd and RedimRemove commands.
+
+
+April 11, 2011
+-----------------
+-Changed font to Courier New
+
+-Added redim2.bas to test Redim command
+
+
+April 10, 2011
+-----------------
+-Added redim.bas to test Redim command
+
+
+
+
+=================
+BETA 1
+=================
+
+
+March 25, 2011
+-----------------
+-Updated LetterCount.bas to run correctly.
+
+
+March 22, 2011
+-----------------
+-Changed Help|Contents menu item to run the correct help file.
+
+
+March 10, 2011
+-----------------
+-Added abs.bas to test Abs() function
+-Added not.bas to test Not() function
+
+
+March 9, 2011
+-----------------
+-Modified files3.bas to test Input() function
+-Modified files3.bas to test Seek statement and Loc() function
+-Added files3.bas to test Binary file type
+-Modified files2.bas to test Line Input# statement
+-Modified files1.bas to test Append file type
+
+
+March 8, 2011
+-----------------
+-Added files2.bas to the Examples to test Input# statement
+
+
+LAST EDITED:
+
+  September 9, 2010
+
+

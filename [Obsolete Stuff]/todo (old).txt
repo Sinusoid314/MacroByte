@@ -1,0 +1,25 @@
+
+- Loops (While/Wend, For/Next)
+
+- Select/Case support
+
+- Basic functions (Val(), Rnd(), etc...)
+
+- Edit NameCheck() in Compiler
+
+- Finish Editor environment
+
+
+====================================================================
+- TEST VISUAL BASIC CODE
+
+- REWRITE MACROBYTE RUNTIME IN C++
+
+- Add OOP support (Class/Object commands)
+
+- Write code for LoadDLL and UnloadDLL commands
+
+- Change DLLCall command to either call an already loaded dll, or load the dll on-demand
+
+- Add support in DLLCall model for passing decimal-type arguments
+

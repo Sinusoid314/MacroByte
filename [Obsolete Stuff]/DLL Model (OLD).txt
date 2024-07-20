@@ -1,0 +1,51 @@
+( ) Add raw data tags
+	( ) Compiler
+	( ) Runtime
+
+(X) Add dataRawType
+	Compiler:
+		N/A
+	Runtime:
+		(X) CVariant
+		(X) CVariant constructor
+
+( ) Add varRawType and arrayRawType
+	Compiler:
+		(X) SubProgDefClass
+		(X) TypeDefClass
+		(X) AssembleSubProg()
+		(X) AssembleTypeDef()
+		( ) Cmd_Var()
+	Runtime:
+		(X) CSubProgDef
+		(X) CSubProgDef destructor
+		(X) CTypeDef
+		(X) CTypeDef destructor
+		(X) ReadRunFile()
+		(X) CType constructor
+		(X) CSubProg constructor
+
+(X) Add rawDataPtr
+	Compiler:
+		N/A
+	Runtime:
+		(X) CType
+		(X) CType constructor
+		(X) CType destructor
+		
+
+( ) Add rawDataLen
+	Compiler:
+		(X) TypeDefClass
+		(X) AssembleTypeDef()
+		( ) CompileTypeDef
+		
+	Runtime:
+		(X) CTypeDef
+		(X) ReadRunFile()
+
+( ) Add CType::DumpRawData()
+
+( ) Add CType::CollectRawData()
+
+( ) Add DLL object class

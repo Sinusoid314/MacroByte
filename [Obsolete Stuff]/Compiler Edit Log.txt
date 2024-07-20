@@ -1,0 +1,250 @@
+=================
+BETA 2
+=================
+
+
+November 28, 2012
+-----------------
+-Moved calls to CompilerSetup() and CompilerCleanup() from CompilerMain() to Main().
+-Moved the setup and cleanup code for compileDlg from Main() to CompilerSetup() and CompilerCleanup().
+-Renamed compileError to exitFlag.
+-Renamed ErrorMsg() to CompileError().
+
+
+October 1, 2012
+-----------------
+-Removed rawDataCount variable.
+
+
+September 24, 2012
+-----------------
+-Removed operator ID tags.
+-Added command ID tags for each arithmetic operator.
+-Added GetOperatorPrecedence() function.
+-Added CheckForOperator() function.
+-Added EvalOperator() function.
+-Added EvalOperand() function to replace the AddOp code from EvalExpression().
+-Modified EvalExpression() to use CheckForOperator(), EvalOperand(), and
+ EvalOperator() functions when parsing an expression.
+
+
+August 28, 2012
+-----------------
+-Modified all index values written to byteCodeList to be zero-based.
+
+
+August 25, 2012
+-----------------
+-Replaced all ExpStack references with DataStack.
+
+
+August 21, 2012
+-----------------
+-Modified CompileArrayArgs() to generate bytecode that puts the array index values on the DataStack.
+-Modified Cmd_Let() to generate bytecode that puts the source data on the DataStack.
+
+
+July 20, 2012
+-----------------
+-Created CreateSubProgs() function to replace the source-parsing code in Compile().
+
+
+May 15, 2012
+-----------------
+-Started conversion of source code from Visual Basic to C++ [see: Compiler C++ Conversion Spec]
+
+
+May 8, 2012
+-----------------
+-Modified versionNum to the string versionStr.
+
+
+June 23, 2011
+-----------------
+-Modified AssembleFile() to write sourceLineNum and
+ sourceLineText[] to rawData.
+-Modified AssembleSubProg() to write subProgName, varName,
+ and arrayName to rawData.
+-Modified CompileCmd() to write DebugBreakpoint bytecode
+ command before compiling the command.
+
+
+June 22, 2011
+-----------------
+-Modified Compile() to erase sourceText after seperating it into
+ individual statements.
+-Removed sourceLineNum.
+-Added tmpLineNum to Compile()
+-Modified Compile() to only read in sourceLineText[] if in Debug mode.
+
+
+June 21, 2011
+-----------------
+-Added sourceLineNum and sourceLineText[].
+-Modified Compile() to read in sourceLineNum and sourceLineText[].
+
+
+June 20, 2011
+-----------------
+-Modified Cmd_If() to call CompileCmd() instead of
+ Cmd_If() on "ElseIf" command.
+
+
+June 16, 2011
+-----------------
+-Removed references to commands "Var", "Array" and "Dim" from CompileCmd().
+
+
+May 21, 2011
+-----------------
+-Added forBlockNum and whileBlockNum members to SubProgClass.
+-Modified SubProgDefClass::Initialize() to initialize
+ block counts to zero.
+-Modified Cmd_For() to increase and decrease forBlockNum.
+-Modified Cmd_While() to increase and decrease whileBlockNum.
+-Added Cmd_ExitFor command.
+-Added Cmd_ExitWhile command.
+-Added Cmd_ExitSub command.
+-Added Cmd_ExitFunction command.
+
+
+May 5, 2011
+-----------------
+-Added Cmd_While() command.
+
+
+May 4, 2011
+-----------------
+
+-Modified Cmd_For() to treat variable after Next statement as case-insensitive.
+
+-Modified Cmd_If() to treat ElseIf statement as Else statement.
+
+
+April 26, 2011
+-----------------
+-Modified CompileCmd() to check for EndIf, Else, and ElseIf outside of If block.
+
+-Modified CompileCmd() to check for Next outside of For block.
+
+-Modified Cmd_If() to support ElseIf statement.
+
+
+April 18, 2011
+-----------------
+-Added RedimAdd command.
+
+-Added RedimRemove command.
+
+
+April 11, 2011
+-----------------
+-Modified Cmd_Array() to cleanup dimension size list after
+ each array is processed.
+
+-Modified Cmd_Array() to allow more than 2 dimensions.
+
+-Modified Cmd_Array() to check if each dimension size is
+ greater than zero.
+
+-Modified Cmd_For() and Cmd_If() to check the compileError
+ flag after calling CompileCmd().
+
+
+April 10, 2011
+-----------------
+-Modified CompileArrayRef and CompileSubProgDataRef to disregard the
+ parenthesis attached to the array name
+
+-Added drSPDefRef member to DataRefClass to hold a reference to the
+ SubProgDefClass that contains the variable/array
+ 
+-Added Redim command
+
+-Added ConsolTitle command
+
+
+
+
+=================
+BETA 1
+=================
+
+
+March 14, 2011
+-----------------
+-Added OnError command.
+
+
+March 5, 2011
+-----------------
+-Modified Cmd_Open() sub to remove the '#' character from file handle.
+
+
+January 27, 2011
+-----------------
+-Added LineInput command
+
+-Modified Print and Input commands for file handling
+
+
+January 14, 2011
+-----------------
+-Added Open command.
+
+-Added Input() function.
+
+
+January 3, 2011
+-----------------
+-Added Close command.
+
+-Added Seek command.
+
+
+December 28, 2010
+-----------------
+-Added Loc() function.
+
+-Added EOF() function.
+
+-Added LOF() function.
+
+
+November 24, 2010
+-----------------
+-Added Upper() function.
+
+-Added Lower() function.
+
+-Added LTrim() function.
+
+-Added RTrim() function.
+
+-Added Trim() function.
+
+-Added Left() function.
+
+-Added Mid() function.
+
+-Added Right() function.
+
+
+November 23, 2010
+-----------------
+-Added Abs() function.
+
+-Added Not() function.
+
+-Added Len() function.
+
+
+November 10, 2010
+-----------------
+-Added Val() function.
+
+-Added Chr() function.
+
+-Added Asc() function.
+
+

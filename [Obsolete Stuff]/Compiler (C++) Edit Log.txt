@@ -1,0 +1,72 @@
+=================
+BETA 2
+=================
+
+
+December 17, 2012
+-----------------
+-Added basic_fileIO module.
+
+
+December 4, 2012
+-----------------
+-Added DisplaySetup(), DisplayCleanup(), and DisplayWinProc() to compiler_display.
+-Added CompilerMain() to compiler_main.
+
+
+December 2, 2012
+-----------------
+-Added MBWM_COMPILE_THREAD_DONE to compiler_main.
+-Added compiler_display.cpp and compiler_display.h modules.
+-Renamed exitFlag to asyncExitFlag.
+-Added hDispWin, hDispCancelBtn, hDispStatus, and hDispProgress to compiler_display.
+-Added CompilerCleanup() to compiler_main.
+
+
+November 28, 2012
+-----------------
+-Added WinMain() to compiler_main.
+
+
+October 28, 2012
+-----------------
+-Moved rtExeFileName variable from compiler_main to assembler_main.
+-Added AssembleFile() function to assembler_main.
+
+
+October 22, 2012
+-----------------
+-Added rawSourceCodeList vector to basic_def.
+
+
+October 19, 2012
+-----------------
+-Added AssembleSubProg() function to assembler_main.
+
+
+October 16, 2012
+-----------------
+-Modified ETask() to modify the input string instead of generating a new return string.
+
+
+October 7, 2012
+-----------------
+-Added ETask() function to assembler_main.
+
+
+October 6, 2012
+-----------------
+-Added sourceFile, rtExeFileName, resultFile, rawSourceCodeStr, rawSourceCodeList[], currDefPtr, currDefIdx,
+ currCodeLine, errorFlag, errorMsg, debugStr, resultVal, resultStr, and CDataRef class to compiler_main.
+
+
+October 2, 2012
+-----------------
+-Added ParseFilePath() function to assembler_main.
+
+
+October 1, 2012
+-----------------
+-Added rawData to assembler_main.
+-Added WriteRawData(string) and WriteRawData(double) functions to assembler_main.
+

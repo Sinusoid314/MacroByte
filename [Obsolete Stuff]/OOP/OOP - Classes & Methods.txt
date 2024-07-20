@@ -1,0 +1,25 @@
+( ) CLASS_WinGUI
+	(X) METH_GetHWND
+	(X) METH_SetText
+	(X) METH_GetText
+	
+( ) CLASS_Window
+	(X) InitObject
+	(X) METH_OnClose
+	
+( ) CLASS_Button
+	(X) InitObject
+	(X) METH_OnClick
+	
+( ) CLASS_StaticText
+	(X) InitObject
+	
+( ) CLASS_DrawBox
+	(X) InitObject()
+	(X) METH_Refresh()
+	(X) METH_Stick()
+	( ) METH_CopyTo(
+	(X) METH_Line(startX, startY, endX, endY)
+	(X) METH_Box(left, top, width, height)
+	(X) METH_Circle(centerX, centerY, radius)
+	
