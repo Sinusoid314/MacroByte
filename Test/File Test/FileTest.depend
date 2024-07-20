@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1298708208 source:c:\users\andrews\code\macrobyte\test\file test\main.cpp
+	<cstdlib>
+	<iostream>
+	<cstring>
+	"windows.h"
+
