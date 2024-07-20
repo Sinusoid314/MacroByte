@@ -1,0 +1,36 @@
+Initial state:
+	WinMain() thread running
+	RuntimeMain() thread running
+	asyncExitFlag = FALSE
+
+State sequences:
+	WinMain() receives WM_CLOSE  =>  
+	RuntimeMain() runs Cmd_End()  =>  
+	RuntimeMain() completes its run (without early exit)  =>  
+
+
+WinMain Thread
+-------------------
+
+Early exit initialized:
+	(X) ConsolWinProc(WM_CLOSE)
+	(X) DebugWinProc(WM_CLOSE)
+
+
+Runtime Thread
+-------------------
+
+Early exit initialized:
+	(X) Cmd_End()
+	(X) RuntimeError() **This function calls ExitProccess() instead of setting asyncExitFlag
+
+Early exit checks:
+	(X) RunCodeBlock()
+	(X) Cmd_InputFromConsol()
+	(X) Cmd_InputEvents()
+	(X) Cmd_DebugBreakpoint()
+	(X) RunProg()
+	(X) Cmd_Gosub()
+	(X) Cmd_If()
+	(X) Cmd_For()
+	(X) Cmd_While()

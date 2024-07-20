@@ -1,0 +1,44 @@
+-------------------------------
+ADDING NEW COMMANDS/FUNCTIONS
+-------------------------------
+
+Commands:
+	-Add ID tag to TagDefinitions module
+	-Add command name to NameCheck() sub
+	-Add command reference to CompileCmd() in CompilerCode module
+	-Add parsing/bytecode-generator subroutine to CompilerCode module [Cmd_*()]
+
+Functions:
+	-Add ID tag to TagDefinitions module
+	-Add function name to NameCheck() sub
+	-Add function reference to EvalFunction() in CompilerCode module
+	-Add parsing/bytecode-generator subroutine to CompilerCode module [Func_*()]
+
+
+
+-------------------------------
+COMPILER SWITCHES
+-------------------------------
+
+-Run -"working directory" -"source file" -"runtime engine EXE" -"result file"
+
+	Produces regular MBR data, places it into
+	the given runtime engine, and writes a result number
+	and string to "result file".
+
+	
+-Debug -"working directory" -"source file" -"debugger EXE" -"result file"
+
+	Produces debug MBR data, places it into
+	the given debugger, and writes a result number
+	and string to "result file"
+
+	
+-Deploy -"working directory" -"source file" -"runtime engine EXE" -"result file"
+
+	Produces distributable MBR data (no debug or working-directory info) from
+	"source file", copies "runtime engine EXE" to "working directory", places
+	MBR data into EXE, and writes a result number
+	and string to "result file"
+
+

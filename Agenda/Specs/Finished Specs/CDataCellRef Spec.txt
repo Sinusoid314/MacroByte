@@ -1,0 +1,44 @@
+DATE COMPLETED: September 24, 2011
+
+
+
+------------------------
+|  COMPILER            |
+------------------------
+
+-Modify:
+	( , ) 
+
+-Create:
+	( , ) 
+
+
+
+------------------------
+|  RUNTIME             |
+------------------------
+
+-Modify:
+	(X,X) Change CDatum to CDataCell.
+	(X,X) Change every GetDatumPtr() reference to create an instance of CDataCellRef
+	      and use CDataCellRef::SetCellData() instead of CDataCell::SetData().
+	      
+-Remove:
+	(X,X) CSubProg::GetDatumPtr() function.
+
+-Create:
+	(X,X) CDataCellRefDef (basic_def_code.h, basic_def_decl.h)
+	          (X,X) int dcrID
+	          (X,X) int dcrIdx
+	          (X,X) int dcrType
+
+	(X,X) CDataCellRef (basic_data_code.h, basic_data_decl.h)
+	          (X,X) int dcrID
+	          (X,X) int dcrIdx
+	          (X,X) int dcrArrayIdxCount
+	          (X,X) int* dcrArrayIdxList
+	          (X,X) CDataCell* dataCellPtr
+	          (X,X) CDataCellRef(int dataRefID, int dataRefIdx)
+	          (X,X) ~CDataCellRef()
+	          (X,X) SetCellData(int srcType, void* srcPtr, int srcSize)
+	

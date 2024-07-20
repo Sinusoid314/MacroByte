@@ -1,0 +1,31 @@
+DATE COMPLETED: May 5, 2011
+
+
+
+------------------------
+|  COMPILER            |
+------------------------
+
+-Modify:
+	( , ) 
+
+-Create:
+	(X,X) Cmd_OnError(subProgName)
+
+
+
+------------------------
+|  RUNTIME             |
+------------------------
+
+-Modify:
+	(X,X) Replace all instances of '//ERROR' with call to RuntimeError()
+
+-Create:
+	(X,X) bool errorFlag;
+	(X,X) string errorMsg;
+	(X,X) int errorSubProgIdx;
+	
+	(X,X) RuntimeError(char*);
+	
+	(X,X) Cmd_OnError errorSubProgIdx

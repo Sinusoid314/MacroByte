@@ -1,0 +1,85 @@
+LAST MODIFIED: May 12, 2011
+
+FIRST DRAFT COMPLETED: May 21, 2011
+
+
+
+------------------------
+|  COMPILER            |
+------------------------
+
+-Modify:
+	(X,X) SubProgDefClass::Initialize()
+	          -Initialize block counts to zero
+	(X,X) Cmd_For()
+	          -Increase forBlockNum before compiling code block
+	           and decrease after
+	(X,X) Cmd_While()
+	          -Increase whileBlockNum before compiling code block
+	           and decrease after
+
+-Create:
+	(X,X) forBlockNum
+	(X,X) whileBlockNum
+	(X, ) Cmd_ExitFor
+	          -Make sure forBlockNum is greater than zero,
+	           then write IDC_ExitFor
+	(X, ) Cmd_ExitWhile
+	          -Make sure whileBlockNum is greater than zero,
+	           then write IDC_ExitWhile
+	(X, ) Cmd_ExitSub
+	          -Make sure current subprog is not the main one
+	           and is a Sub, then write IDC_ExitSubProg
+	(X, ) Cmd_ExitFunction
+                  -Make sure current subprog is not the main one
+	           and is a Function, then write IDC_ExitSubProg
+
+
+------------------------
+|  RUNTIME             |
+------------------------
+
+-Modify:
+	(X,X) CSubProg::RunProg()
+	          -Add a block entry to top of blockStack with IDBLOCK value,
+	           exit code block loop when top entry is IDBLOCK_VOID, and
+	           remove top entry when done running code block
+	(X, ) CSubProg::Cmd_Gosub()
+	(X, ) CSubProg::Cmd_Return()
+	          -Call SetBlockToExit()
+	(X,X) CSubProg::Cmd_If()
+	(X,X) CSubProg::Cmd_For()
+	(X,X) CSubProg::Cmd_While()
+
+-Create:
+	(X,X) IDBLOCK_VOID
+	          -Used to signal a code block to exit.
+	(X,X) IDBLOCK_ROOT
+	          -Identifies the execution loop in CSubProg::RunProg().
+	(X,X) IDBLOCK_GOSUB
+	(X,X) IDBLOCK_IF
+	(X,X) IDBLOCK_FOR
+	(X,X) IDBLOCK_WHILE
+	(X,X) int blockNum;
+	(X,X) int* blockStack;
+	          -Holds IDBLOCK values for each code block that is running,
+	           with the first item being the currently running block.
+	(X,X) CSubProg::AddCodeBlock(int blockID)
+	          -Add blockID to top of blockStack
+	(X,X) CSubProg::RemoveCodeBlock()
+	          -Remove top item of blockStack
+	(X,X) CSubProg::SetBlockToExit(int blockID)
+	          -Set entries of blockStack to IDBLOCK_VOID up
+	           to and including the first occurence of blockID
+	           and returns FALSE if not found
+	(X,X) CSubProg::RunCodeBlock(int startLine, int endLine, int resetLine, bool exitOnGosub)
+	          -Execute bytecode in given line range
+	(X, ) Cmd_ExitFor
+	(X, ) Cmd_ExitWhile
+	(X, ) Cmd_ExitSubProg
+
+-Remove:
+	(X,X) int gosubNum
+	(X,X) int* gosubStack
+	(X,X) bool isRunning
+	

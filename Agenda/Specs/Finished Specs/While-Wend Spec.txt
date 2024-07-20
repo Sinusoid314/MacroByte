@@ -1,0 +1,26 @@
+DATE COMPLETED:  October 9, 2011
+
+
+
+------------------------
+|  COMPILER            |
+------------------------
+
+-Modify:
+	( , ) 
+
+-Create:
+	(X,X) Cmd_While(testExpression)
+
+
+
+------------------------
+|  RUNTIME             |
+------------------------
+
+-Modify:
+	( , ) 
+
+-Create:
+	(X,X) Cmd_While testBlockLen<number>, codeBlockLen<number>
+	

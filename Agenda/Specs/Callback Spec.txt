@@ -1,0 +1,26 @@
+DATE COMPLETED: 
+
+
+
+RUNTIME
+-------------------
+
+-CCallback
+    -int cbSPDefIdx
+    -int cbParamCount
+    -int* cbParamList
+    -int cbCodeCount
+    -char* cbCodeList
+    
+-RunCallbackSubProg(CCallback* cbPtr)
+    -For each 
+    
+-Cmd_Callback()
+    -Create new CCallback object cbPtr
+    -Set cbPtr->cbSPDefIdx
+    -Set cbPtr->cbParamCount
+    -Create and fill cbPtr->cbParamList
+    -Set cbPtr->cbCodeCount
+    -Create cbPtr->cbCodeList
+    -Fill cbPtr->cbCodeList with raw opcodes to call
+     RunCallbackSubProg() with cbPtr as an argument

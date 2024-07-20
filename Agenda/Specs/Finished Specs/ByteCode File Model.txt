@@ -1,0 +1,23 @@
+version
+runtimeMode
+workingDir
+sourceLineNum *DEBUG ONLY*
+	{sourceLineText} *DEBUG ONLY*
+literalNum
+	{literalTypes}
+	{literals}
+subProgNum
+	{subProgName} *DEBUG ONLY*
+	{isFunc}
+	{paramNum}
+	{varNum}
+	        {{varName}} *DEBUG ONLY*
+		{{varType}}
+	{arrayNum}
+		{{arrayName}} *DEBUG ONLY*
+		{{arrayType}}
+		{{arrayDimNum}}
+			{{{arrayDimVal}}}
+	{commandNum}
+		{{intrinsicArgNum}}
+			{{{intrinsicArguments}}}

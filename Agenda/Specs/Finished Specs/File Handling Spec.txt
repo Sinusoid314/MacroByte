@@ -1,0 +1,98 @@
+LAST MODIFIED: December 11, 2012
+
+SECOND DRAFT COMPLETED: April 17, 2012
+FIRST DRAFT COMPLETED: March 9, 2011
+
+
+
+------------------------
+|  COMPILER            |
+------------------------
+
+-Modify:
+	(X,X) Cmd_Print()
+	(X,X) Cmd_Input()
+	( ) 
+
+-Create:
+	(X,X) File type constants
+	(X,X) Cmd_Open()
+	(X,X) Cmd_Close()
+	(X,X) Cmd_Seek()
+	(X,X) Cmd_LineInput
+	(X,X) Func_Loc()
+	(X,X) Func_Input()
+	(X,X) Func_LOF()
+	(X,X) Func_EOF()
+	( ) 
+
+
+
+------------------------
+|  RUNTIME             |
+------------------------
+
+-Modify:
+	(X,X) Move main functionality from basic_cmd to basic_fileIO:
+		(X,X) CSubProg::Cmd_OpenFile()
+			  -Call AddFile()
+		(X,X) CSubProg::Cmd_CloseFile()
+			  -Call RemoveFile()
+		(X,X) CSubProg::Cmd_PrintToFile()
+			  -Call CFile::Print()
+		(X,X) CSubProg::Cmd_InputFieldFromFile()
+			  -Call CFile::InputField()
+		(X,X) CSubProg::Cmd_InputLineFromFile()
+			  -Call CFile::InputLine()
+		(X,X) CSubProg::Cmd_InputBytesFromFile()
+			  -Call CFile::InputBytes()
+		(X,X) CSubProg::Cmd_SetFilePos()
+			  -Call CFile::SetFilePos()
+		(X,X) CSubProg::Cmd_GetFilePos()
+			  -Call CFile::GetFilePos()
+		(X,X) CSubProg::Cmd_FileLength()
+			  -Call CFile::GetFileLength()
+		
+-Create:
+	(X,X) File type constants
+	(X,X) CSubProg::Cmd_OpenFile(fileName$,fileHandle) fileType
+	(X,X) CSubProg::Cmd_CloseFile(fileHandle)
+	(X,X) CSubProg::Cmd_PrintToFile(fileHandle, output$) hasCarriageReturn<number>
+	(X,X) CSubProg::Cmd_InputFieldFromFile(fileHandle) dataRefTagDest<ID Tag>, dataRefIdxDest<number>
+	(X,X) CSubProg::Cmd_InputLineFromFile(fileHandle) dataRefTagDest<ID Tag>, dataRefIdxDest<number>
+	(X,X) CSubProg::Cmd_InputBytesFromFile(fileHandle, byteLen) :inputData$
+	(X,X) CSubProg::Cmd_SetFilePos(fileHandle, filePos)
+	(X,X) CSubProg::Cmd_GetFilePos(fileHandle) :filePos
+	(X,X) CSubProg::Cmd_FileLength(fileHandle) :fileLen
+	(X,X) CSubProg::Cmd_EndOfFile(fileHandle) :isAtEnd
+	
+	(X,X) CFile
+		(X,X) int fileID;
+		(X,X) int fileType;
+		(X,X) HANDLE fileHandle;
+		(X,X) string fileErrorStr;
+		(X,X) Constructor
+		(X,X) Destructor
+		(X,X) bool OpenFile(string& newFileName, int newID, int newType)
+		(X,X) void CloseFile(void)
+		(X,X) void SetFilePos(long newPos)
+		(X,X) long GetFilePos(void)
+		(X,X) long GetFileLength(void)
+		(X,X) bool EndOfFile(void)
+		(X,X) bool Print(string& outputStr)
+		(X,X) bool Print(char* outputBytes)
+		(X,X) bool InputField(string& inputStr)
+	        (X,X) bool InputLine(string& inputStr)
+		(X,X) bool InputBytes(string& inputStr, long byteLen)
+		(X,X) bool InputBytes(char* inputBytes, long byteLen)
+		(X,X) bool TruncateFile(long truncSize)
+
+	(X,X) int fileCount = 0;
+	(X,X) CFile** fileList;
+	
+	(X,X) void AddFile(const char* newName, int newID, int newType)
+	          -Create a new CFile object and add it to fileList[].
+	(X,X) void RemoveFile(int fileID)
+	          -Remove the CFile object, identified by fileID, from fileList[].
+	(X,X) int GetFileIndex(int fileID)
+	

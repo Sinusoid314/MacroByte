@@ -1,0 +1,25 @@
+RUNTIME
+--------
+
+Add paramIsByRef boolean array to CSubProgDef.
+
+Modify ReadRunFile() to read in paramIsByRef array.
+
+Modify CSubProgDef destructor to delete paramIsByRef array.
+
+Add Cmd_AddDataByRef command to place a DataCell's
+pointer on the DataStack instead of a copy.
+
+Make sure CSubProg constructor is copying pointers off
+the DataStack for its parameter variables instead of copies.
+
+Modify CSubProg destructor to preserve parameter
+variables that are marked TRUE in paramIsByRef array.
+
+
+
+COMPILER
+----------
+
+-
+

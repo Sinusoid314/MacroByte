@@ -1,0 +1,201 @@
+LAST MODIFIED: November 5, 2014
+
+DATE COMPLETED: 
+
+
+General TODO
+------------------------
+(X) Modify CSubProgDef to include compiler data
+( ) Remove line 'dataPos--;' from ExtractRunData() function in
+    runtime_loader module, after converting Compiler to C++.
+
+Source Modules
+------------------------
+
+-compiler_display.cpp
+	(X) [Includes]
+		-<cstdlib>
+		-<string>
+		-<vector>
+		-<deque>
+		-<windows.h>
+		-<commctrl.h>
+		-"..\basic_tags.h"
+		-"..\basic_datacell.h"
+		-"..\basic_def.h"
+		-"compiler_main.h"
+		-"compiler_display.h"
+	(X) [Data]
+		-hDispWin
+		-hDispCancelBtn
+		-hDispStatus
+		-hDispProgress
+	(X) [Functions]
+		(X) DisplaySetup()
+		(X) DisplayCleanup()
+		(X) DisplayWinProc()
+
+-assembler_main.cpp
+	(X) [Includes]
+		-<cstdlib>
+		-<ctime>
+		-<sstream>
+		-<string>
+		-<vector>
+		-<windows.h>
+		-"..\basic_tags.h"
+		-"..\basic_datacell.h"
+		-"..\basic_fileIO.h"
+		-"..\basic_def.h"
+		-"assembler_main.h"
+	(X) [Data]
+		-rawData
+		-rtExeFileName
+	( ) [Functions]
+		(X) AssembleFile()
+		(X) AssembleSubProg()
+		(X) WriteRawData()
+		(X) ETask()
+		(X) AppendToFile()
+		(X) ParseFilePath()
+		( ) 
+
+-compiler_main.cpp
+	(X) [Includes]
+		-<cstdlib>
+		-<sstream>
+		-<string>
+		-<vector>
+		-<deque>
+		-<windows.h>
+		-<commctrl.h>
+		-"..\basic_tags.h"
+		-"..\basic_datacell.h"
+		-"..\basic_stringExt.h"
+		-"..\basic_fileIO.h"
+		-"..\basic_def.h"
+		-"compiler_main.h"
+		-"compiler_display.h"
+		-"compiler_cmd.h"
+		-"assembler_main.h"
+	(X) [Data]
+		-MBWM_COMPILE_THREAD_DONE
+		-sourceFile
+		-resultFile
+		-rawSourceCodeStr
+		-currDefPtr
+		-currDefIdx
+		-currCodeLine
+		-asyncExitFlag
+		-errorFlag
+		-errorMsg
+		-debugStr
+		-resultVal
+		-resultStr
+		-hCompThread
+		-idCompThread
+		-CDataRefInfo class
+		    -drID
+		    -drIdx
+		    -drType
+		    -drSPDefPtr
+	( ) [Functions]
+		(X) CompilerMain()
+		(X) CompilerSetup()
+		(X) CompilerCleanup()
+		(X) WinMain()
+		(X) WinSetup()
+		(X) WinCleanup()
+		(X) CompileError()
+		(X) ParseCommandLine()
+		(X) Compile()
+		(X) CreateSubProgs()
+		(X) AddSubProgCmd()
+		(X) CompileSubProgDef()
+		(X) CompileSubProgCode()
+		(X) GetString()
+		(X) ParseParams()
+		(X) ParseParamsEx()
+		(X) EvalLitRef()
+		(X) EvalVarRef()
+		(X) EvalArrayRef()
+		(X) EvalArrayArgs()
+		(X) EvalSubProgDataRef()
+		(X) EvalExpression()
+		(X) EvalOperand()
+		(X) EvalOperator()
+		(X) EvalSubProgCall
+		(X) EvalUserFunc()
+		(X) CheckForOperator()
+		(X) GetOperatorPrecedence()
+		( ) NameCheck()
+		( ) 
+
+-compiler_cmd.cpp
+	(X) [Includes]
+		-<cstdlib>
+		-<string>
+		-<vector>
+		-<deque>
+		-<windows.h>
+		-"..\basic_tags.h"
+		-"..\basic_datacell.h"
+		-"..\basic_stringExt.h"
+		-"..\basic_def.h"
+		-"compiler_main.h"
+		-"compiler_cmd.h"
+	(X) [Data]
+		-
+	( ) [Functions]
+		( ) CompileCmd()
+		( ) EvalFunction()
+		(X) Cmd_Array()
+		(X) Cmd_Call()
+		(X) Cmd_Close()
+		(X) Cmd_ConsolTitle()
+		(X) Cmd_ExitFor()
+		(X) Cmd_ExitFunction()
+		(X) Cmd_ExitSub()
+		(X) Cmd_ExitWhile()
+		( ) Cmd_For()
+		( ) Cmd_Gosub()
+		( ) Cmd_Goto()
+		( ) Cmd_If()
+		( ) Cmd_Input()
+		(X) Cmd_Label()
+		(X) Cmd_Let()
+		( ) Cmd_LineInput()
+		(X) Cmd_Message()
+		( ) Cmd_OnError()
+		( ) Cmd_Open()
+		(X) Cmd_Pause()
+		( ) Cmd_Print()
+		( ) Cmd_Redim()
+		( ) Cmd_RedimAdd()
+		( ) Cmd_RedimRemove()
+		(X) Cmd_Seek()
+		(X) Cmd_Var()
+		( ) Cmd_While()
+		(X) Func_Abs()
+		(X) Func_Asc()
+		(X) Func_Chr()
+		(X) Func_EOF()
+		(X) Func_Input()
+		(X) Func_Int()
+		(X) Func_Left()
+		(X) Func_Len()
+		(X) Func_Loc()
+		(X) Func_LOF()
+		(X) Func_Lower()
+		(X) Func_LTrim()
+		(X) Func_Mid()
+		(X) Func_Not()
+		(X) Func_Right()
+		(X) Func_Rnd()
+		(X) Func_RTrim()
+		(X) Func_Str()
+		(X) Func_Trim()
+		(X) Func_Upper()
+		(X) Func_Val()
+		( ) 
+

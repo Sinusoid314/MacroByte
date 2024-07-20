@@ -1,0 +1,21 @@
+Proto 1:
+	(X)Input / Output
+	(X)Variable declaration and assignment
+	(X)User Defined functions and subs
+	(X)Looping commands
+	(X)Condition commands
+	(X)Branch Label commands
+	(X)Array commands
+
+Proto 2:
+	(X)File Accessing functions
+	( )Windowing functions
+	( )Graphics functions
+	( )Debugger
+	(X)Runtime error traping
+
+Proto 3:
+	( )Timer functions
+	( )Sprite functions
+	( )DLL functions
+	( )TCP/IP functions

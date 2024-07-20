@@ -1,0 +1,31 @@
+DATE COMPLETED: May 4, 2011
+
+
+
+------------------------
+|  COMPILER            |
+------------------------
+
+-Modify:
+	( , ) 
+
+-Create:
+	(X,X) Cmd_Redim arrayName(newDimSize1, newDimSize2, ...)
+	(X,X) Cmd_RedimAdd arrayName, newItem [,beforeIdx]
+	(X,X) Cmd_RedimRemove arrayName, itemIdx
+
+
+
+------------------------
+|  RUNTIME             |
+------------------------
+
+-Modify:
+	( , ) 
+
+-Create:
+	(X,X) Cmd_Redim(newDimSize1, newDimSize2, ...) arrayRefTag<ID Tag>, arrayRefIdx<number>
+	(X,X) Cmd_RedimAdd(newItem, beforeIdx) arrayRefTag<ID Tag>, arrayRefIdx<number>
+	(X,X) Cmd_RedimRemove(itemIdx) arrayRefTag<ID Tag>, arrayRefIdx<number>
+	(X,X) CSubProg::ReDimAdd(newItemPtr, beforeIdx)
+	(X,X) CSubProg::ReDimRemove(itemIdx)

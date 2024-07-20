@@ -1,0 +1,42 @@
+DATE COMPLETED: 
+
+
+
+------------------------
+|  COMPILER            |
+------------------------
+
+-Modify:
+	( , ) EvalExpression()
+	          -Call CompileSysVarRef()
+	( , ) Compile()
+	          -Call LoadSysVariables() and UnloadSysVariables()
+
+-Create:
+	( , ) IDD_SYSVARLST
+	( , ) Dim sysVarNameList as new ArrayClass
+	( , ) Dim sysVarTypeList as new ArrayClass
+	( , ) CompileSysVarRef()
+	( , ) LoadSysVariables()
+	( , ) UnloadSysVariables()
+
+
+
+------------------------
+|  RUNTIME             |
+------------------------
+
+-Modify:
+	( , ) GetDatumPtr()
+	          -Process IDD_SYSVARLST
+	( , ) RuntimeSetup()
+	          -Call LoadSysVariables()
+	( , ) RuntimeCleanup()
+	          -Call UnloadSysVariables()
+
+-Create:
+	( , ) IDD_SYSVARLST
+	( , ) CDatum** sysVarList;
+	( , ) LoadSysVariables()
+	( , ) UnloadSysVariables()
+	

@@ -1,0 +1,122 @@
+LAST MODIFIED: May 16, 2012
+
+SECOND DRAFT COMPLETED: May 16, 2012
+FIRST DRAFT COMPLETED: February 25, 2012
+
+
+
+SHARED HEADERS
+----------------
+(X) basic_tags.h
+
+(X) basic_datacell.cpp
+	-<cstdlib>
+	-<string>
+	-basic_tags.h
+	-basic_datacell.h
+
+(X) basic_def.cpp
+        -<cstdlib>
+	-<string>
+	-basic_datacell.h
+	-basic_def.h
+
+
+COMPILER
+----------
+(X) compiler_cmd.cpp
+	-<cstdlib>
+	-<string>
+        -basic_tags.h
+        -basic_datacell.h
+        -basic_def.h
+        -compiler_main.h
+        -compiler_cmd.h
+
+(X) assembler_main.cpp
+	-<cstdlib>
+	-<string>
+        -basic_tags.h
+        -basic_datacell.h
+        -basic_def.h
+        -assembler_main.h
+
+(X) compiler_main.cpp
+	-<cstdlib>
+	-<string>
+        -basic_tags.h
+        -basic_datacell.h
+        -basic_def.h
+        -compiler_main.h
+        -compiler_cmd.h
+        -assembler_main.h
+    
+
+RUNTIME
+----------
+(X) runtime_data.cpp
+	-<cstdlib>
+	-<string>
+	-<windows.h>
+	-basic_tags.h
+	-basic_datacell.h
+	-basic_def.h
+	-runtime_main.h
+	-runtime_data.h
+	-runtime_cmd.h
+
+(X) runtime_cmd.cpp
+	-<cstdlib>
+	-<string>
+	-<math.h>
+	-<windows.h>
+	-basic_tags.h
+	-basic_datacell.h"
+	-basic_def.h"
+	-runtime_main.h"
+	-runtime_data.h"
+	-runtime_cmd.h"
+	-runtime_cui.h"
+	-runtime_debug.h"
+	-runtime_fileIO.h"
+
+(X) runtime_cui.cpp
+	-<cstdlib>
+	-<string>
+	-<windows.h>
+	-basic_tags.h
+	-runtime_main.h
+	-runtime_cui.h
+    
+(X) runtime_fileIO.cpp
+	-<cstdlib>
+	-<string>
+	-<windows.h>
+	-basic_tags.h
+	-runtime_main.h
+	-runtime_fileIO.h
+
+(X) runtime_main.cpp
+	-<cstdlib>
+	-<string>
+	-<fstream>
+	-<math.h>
+	-<windows.h>
+	-basic_tags.h
+	-basic_datacell.h
+	-basic_def.h
+	-runtime_main.h
+	-runtime_data.h
+	-runtime_cmd.h
+	-runtime_cui.h
+	-runtime_debug.h
+	-runtime_fileIO.h
+
+(X) runtime_debug.cpp
+	-<cstdlib>
+	-<string>
+	-<windows.h>
+	-basic_tags.h
+	-runtime_main.h
+	-runtime_debug.h
+

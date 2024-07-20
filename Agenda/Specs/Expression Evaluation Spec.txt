@@ -1,0 +1,51 @@
+LAST MODIFIED: September 25, 2012
+
+FIRST DRAFT COMPLETED: September 25, 2012
+
+
+
+------------------------
+|  COMPILER            |
+------------------------
+
+-Modify:
+	(X, ) EvalExpression()
+	          -Rewrite expression evaluation to call CheckForOperator(),
+	           EvalOperand(), and EvalOperator().
+	          -Remove code in AddOp branch label.
+
+-Create:
+	(X, ) EvalOperand(ByRef operandStr As String, isBoolExp As Boolean) As DataRefClass
+	          -Call the appropriate operand-evaluation function, and return its DataRefClass object.
+	(X, ) EvalOperator(operatorID As Long, ByRef operatorStack As ArrayClass)
+	          -Write bytecode command for, and pop, each top item in
+	           operatorStack while the stack is not empty and the top
+	           item's precedence is greater than or equal to the precedence
+	           of operatorID. Once done, push operatorID onto operatorStack.
+	(X, ) CheckForOperator(ByRef expStr As String, ByRef charIdx as Long, ByRef operatorID as Long, isBoolExp As Boolean) As Boolean
+	          -Check to see if the characters in expStr, starting at charIdx, indicate an operator.
+	           If so, set operatorID to the corresponding operator command ID, increment charIdx
+	           (if applicable), and return True. If not, return False.
+	(X, ) GetOperatorPrecedence(operatorID As Long) As Long
+	          -Return the precedence number of operatorID.
+	(X, ) Command ID tags for each arithmetic operator.
+
+-Remove:
+	(X, ) Operator ID tags.
+
+
+------------------------
+|  RUNTIME             |
+------------------------
+
+-Modify:
+	( , ) 
+
+-Create:
+	(X, ) Command ID tags for each arithmetic operator.
+	(X, ) CSubProg methods for each arithmetic command.
+
+-Remove:
+	(X, ) CSubProg::EvalExp()
+	(X, ) Operator ID tags.
+

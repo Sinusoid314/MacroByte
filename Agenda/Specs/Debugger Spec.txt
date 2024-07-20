@@ -1,0 +1,97 @@
+DATE COMPLETED: 
+
+
+
+------------------------
+|  COMPILER            |
+------------------------
+
+-Modify:
+	(X,X) Compile()
+	          -If in debug mode, read in sourceLineText[] from sourceText.
+	(X,X) AssembleFile()
+	          -If in debug mode, write sourceLineNum and sourceLineText[] to rawData.
+	(X, ) AssembleSubProg()
+	          -If in debug mode, write subProgName, varName, and arrayName to rawData.
+	(X,X) CompileCmd()
+	          -If in debug mode, write DebugBreakpoint bytecode command.
+
+-Create:
+	(X,X) IDC_DebugBreakPoint
+	(X,X) sourceLineNum as Long
+	(X,X) sourceLineText as New ArrayClass
+
+
+
+------------------------
+|  RUNTIME             |
+------------------------
+
+-Modify:
+	( , ) DebugSetup()
+	          -Create hDebugVarViewPane, hDebugVarViewLabel1, hDebugVarViewScope,
+	           hDebugVarViewGlobalList, and hDebugVarViewLocalList.
+	( , ) DebugWinProc()
+	          -On WM_RESIZE, resize hDebugVarViewPane.
+	          -
+	          
+	( , ) CSubProg::CSubProg()
+	          -
+	          
+	( , ) CSubProg::~CSubProg()
+	          -
+	          
+	( , ) CDataCellRef::SetCellData()
+	          -
+	          
+	(X,X) RuntimeMain()
+	          -Set the current line for hDebugCodeView to mainSubProg->debugCurrBreakpointLine.
+	          -Signal the Debug window that program execution has finished.
+	(X,X) ConsolWinProc()
+	          -Hide consol window on WM_CLOSE if in debug mode
+	(X,X) RuntimeMain()
+	          -If in debug mode, prevent sending WM_CLOSE to consol window.
+	(X,X) WinMain() in Debug_main.cpp
+	          -Call DebugSetup() and DebugCleanup().
+	(X,X) DebugWinProc()
+	          -On WM_CREATE, create hDebugStepBtn button.
+	          -On click event for hDebugStepBtn, set debugInBreakpoint
+	           to FALSE only if it is currently TRUE.
+	          -On MBWM_RUN_THREAD_DONE, signal runtime thread completion by
+	           setting the debug window's caption.
+	(X, ) ReadRunFile()
+	          -If in debug mode, read sourceLineNum and sourceLineText[] into
+	           the debug window's code list.
+	          -If in debug mode, read in subProgName, varNameList[], and arrayName.
+	(X, ) CSubProgDef::~CSubProgDef()
+	          -If in debug mode, delete subProgName and varNameList[].
+	(X, ) CArrayDef::~CArrayDef()
+	          -If in debug mode, delete arrayName.
+	          
+
+-Create:
+	( , ) HWND hDebugVarViewPane;
+	( , ) HWND hDebugVarViewLabel1;
+	( , ) HWND hDebugVarViewScope;
+	( , ) HWND hDebugVarViewGlobalList;
+	( , ) HWND hDebugVarViewLocalList;
+	(X,X) HANDLE debugInBreakpoint;
+	(X,X) HWND hDebugWin;
+        (X,X) HWND hDebugCodeView;
+	(X,X) HWND hDebugStepBtn
+	(X,X) DebugSetup()
+	(X,X) DebugCleanup()
+	(X,X) DebugWinProc()
+	(X,X) IDC_DebugBreakpoint (in basic_tags.h)
+	(X,X) CSubProg::Cmd_DebugBreakpoint(sourceLineIdx)
+	          -Set the current line for hDebugCodeView to sourceLineIdx.
+	          -Set debugCurrBreakpointLine to sourceLineIdx.
+	          -Set debugInBreakpoint to TRUE.
+	          -Wait for either debugInBreakPoint to be FALSE, or progDone to be TRUE.
+	          -If debugInBreakpoint is still TRUE, set it to FALSE
+	(X, ) CSubProgDef::subProgName
+	(X, ) CSubProgDef::varNameList[]
+	(X, ) CArrayDef::arrayName
+	(X,X) CSubProg::debugCurrBreakpointLine
+	(X,X) UINT MBWM_RUN_THREAD_DONE; (in basic_main.h)
+	

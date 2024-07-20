@@ -1,0 +1,8 @@
+PROGRAM COMPOSER
+-----------------------------------
+}EDITOR{  =>  (Raw text)  =>  }COMPILER{  =>  (Program Definition structures)  =>  }ASSEMBLER{  =>  (ByteCode Program file)
+
+
+RUNTIME ENGINE
+----------------------------
+ (ByteCode Program file)  =>  }FILE LOADER{  =>  (Program Definition structures)  => }SUBPROG LOADER{  =>  (mainSubProg)  =>  }RUNPROG{

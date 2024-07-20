@@ -1,0 +1,29 @@
+-------------------------------
+ADDING NEW COMMANDS/FUNCTIONS
+-------------------------------
+
+Commands and Functions:
+	-Add ID tag to basic_tags.h module
+	-Add command's execution member to CSubProg class [CSubProg::Cmd_*()]
+	-Add pointer for the command's CSubProg member to cmdPtrList[]
+
+
+-----------------------------------
+GENERAL COMMENTS
+-----------------------------------
+
+- mainSubProg is the first item in spDefList().
+
+- System variables are global variables inserted into mainSubProg at compile-time.
+
+- spList() is dynamic, with the last item being the currently running SubProg.
+
+- The first few items in varList() (up to paramNum) hold the parameter values from DataStack(), and the
+  item directly afterwards (paramNum+1) holds the return value that is placed on DataStack().
+
+- Both system and user commands/functions use the DataStack for parameter and return values.
+
+- Data Reference ID Tags define the DataRefKeys that follow them.
+
+- Each item in the codeList()() object of SubProgDefClass is an array of intrinsic command arguments, with
+  the first argument item being the command's ID tag.

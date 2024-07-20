@@ -1,0 +1,324 @@
+=================
+BETA 2
+=================
+
+
+July 19, 2024
+------------------
+[runtime_loader] - Added #include <deque>.
+[runtime_data] - Added vector<CDataCell*> LiteralList.
+
+July 17, 2024
+------------------
+[runtime_data] - Added vector<CDataCell*> LiteralList.
+
+July 15, 2024
+------------------
+[compiler_cmd] - Replaced all instances of VB comparison operator '<>' with C++ '!='.
+[runtime_main] - Modified WinSetup() to return true by default.
+
+[compiler_main,
+compiler_cmd,
+assembler_main,
+runtime_data,
+runtime_fileIO,
+runtime_main,
+runtime_loader] - Corrected the #include paths for FileIO.h and/or stringExt.h.
+
+[assembler_main
+ compiler_display,
+ compiler_main,
+ runtime_cmd,
+ runtime_cui,
+ runtime_loader,
+ runtime_main,
+ basic_fileIO] - Changed identifiers of all string-argument Windows API calls to their ANSI versions.
+
+November 5, 2014
+------------------
+[compiler_cmd] - Added Cmd_Close(), Cmd_Message(), Cmd_Pause(), Cmd_Label(), and Cmd_Seek() functions.
+
+October 28, 2014
+------------------
+[compiler_cmd] - Added Func_Lower(), Func_LTrim(), Func_Not(), Func_RTrim(), Func_Str(), Func_Trim(),
+                 Func_Upper(), Func_Val(), and Func_Input() functions.
+
+October 26, 2014
+------------------
+[compiler_cmd] - Added Func_Asc(), Func_Chr(), Func_EOF(), Func_Int(), Func_Len(), Func_Loc(),
+                 Func_Rnd(), and Func_LOF() functions.
+
+October 24, 2014
+------------------
+[compiler_cmd] - Added Cmd_ExitFor(), Cmd_ExitFunction(), Cmd_ExitSub(), and Cmd_ExitWhile() functions.
+
+October 17, 2014
+------------------
+[compiler_cmd] - Added Func_Right() and Func_Mid() functions.
+
+October 15, 2014
+------------------
+[compiler_cmd] - Added Func_Abs(), Func_Left(), and Cmd_ConsolTitle() functions.
+
+September 30, 2014
+------------------
+[compiler_cmd] - Added retDataRef argument to all Func_*() functions.
+
+September 23, 2014
+------------------
+[compiler_cmd] - Added Cmd_Array() function.
+
+August 5, 2014
+-----------------
+[compiler_cmd] - Added Cmd_Var() function.
+
+May 18, 2014
+-----------------
+-Replaced references to basic_stringExt and basic_fileIO with
+ references to stringExt and FileIO from [Libraries].
+
+June 9, 2013
+-----------------
+[basic_tags] - Replaced prefix 'IDD_' with 'DATAREF_' for data reference tags.
+
+
+June 7, 2013
+-----------------
+[compiler_main] - Renamed CDataRef to CDataRefInfo.
+[runtime_data] - Renamed CDataCellRef to CDataRef.
+
+
+June 6, 2013
+-----------------
+[compiler_display] - Added global constant dispWndClassName.
+[runtiume_cui] - Added global constant consolWinClassName.
+
+
+April 25, 2013
+-----------------
+[compiler_main] - Added EvalSubProgCall() function.
+                - Modified EvalUserFunc() to call EvalSubProgCall().
+[compiler_cmd] - Modified Cmd_Call() to call EvalSubProgCall().
+
+
+April 23, 2013
+-----------------
+[compiler_cmd] - Added Cmd_Call() function.
+
+
+April 21, 2013
+-----------------
+[compiler_cmd] - Added Cmd_Let() function.
+
+
+April 16, 2013
+-----------------
+[compiler_main] - Added AddSubProgCmd() function.
+
+
+April 12, 2013
+-----------------
+[compiler_main] - Added CreateSubProgs() function.
+
+
+April 4, 2013
+-----------------
+[compiler_main] - Added EvalExpression() function.
+
+
+April 2, 2013
+-----------------
+[compiler_main] - Added EvalUserFunc() function.
+
+
+March 30, 2013
+-----------------
+[compiler_main] - Added EvalSubProgDataRef() function.
+                - Added EvalArrayArgs() function.
+
+
+March 24, 2013
+-----------------
+[compiler_main] - Added EvalArrayRef() function.
+
+
+March 23, 2013
+-----------------
+[compiler_main] - Added CheckForOperator() function.
+                - Added EvalOperand() function.
+                - Added EvalVarRef() function.
+
+
+March 22, 2013
+-----------------
+[compiler_main] - Added EvalOperator() function.
+                - Added GetOperatorPrecedence() function.
+
+
+March 20, 2013
+-----------------
+[compiler_main] - Added CompileLitRef() function.
+
+
+March 19, 2013
+-----------------
+[basic_stringExt] - Added isNumericStr() function.
+
+
+March 16, 2013
+-----------------
+[compiler_main] - Added CompileSubProgDef() function.
+
+
+March 15, 2013
+-----------------
+[basic_stringExt] - Replaced AppendValToStr() with NumToStr().
+                  - Added StrToNum() function.
+
+
+March 13, 2013
+-----------------
+[compiler_main] - Added ParseParamsEx() function.
+
+
+March 12, 2013
+-----------------
+[compiler_main] - Added CompileSubProgCode() function.
+
+
+March 11, 2013
+-----------------
+[compiler_main] - Changed the delimStr argument of GetString() and ParseParams() to
+                  a const char* instead of const string&.
+                - Removed the trimParams argument from ParseParams().
+                - Added CompileError() function.
+                - Added ParseCommandLine() function.
+[basic_fileIO] - Added DirectoryExists() and FileExists() functions.
+
+
+March 10, 2013
+-----------------
+[compiler_main] - Added ParseParams() function.
+
+
+March 9, 2013
+-----------------
+[basic_def] - Modified CSubProgDef destructor to clear subProgName and varNameList
+              without checking for _COMPONENT_DEBUGGER.
+            - Modified CArrayDef destructor to clear arrayName without checking
+              for _COMPONENT_DEBUGGER.
+[compiler_main] - Added Compile() function.
+
+
+March 7, 2013
+-----------------
+[compiler_main] - Wrote temporary code in Compile() to test the status bar and exit functionality.
+
+
+March 6, 2013
+-----------------
+-Moved time_seed() from basic_misc to runtime_main.
+-Renamed basic_misc to basic_stringExt.
+[runtime_cmd] - Modified Cmd_Upper(), Cmd_Lower(), Cmd_Trim(), Cmd_LTrim(), Cmd_RTrim(),
+                Cmd_Mid(), Cmd_Left(), and Cmd_Right() to use the corresponding functions
+                from basic_stringExt.
+
+
+March 5, 2013
+-----------------
+[compiler_main] - Modified GetString() to
+                      -Take const string& arguments.
+                      -Use MidStr() instead of string object's substr().
+[basic_misc] - Modified string helper functions (MidStr(), UCaseStr(), etc) to
+               take a const string& argument to allow nested calls without copying the
+               string argument by value.
+
+
+March 2, 2013
+-----------------
+[compiler_main] - Added GetString() function.
+
+
+February 26, 2013
+-----------------
+[basic_misc] - Added functions AppendValToStr() and time_seed()from runtime_main.
+
+
+February 25, 2013
+-----------------
+-Added basic_misc module to Run, Debug, and Compiler components, for holding miscellaneous functions.
+[basic_misc] - Added string-manipulation functions MidStr(), LeftStr(), RightStr(), TrimStr(),
+               LTrimStr(), RTrimStr(), UCaseStr(), and LCaseStr().
+             
+
+
+February 20, 2013
+-----------------
+[compiler_main] - Added functions WinSetup() and WinCleanup().
+                - Modified WinMain() to call WinSetup() and WinCleanup().
+                - Modified CompilerMain() to call CompilerSetup() and CompilerCleanup().
+
+
+February 19, 2013
+-----------------
+[runtime_main] - Added functions WinSetup() and WinCleanup().
+               - Modified WinMain() to call WinSetup() and WinCleanup().
+               - Modified RuntimeMain() to call RuntimeSetup() and RuntimeCleanup().
+
+
+February 18, 2013
+-----------------
+[runtime_cmd] - Modified CSubProg::Cmd_End() to set ayncExitFlag to TRUE instead of throwing an exception.
+              - Modified CSubProg::RunCodeBlock() to return instead of throwing an exception.
+              - Modified CSubProg::Cmd_InputFromConsol() to
+                    -Return instead of throwing an exception.
+                    -Call ResetEvent(inputting) without checking if it's TRUE first.
+              - Modified CSubProg::Cmd_DebugBreakpoint() to call ResetEvent(debugInBreakpoint)
+                without checking if it's TRUE first.
+[runtime_debug] - Modified DebugWinProc() to
+                      -Call ResetEvent(debugInBreakpoint) without checking if it's TRUE first.
+                      -Call SetEvent(asyncExitFlag) without checking if it's FALSE first.
+[runtime_cui] - Modified ConsolWinProc() to call SetEvent(asyncExitFlag) without
+                checking if it's FALSE first.
+[runtime_main] - Modified RuntimeMain() by removing the try...catch block from around the RunProg() call.
+               - Modified RuntimeError() to call ExitProcess() instead of throwing an exception.
+
+
+January 27, 2013
+-----------------
+[basic_fileIO] - Added CFile::TruncateFile() function.
+[assembler_main] - In AssebleFile(), changed rtFile from an ofstream object to a CFile object.
+[compiler_main] - In CompilerSetup(), changed inFile from an ifstream object to a CFile object.
+                - In CompilerMain(), changed outFile from an fstream object to a CFile object.
+
+
+January 24, 2013
+-----------------
+[assembler_main] - Added AppendToFile() function.
+
+
+January 23, 2013
+-----------------
+[assembler_main] - Modified AssembleFile() to have rawData modified directly by ETask().
+[basic_def, runtime_debug,
+ runtime_main, runtime_cmd,
+ runtime_cui, runtime_loader] - Replaced all _COMPILE_MODE_* defines with _COMPONENT_*.
+
+
+January 22, 2013
+-----------------
+[runtime_loader] - Modified ExtractRunData() function to use CFile instead of fstream.
+
+
+January 19, 2013
+-----------------
+[basic_fileIO] - Change the data type of variables representing file size 
+                 and read/write position from int to long.
+
+
+January 8, 2013
+-----------------
+[basic_fileIO] - Added CFile::Print(char*,int).
+               - Added CFile::InputBytes(char*,int).
+
+

@@ -1,0 +1,59 @@
+LAST MODIFIED: March 18, 2015
+
+FIRST DRAFT COMPLETED: 
+
+
+
+[basic_datacell]
+	(X, ) Remove this module from Runtime and Compiler.
+
+[basic_def]
+	(X, ) Remove #include [basic_datacell]
+	(X, ) Remove vector<CDataCell*> LiteralList
+
+[runtime_data]
+	(X, ) Remove #include [basic_datacell]
+	(X, ) Move class CDataCell from [basic_datacell] to this module
+
+[runtime_loader]
+	(X, ) Remove #include [basic_datacell]
+	(X, ) Add #include [runtime_data]
+	( , ) 
+
+[runtime_main]
+	(X, ) Remove #include [basic_datacell]
+	( , ) 
+
+[runtime_cmd]
+	(X, ) Remove #include [basic_datacell]
+	( , ) 
+
+[assembler_main]
+	(X, ) Remove #include [basic_datacell]
+	(X, ) Add class CLiteral
+		-string litStr
+		-int litType
+		-(X, ) CLiteral(void)
+			-Set litType to DT_STRING.
+		-(X, ) CLiteral(const string& initStr, int initType)
+			-Set litStr to initStr.
+			-Set litType to initType.
+	(X, ) Add vector<CLiteral> LiteralList
+	(X, ) Modify AssembleFile()
+		-Code that writes literals to file.
+
+[compiler_main]
+	(X, ) Remove #include [basic_datacell]
+	(X, ) Modify CompilerCleanup()
+		-Code that clears the LiteralList.
+	(X, ) Modify EvalLitRef()
+		-Use the new CLiteral LiteralList
+
+[compiler_cmd]
+	(X, ) Remove #include [basic_datacell]
+
+[compiler_display]
+	(X, ) Remove #include [basic_datacell]
+
+
+

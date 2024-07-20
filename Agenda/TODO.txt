@@ -1,0 +1,197 @@
+====================
+MacroByte v1.0
+====================
+
+
+( , ) TEST ALL COMPLETE SPECS
+
+( , ) Rewrite Compiler in C++ [see: Compiler C++ Conversion Spec].
+
+( , ) Add GUI support to Compiler and Runtime [see: GUI Spec].
+
+( , ) Rewrite Runtime and Compiler to use WinGUI library for
+      consol, debugger, and progress display windows.
+
+( , ) Refactor Compiler to use correlated cmdStrList and cmdPtrList arrays to call
+      commands in CompileCmd() and EvalFunction(), instead of using a Select Case block.
+
+( , ) Refactor LiteralList usage in Compiler and Runtime [see: Literal Refactor Spec].
+
+( , ) Add operators to Runtime
+	(X, ) AND (bitwise)
+	(X, ) AND (boolean)
+	(X, ) OR (bitwise)
+	(X, ) OR (boolean)
+	(X, ) XOR (bitwise)
+	( , ) XOR (boolean)
+	(X, ) MOD
+	( , ) EXP
+
+(X, ) Refactor Compiler to give the two threads their own setup and cleanup functions.
+
+(X, ) Refactor Runtime to give the two threads their own setup and cleanup functions.
+
+(X, ) Remove the try/catch exception code from Runtime and replace it with
+      an asyncExitFlag check, due to the inability to throw exceptions when
+      processing Windows messages [see: Runtime Early-Exit Spec].
+
+(X, ) Replace all uses of fstream with CFile.
+
+(X, ) Replace all uses of "MACROBYTE-RUNTIME" with fileFooterID.
+
+(X, ) Refactor CFile class to store its own error messages, then move it to its own
+      module, basic_fileIO, to shared by both Runtime and Compiler.
+      
+(X, ) Replace all conversions using sprintf(), atoi(), and atof() in Runtime with StringStream conversions.
+
+(X, ) Change the ArrayIdxStack array in Runtime from a CDataCell pointer array to an std::vector<int> array.
+
+(X, ) Refactor Cmd_Gosub() in Runtime to execute its own command loop.
+
+(X, ) Refactor code execution loop code [see: Code Block Exec Sepc].
+
+(X, ) Load MBR data from runtime engine's EXE (for DEPLOY mode).
+
+(X, ) Decouple file handling code from main runtime code [see: File Handling Spec]
+
+( , ) Create DEBUG mode version of Runtime engine [see: Debugger Spec].
+
+( , ) Enable variable initialization in Compiler.
+
+( , ) Add system variables TRUE and FALSE [see: System Variable Spec]
+
+( , ) Update Compiler help file
+
+( , ) Open a new file when Editor starts up
+
+( , ) Update Runtime help file
+
+( , ) Display file name without path in Editor's caption
+
+( , ) Add "file modified" marker to Editor
+
+( , ) Add Preferences file to Editor
+
+( , ) Add Recent Files list to Editor
+
+( , ) Change Editor to a tabbed interface
+
+( , ) The SYNTAX ERROR Tour (TM)
+
+( , ) Select/Case support
+
+( , ) Add a "Suggested Activity" window when Editor starts up
+
+( , ) Add template source files for Editor
+
+( , ) Make compile results display in main window of Editor as a frame
+
+( , ) Add incremental search in Editor
+
+( , ) DrawBox::StickBoxArea(x,y,width,height) method
+
+( , ) DrawBox::RedrawBoxArea(x,y,width,height) method
+
+(X,X) Replace the use of CSubProg::EvalExp() to evaluate of arithmetic expressions
+      with individual bytecode commands for each operator. [see: Expression Evaluation Spec].
+
+(X,X) Replace CList with functions to manipulate the DataStack in Runtime.
+
+(X,X) Change all pointer arrays in Runtime to std::vector and std::deque arrays.
+
+(X,X) Add copy-constructor and operator=() functions to CDataCell.
+
+(X,X) Adjust Compiler code to use zero-based indicies with data-list references and bytecode lines.
+
+(X,X) Merge DataStack and ExpStack into one CDataCell pointer list (remove all code
+	related to ExpStack, as well as Cmd_PopData() and Cmd_PopExp() in Runtime).
+
+(X,X) Modify Cmd_CopyData() to take it's source argument off the DataStack.
+
+(X,X) Refactor the retrieval of Variable and Array references in Runtime [see: CDataCellRef Spec]
+
+(X,X) Refactor runtime source file dependencies [see: Source Dependencies Spec]
+
+(X,X) Check rtMode against the compile mode in ReadRunFile.
+
+(X,X) Make runtime-mode marker a compiler-switch #define.
+
+(X,X) Put the declarations in basic_main.h into their own respective header files.
+
+(X,X) Place the basic_def header file #inlude statements before the basic_data header file includes.
+
+(X,X) Put CArrayDef code in basic_def header files.
+
+(X,X) Make Consol & Debug windows size relative to the current screen resolution.
+
+(X,X) Add ElseIf support
+
+(X,X) Refactor Cmd_If() and Cmd_For() in Runtime to clean up
+      properly in the event of a jump outside of the command loop.
+
+(X,X) While/Wend support
+
+(X,X) Add OnError command [see: Error Handling Specs]
+
+(X,X) Add REDIM ADD command
+
+(X,X) Add REDIM REMOVE command
+
+(X,X) Add REDIM command
+
+(X,X) Add ConsolTitle command
+
+(X,X) Multiple array declarations
+
+(X,X) Evaluate and possibly refactor CArray and CArrayDef code in Runtime
+
+(X,X) Create a setup file
+
+(X,X) File commands (OPEN, CLOSE, PRINT#, INPUT#) [see: File Handling Specs]
+
+(X,X) Add Abs() function
+
+(X,X) Add Not() function
+
+(X,X) Add Upper() function
+
+(X,X) Add Lower() function
+
+(X,X) Add LTrim() function
+
+(X,X) Add RTrim() function
+
+(X,X) Add Trim() function
+
+(X,X) Add Left() function
+
+(X,X) Add Mid() function
+
+(X,X) Add Right() function
+
+(X,X) Add Str() function
+
+(X,X) Add Asc() function
+
+(X,X) Add Chr() function
+
+(X,X) Add Len() function
+
+(X,X) Remove OOP/UDT implementation code from Compiler
+
+(X,X) Seperate compiler and editor
+
+(X,X) Message(message$,title$) command
+
+(X,X) Load MBR data from file (for RUN and DEBUG)
+
+(X,X) Remove all current obsolete "DLL Model" code from compiler & runtime
+
+(X,X) Multiple variable declarations
+
+(X,X) Make variable declaration manditory
+
+(X,X) Make compiler case-insensitive to variable, array, and subroutine names
+
+(X,X) Refactor SetData code
+

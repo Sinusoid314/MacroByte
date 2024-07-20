@@ -1,0 +1,74 @@
+LAST MODIFIED: June 19, 2014
+DATE COMPLETED: 
+
+
+
+------------------------
+|  COMPILER            |
+------------------------
+
+-Modify:
+	( , ) 
+
+-Create:
+	( , ) Cmd_Window( )
+		-Get arguments from DataStack.
+		-Create new CMainWindow object.
+		-Call AddWindow() with window object's pointer.
+		-Call window object's Create() method with DataStack arguments.
+	( , ) Cmd_SetEvent( )
+		-
+	( , ) Cmd_CloseWindow( )
+		-Get winName from DataStack
+		*-Call RemoveWindow(winName).
+	( , ) 
+
+
+
+------------------------
+|  RUNTIME             |
+------------------------
+
+-Modify:
+	( , ) 
+
+-Create:
+	( , ) vector<CWindow*> windowList
+	( , ) void AddWindow(CWindow* winPtr)
+		-Call GetWindowIndex() with winPtr->winName.
+		-If the window already exists in windowList:
+			-Set errorMsg to "Window or control already exists.".
+			-Call RuntimeError().
+		-Else:
+			-Insert winPtr into windowList at the position given by GetWindowIndex() above.
+			-Set winPtr->autoDelete to TRUE.
+			-Set winPtr event WM_NCDESTROY to call WindowEventProc().
+	( , ) void RemoveWindow(const string& winName)
+		-
+	( , ) bool GetWindowIndex(const string& winName, int& winIndex)
+		-Set firstIndex to 0.
+		-Set lastIndex to windowList.size().
+		-Set midIndex to 0.
+		-Set compStr1 to LCaseStr(winName).
+		-While firstIndex is less than or equal to lastIndex:
+			-Set midIndex to ((firstIndex + lastIndex) / 2).
+			-Set compStr2 to LCaseStr(windowList[midIndex]->winName).
+			-If compStr1 is greater than compStr2:
+				-Set firstIndex to midIndex + 1.
+			-Else If compStr1 is less than cmpStr2:
+				-Set lastIndex to midIndex - 1.
+			-Else:
+				-Set winIndex = midIndex.
+				-Return TRUE.
+		-Set winIndex to firstIndex
+		-return FALSE.
+	( , ) LRESULT WindowEventProc(CWindow* winPtr, const CWinEvent& eventObj)
+		-If eventObj.eventID is WM_NCDESTROY:
+			*-Call RemoveWindow(winPtr->winName).
+		-Else:
+			-Add winPtr->winName to DataStack.
+			-Call LoadSubprog(eventObj.userData).
+			-Call spList.back()->RunProg().
+			-Call UnloadSubprog().
+	( , ) 
+	
