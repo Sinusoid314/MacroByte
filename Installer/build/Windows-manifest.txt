@@ -1,0 +1,35 @@
+# options: -translation lf -encoding utf-8
+
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Compiler/Compiler.exe} F296AFB3-A525-41D7-8B38-7AF8DE07EB62 zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Compiler/MBRData.txt} 0433FE11-9F7B-4D56-913F-6DD102EB4E48 zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Editor.exe} 1B17634D-1462-4211-96CF-E1D04BA09775 zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/mbcRes.txt} 819B2051-8735-4BD8-915C-0A07289E69D0 zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/tmpSrc.bas} 5D1D8152-29A8-4C74-AD32-7A3CAE707CE4 zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/abs.bas} 98A167F6-9D33-45C7-99CA-48D4406ECB71 zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/examp1.bas} D49C7039-F837-4860-A562-A1022872442D zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/examp2.bas} 1580503D-A6F1-4746-B114-B33FC58D845B zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/examp3.bas} 25C8FC78-D0D6-4216-92AB-447A44D315F7 zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/examp4.bas} 4CC7FDC2-9604-4085-A981-8045AEE2FF72 zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/examp5.bas} 2612FA5E-FCB8-467A-8C37-EB03ECF40CDD zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/examp6.bas} F9E4186D-6B76-4AB0-AEB3-8674306A90B2 zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/examp7.bas} 19809CE1-1520-4B72-91BC-6208D452EAD7 zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/examp8.bas} 20DD4781-5491-4555-9EAB-6C98A9C0404C zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/example9.bas} 60419419-B7FE-4496-9199-C857ADE6C73A zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/example10.bas} 54142DD1-2FEB-46C0-A90F-4EE17F623815 zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/example11.bas} 03587A81-0AE0-443A-B225-9F73D4DD638D zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/example12.bas} A8074ABC-E3AA-4F9D-9142-2B1028781110 zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/example13.bas} 19B288AA-9341-440F-940F-F9EFC470D9D8 zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/Examples.txt} 976168AC-59BE-4EC3-B6F1-ADFD56C6C8AC zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/files1.bas} 834B8E44-9F8E-4D78-A4CA-EEE48C3271EB zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/files2.bas} 16C9B5BF-30E3-44ED-BF21-AEDA195C9EB0 zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/files3.bas} D4A5B664-BD32-4DC9-9A5D-B0361C9370F7 zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/FizzBuzz.bas} FB82D72F-4593-4EEA-8A4C-9FD52D2D36CC zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/HiLo.bas} CA3C544B-B760-4565-8938-B21AB8B49E8D zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/LetterCount.bas} BEAD3289-CC82-4E33-A051-5EFC7A15D444 zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/MBRData.txt} B4F2C1A7-A74D-4863-AD2F-FF6A7FCF09FD zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/not.bas} F1122874-9297-4208-A99D-3BBC11BD522D zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/Runtime.bas} C586B804-43B5-454A-8516-F024BEE83176 zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Examples/testFile.txt} DBBA9A95-4CF0-4284-8F4D-4E1B7C5385B5 zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Editor/Help/Macrobyte v1.0 Help.chm} E5D11484-9446-457B-8BE2-F433D57FB38B zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Runtime/mbcDat.mbr} C0884550-A1B2-4098-96D9-ED61CF37AA76 zlib
+{C:/Documents and Settings/MrBudGood/My Documents/[Programs]/MacroByte/Distribution/Runtime/Run.exe} 09FF266D-3C3A-48BB-B92F-61840E7952B3 zlib
