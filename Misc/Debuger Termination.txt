@@ -1,0 +1,10 @@
+Using SendMessage() API in RuntimeMain() to signal the Debugger window
+that the runtime thread has ended.
+
+
+Termination Condition			Result
+---------------------------------------------------------
+Consol closed.       			Program freezes.
+Debugger closed.     			Program freezes.
+Runtime thread ends completely.		Debugger window is signaled.
+Runtime thread ends prematurely.	Debugger window is signaled.

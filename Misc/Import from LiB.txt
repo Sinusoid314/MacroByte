@@ -1,0 +1,169 @@
+COMMANDS:
+	PRINT [#handle,] expression
+	INPUT [[prompt,] variable] [#handle, variable]
+	LET variable = expression
+	VAR variable AS type
+	CLS
+	IF expression THEN statements
+	ELSEIF expression THEN statements
+	ELSE
+	END IF
+	WHILE expression
+	WEND
+	FOR variable = expression TO expression STEP expression
+	NEXT variable
+	END
+	@branchLabel
+	GOTO @branchLabel
+	GOSUB @branchLabel
+	RETURN
+	CONSOLTITLE expression
+	ARRAY arrayName(indexValue) AS type
+	REDIM arrayName(indexValue)
+	BINDVAR variable TO variable
+	UNBINDVAR variable FROM variable
+	SUB name param1 AS type, param2 AS type, ...
+	END SUB
+	CALL subName arg1, arg2, ...
+	FUNCTION name(param1 AS type, param2 AS type, ...) AS type
+	END FUNCTION
+	DIM arrayName(indexValue) AS type
+	OPEN filePath FOR mode AS #handle
+	CLOSE #handle
+	ONERROR command
+	REM comment
+	SWAP var1, var2
+	ON value GOTO/GOSUB label1, label2, ...
+	DATA val1, val2, ...
+	READ variable1, variable2, ...
+	RESTORE [position]
+	SELECT CASE expression
+	CASE expression
+	CASE ELSE
+	END SELECT
+	TEXTCOLOR color
+	BGCOLOR color
+	PAUSE
+	TIMER name, interval, subName
+	STOPTIMER name
+	WINDOW name, caption, type, left, top, width, height
+	CLOSEWINDOW name
+	EVENT window, event, eventSub
+	MESSAGE message, title
+	ERROR message, title
+	QUESTION message, title, answerVar
+	RUN file [,mode]
+	CONTROL name, parent, caption, type, left, top, width, height
+	HIDECONSOL
+	SHOWCONSOL
+	SETTEXT winName, text
+	SETXY winName, left, top
+	SETSIZE winName, width, height
+	GETXY winName, leftVar, topVar
+	GETSIZE winName, widthVar, heightVar
+	ENABLE winName
+	DISABLE winName
+	SHOW winName
+	HIDE winName
+	MENU winName, menuText [, item1Text, item1Sub, ...]
+	ADDITEM ctlName, itemText [, itemIdx]
+	DELITEM ctlName, itemIDX
+	SETSELIDX ctlName, itemIdx
+	SETITEM ctlName, itemIdx, itemText
+	BACKCOLOR winName, color
+	FORECOLOR winName, color
+	LINESIZE winName, size
+	LOADIMG imgName, imgFile
+	UNLOADIMG imgName
+	GETIMG winName, imgName, left, top, width, height
+	DRAWIMG winName, imgName, left, top
+	BOX winName, left, top, width, height
+	CIRCLE winName, centerX, centerY, radius
+	LINE winName, x1, y1, x2, y2
+	SETPIXEL winName, x, y, color
+	DRAWTEXT winName, text, left, top
+	STICK winName
+	REFRESH winName
+	RUNCMD command
+	NAME oldName AS newName
+	GETFILES path, listArray(
+	GETDIRS path, listArray(
+	SETSTATE ctlName, state
+	BUTTONIMG ctlName, imgName
+	MKDIR path
+	RMDIR path
+	GETMOUSEXY xVar, yVar
+	SetSoundPos
+	Exit Sub
+	Exit Function
+	SETTOOLTIP
+	QuickDLLCall
+
+FUNCTIONS:
+	ABS(number)
+	ASC(string)
+	NOT(number)
+	INT(number)
+	LEN(string)
+	RND()
+	VAL(string)
+	CHR(number)
+	STR(number)
+	UPPER(string)
+	LOWER(string)
+	TRIM(string)
+	LEFT(string, number)
+	MID(string, number [,number])
+	RIGHT(string, number)
+	INSTR(string, string [,number])
+	GETTEXT(string)
+	HWND(string)
+	HDC(string)
+	GETSELIDX(string)
+	GETITEM(string, number)
+	ITEMCOUNT(string)
+	INPUTBOX(string, string [,string])
+	DATE()
+	TIME()
+	GETSTATE(string)
+	LOC(#handle)
+	LOF(#handle)
+	EOF(#handle)
+	MIN(number, number)
+	MAX(number, number)
+	HBMP(string)
+	SQR(number)
+	SPACE(number)
+	FILEOPEN(string,string)
+	FIELSAVE(string,string)
+	RGB(number,number,number)
+	GetSoundPos()
+	GetSoundLen()
+	Replace()
+	String()
+	Word()
+
+SYSTEM VARIABLES:
+	ErrorMsg (string)
+	White (number)
+	Black (number)
+	Brown (number)
+	Green (number)
+	Blue (number)
+	Purple (number)
+	Red (number)
+	Orange (number)
+	Yellow (number)
+	ButtonFace (number)
+	CommandLine (string)
+	DefPath (string)
+	True (number)
+	False (number)
+	ScreenWidth (number)
+	ScreenHeight (number)
+	EnterKey
+	RightKey
+	LeftKey
+	DownKey
+	UpKey
+	SpaceKey

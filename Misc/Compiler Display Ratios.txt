@@ -1,0 +1,18 @@
+parentWidth = 400
+parentHeight = 140
+
+labelLeft/parentWidth = 5/400 = 0.01
+labelTop/parentHeight = 15/140 = 0.11
+labelWidth/parentWidth = 385/400 = 0.96
+labelHeight/parentHeight = 30/140 = 0.21
+
+progressLeft/parentWidth = 10/400 = 0.03
+progressTop/parentHeight = 65/140 = 0.46
+progressWidth/parentWidth = 370/400 = 0.93
+progressHeight/parentHeight = 25/140 = 0.18
+
+buttonLeft/parentWidth = 160/400 = 0.4
+buttonTop/parentHeight = 100/140 = 0.71
+buttonWidth/parentWidth = 80/400 = 0.2
+buttonHeight/parentHeight = 30/140 = 0.21
+
