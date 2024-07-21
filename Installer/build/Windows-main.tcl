@@ -74,7 +74,7 @@ namespace eval ::InstallAPI {}
 namespace eval ::InstallJammer {}
 set conf(version)     1.2.15
 set info(Platform)    Windows
-set info(InstallerID) 4A8D924D-9ACC-479B-84C1-190EA79D8D98
+set info(InstallerID) 93039D52-31C9-4799-BCC7-A6DB2A380D7F
 array set ::InstallJammer::languagecodes {ca CatalÃ cs Czech de German en English es Spanish fr French hu Magyar it Italian lt Lithuanian nl Nederlands pl Polish pt_br {Brazilian Portuguese} ru Russian}
 array set info {
 AllowLanguageSelection
@@ -129,7 +129,7 @@ Image
 {Modern/SetupModern01.gif}
 
 IncludeDebugging
-{Yes}
+{0}
 
 InstallDir
 {<%PROGRAM_FILES%>/<%AppName%>}
@@ -220,20 +220,11 @@ WizardWidth
 
 }
 array set ::InstallJammer::CommandLineOptions {
-debug
-{Debugging Switch Yes No {} {run installer in debug mode}}
-
-debugconsole
-{ShowConsole Switch Yes No {} {run installer with a debug console open}}
-
 mode
 {InstallMode Choice No No {Console Default Silent Standard} {set the mode to run the installer in}}
 
 prefix
 {InstallDir String No No {} {set the installation directory}}
-
-test
-{Testing Switch Yes No {} {run installer without installing any files}}
 
 }
 array set ::InstallJammer::Properties {
@@ -713,9 +704,6 @@ array set ::InstallJammer::Properties {
 
 1F711021-B1B3-45CD-9F3D-9A4FB5C36D68,CheckCondition
 {3}
-
-1F711021-B1B3-45CD-9F3D-9A4FB5C36D68,Comment
-{Do not display this pane if this is an upgrade install unless there is more than one installation present}
 
 1F711021-B1B3-45CD-9F3D-9A4FB5C36D68,Component
 {}
@@ -1830,9 +1818,6 @@ array set ::InstallJammer::Properties {
 85CD6691-C60A-43E8-8870-2A105FE06BA9,Active
 {Yes}
 
-85CD6691-C60A-43E8-8870-2A105FE06BA9,Comment
-{Ask the user if they want to proceed with the install.}
-
 85CD6691-C60A-43E8-8870-2A105FE06BA9,Component
 {}
 
@@ -2503,7 +2488,7 @@ B5C7506B-8444-4685-8CCA-2E041A8BB55B,DisplayName
 {}
 
 B5C7506B-8444-4685-8CCA-2E041A8BB55B,FileSize
-{907169}
+{7495896}
 
 B5C7506B-8444-4685-8CCA-2E041A8BB55B,FileUpdateMethod
 {0}
@@ -3932,45 +3917,51 @@ proc CreateWindow.CustomBlankPane1 {wizard id} {
 
 
 array set ::InstallJammer::files {files.tcl {proc ::InstallJammer::InitFiles {} {
-File ::C8B987E4-36B6-4A99-9EC9-335184CD5B82 -name Distribution -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%> -type dir -attributes 0000 -filemethod 0
-File ::1AC4EED2-6994-46D3-B384-B6A216D9DDE4 -name Compiler -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Compiler -type dir -attributes 0000 -filemethod 0
-File ::F296AFB3-A525-41D7-8B38-7AF8DE07EB62 -name Compiler.exe -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Compiler -size 217600 -mtime 1300862204 -attributes 1000 -filemethod 0
-File ::0433FE11-9F7B-4D56-913F-6DD102EB4E48 -name MBRData.txt -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Compiler -size 545 -mtime 1301167787 -attributes 1000 -filemethod 0
-File ::1A083D0F-343E-4BC0-B847-8AE6C63F194D -name Editor -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor -type dir -attributes 0000 -filemethod 0
-File ::1B17634D-1462-4211-96CF-E1D04BA09775 -name Editor.exe -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor -size 83968 -mtime 1300862247 -attributes 1000 -filemethod 0
-File ::819B2051-8735-4BD8-915C-0A07289E69D0 -name mbcRes.txt -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor -size 23 -mtime 1301167787 -attributes 1000 -filemethod 0
-File ::5D1D8152-29A8-4C74-AD32-7A3CAE707CE4 -name tmpSrc.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor -size 173 -mtime 1301167787 -attributes 1000 -filemethod 0
-File ::BF466CB9-A6B9-4FA9-80B5-5A63A00D2A0B -name Examples -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -type dir -attributes 0000 -filemethod 0
-File ::98A167F6-9D33-45C7-99CA-48D4406ECB71 -name abs.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 230 -mtime 1299751056 -attributes 1000 -filemethod 0
-File ::D49C7039-F837-4860-A562-A1022872442D -name examp1.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 96 -mtime 1282010965 -attributes 1000 -filemethod 0
-File ::1580503D-A6F1-4746-B114-B33FC58D845B -name examp2.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 197 -mtime 1283755307 -attributes 1000 -filemethod 0
-File ::25C8FC78-D0D6-4216-92AB-447A44D315F7 -name examp3.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 279 -mtime 1284513543 -attributes 1000 -filemethod 0
-File ::4CC7FDC2-9604-4085-A981-8045AEE2FF72 -name examp4.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 337 -mtime 1284513754 -attributes 1000 -filemethod 0
-File ::2612FA5E-FCB8-467A-8C37-EB03ECF40CDD -name examp5.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 275 -mtime 1286587845 -attributes 1000 -filemethod 0
-File ::F9E4186D-6B76-4AB0-AEB3-8674306A90B2 -name examp6.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 408 -mtime 1285116661 -attributes 1000 -filemethod 0
-File ::19809CE1-1520-4B72-91BC-6208D452EAD7 -name examp7.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 141 -mtime 1299750966 -attributes 1000 -filemethod 0
-File ::20DD4781-5491-4555-9EAB-6C98A9C0404C -name examp8.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 294 -mtime 1285117006 -attributes 1000 -filemethod 0
-File ::60419419-B7FE-4496-9199-C857ADE6C73A -name example9.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 171 -mtime 1290325500 -attributes 1000 -filemethod 0
-File ::54142DD1-2FEB-46C0-A90F-4EE17F623815 -name example10.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 204 -mtime 1292370920 -attributes 1000 -filemethod 0
-File ::03587A81-0AE0-443A-B225-9F73D4DD638D -name example11.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 302 -mtime 1292371126 -attributes 1000 -filemethod 0
-File ::A8074ABC-E3AA-4F9D-9142-2B1028781110 -name example12.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 424 -mtime 1292372619 -attributes 1000 -filemethod 0
-File ::19B288AA-9341-440F-940F-F9EFC470D9D8 -name example13.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 168 -mtime 1298885507 -attributes 1000 -filemethod 0
-File ::976168AC-59BE-4EC3-B6F1-ADFD56C6C8AC -name Examples.txt -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 63 -mtime 1264757748 -attributes 1000 -filemethod 0
-File ::834B8E44-9F8E-4D78-A4CA-EEE48C3271EB -name files1.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 513 -mtime 1299652931 -attributes 1000 -filemethod 0
-File ::16C9B5BF-30E3-44ED-BF21-AEDA195C9EB0 -name files2.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 813 -mtime 1299652169 -attributes 1000 -filemethod 0
-File ::D4A5B664-BD32-4DC9-9A5D-B0361C9370F7 -name files3.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 1250 -mtime 1299659614 -attributes 1000 -filemethod 0
-File ::FB82D72F-4593-4EEA-8A4C-9FD52D2D36CC -name FizzBuzz.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 602 -mtime 1285117105 -attributes 1000 -filemethod 0
-File ::CA3C544B-B760-4565-8938-B21AB8B49E8D -name HiLo.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 898 -mtime 1284248796 -attributes 1000 -filemethod 0
-File ::BEAD3289-CC82-4E33-A051-5EFC7A15D444 -name LetterCount.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 1012 -mtime 1301044441 -attributes 1000 -filemethod 0
-File ::B4F2C1A7-A74D-4863-AD2F-FF6A7FCF09FD -name MBRData.txt -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 1366 -mtime 1260836559 -attributes 1000 -filemethod 0
-File ::F1122874-9297-4208-A99D-3BBC11BD522D -name not.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 304 -mtime 1299751985 -attributes 1000 -filemethod 0
-File ::C586B804-43B5-454A-8516-F024BEE83176 -name Runtime.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 768 -mtime 1260341802 -attributes 1000 -filemethod 0
-File ::DBBA9A95-4CF0-4284-8F4D-4E1B7C5385B5 -name testFile.txt -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Examples -size 41 -mtime 1299660794 -attributes 1000 -filemethod 0
-File ::12085527-1EA1-425A-8D0D-444136AD634A -name Help -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Help -type dir -attributes 0000 -filemethod 0
-File ::E5D11484-9446-457B-8BE2-F433D57FB38B -name {Macrobyte v1.0 Help.chm} -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/Help -size 19723 -mtime 1300787753 -attributes 1000 -filemethod 0
-File ::AA018639-6633-4F0E-BC7A-34AE367FC6CC -name Runtime -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Runtime -type dir -attributes 0000 -filemethod 0
-File ::C0884550-A1B2-4098-96D9-ED61CF37AA76 -name mbcDat.mbr -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Runtime -size 574 -mtime 1301167787 -attributes 1000 -filemethod 0
-File ::09FF266D-3C3A-48BB-B92F-61840E7952B3 -name Run.exe -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Runtime -size 573407 -mtime 1301985473 -attributes 1000 -filemethod 0
+File ::664C525B-07BC-455E-80EA-127E8FD6CA99 -name Runtime -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Runtime -type dir -attributes 0000 -filemethod 0
+File ::5EA9E729-B2A4-40FB-A55F-A42F7C3D2470 -name Debug.exe -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Runtime -size 1648209 -mtime 1721536712 -attributes 1000 -filemethod 0
+File ::59935568-842C-42FB-AA58-C61EA5D44CF5 -name mbcDat.mbr -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Runtime -size 743 -mtime 1721536402 -attributes 1000 -filemethod 0
+File ::A382E99F-7ABC-4881-9607-9AF64E2A01FB -name Run.exe -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Runtime -size 5364278 -mtime 1721536665 -attributes 1000 -filemethod 0
+File ::B5F3C1FF-9D8A-4ED3-9567-79D8A2FD7C75 -name Editor -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor -type dir -attributes 0000 -filemethod 0
+File ::DA3D033A-F3A4-41E4-BA9F-B3E927A23E46 -name Editor.exe -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor -size 83968 -mtime 1302507839 -attributes 1000 -filemethod 0
+File ::A12FA787-EFA7-4746-8A8A-E91DF4BAB82B -name mbcRes.txt -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor -size 23 -mtime 1721536402 -attributes 1000 -filemethod 0
+File ::D6DD55E1-0524-4ABD-9D64-2A08B94E015D -name tmpSrc.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor -size 388 -mtime 1721536402 -attributes 1000 -filemethod 0
+File ::A84B2411-9775-4464-B823-20F57C377739 -name examples -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -type dir -attributes 0000 -filemethod 0
+File ::C4A8E341-8F93-47D0-85E3-77A2BF4E1920 -name abs.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 230 -mtime 1299751056 -attributes 1000 -filemethod 0
+File ::6ADD9EE6-2891-47D5-A3EF-1A27006126E3 -name elseif.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 77 -mtime 1304574610 -attributes 1000 -filemethod 0
+File ::7810C716-6E85-4EDE-8C6F-8DEBFFD5FE5D -name examp1.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 147 -mtime 1316770757 -attributes 1000 -filemethod 0
+File ::FB036893-65B2-4000-8959-85272F114821 -name examp2.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 197 -mtime 1283755307 -attributes 1000 -filemethod 0
+File ::57CC5AA8-3C51-4A65-A6C4-C6664821543C -name examp3.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 276 -mtime 1721433369 -attributes 1000 -filemethod 0
+File ::71975995-3989-4A83-8D39-F14BA78B5D48 -name examp4.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 388 -mtime 1316770941 -attributes 1000 -filemethod 0
+File ::3CDE437B-5FE2-413D-ABD8-F3DF5805BC48 -name examp5.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 286 -mtime 1721433784 -attributes 1000 -filemethod 0
+File ::79817CC6-40BA-401E-8C03-8886D723A473 -name examp6.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 408 -mtime 1285116661 -attributes 1000 -filemethod 0
+File ::3ECB768D-FB04-48D2-909E-C73A69BCF481 -name examp7.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 141 -mtime 1299750966 -attributes 1000 -filemethod 0
+File ::6377F8CB-0B46-4393-AA7E-AD6EAA0562F0 -name examp8.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 294 -mtime 1285117006 -attributes 1000 -filemethod 0
+File ::8F5ADC9E-4AD2-4A9F-B54E-525D58216EB6 -name example9.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 171 -mtime 1290325500 -attributes 1000 -filemethod 0
+File ::34CB6596-261E-456C-A981-EC2CDCD67E53 -name example10.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 204 -mtime 1292370920 -attributes 1000 -filemethod 0
+File ::5E9A6299-FFB8-4796-A886-042C9399706D -name example11.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 302 -mtime 1292371126 -attributes 1000 -filemethod 0
+File ::32A2466E-7FBA-4111-A6EC-040E7EAF12D3 -name example12.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 424 -mtime 1292372619 -attributes 1000 -filemethod 0
+File ::3A97EA13-4238-483F-B5E7-2AE33D17BD10 -name example13.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 168 -mtime 1298885507 -attributes 1000 -filemethod 0
+File ::0EB110F8-9911-4507-BFC8-A80CFBBB978A -name Examples.txt -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 63 -mtime 1264757748 -attributes 1000 -filemethod 0
+File ::2BB30E64-B9E0-4F59-A3D6-461E3EFDE713 -name files1.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 513 -mtime 1299652931 -attributes 1000 -filemethod 0
+File ::B65C47A5-6A6B-4227-8B05-19CEF42291FC -name files2.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 813 -mtime 1316862259 -attributes 1000 -filemethod 0
+File ::798B448E-B12D-4199-B492-00ABE0777119 -name files3.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 1250 -mtime 1299659614 -attributes 1000 -filemethod 0
+File ::3E2BDEE4-E65F-4E2F-BC4D-CA82CF81DE76 -name FizzBuzz.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 602 -mtime 1285117105 -attributes 1000 -filemethod 0
+File ::DDA98448-1431-4C09-B80F-1FE692CF9E7B -name gmon.out -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 157836 -mtime 1317380510 -attributes 1000 -filemethod 0
+File ::774131F1-5824-4995-B784-6A2E21224378 -name HiLo.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 966 -mtime 1316771264 -attributes 1000 -filemethod 0
+File ::9B1B91DD-6376-47CB-9FC3-57E804FCF6A5 -name LetterCount.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 1292 -mtime 1333585531 -attributes 1000 -filemethod 0
+File ::48932FD4-017B-4925-97B6-D99EF4B5C29A -name MBRData.txt -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 1366 -mtime 1260836559 -attributes 1000 -filemethod 0
+File ::3A894C84-48A8-4743-9EC4-7623BA770036 -name not.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 304 -mtime 1299751985 -attributes 1000 -filemethod 0
+File ::73A271EE-9883-42FA-8793-655A46BE37BB -name onerror.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 315 -mtime 1304574502 -attributes 1000 -filemethod 0
+File ::4F393AFE-2A6C-4E51-AB9E-8D189EF55324 -name redim.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 525 -mtime 1302506530 -attributes 1000 -filemethod 0
+File ::C919961B-5C8F-44DA-BC64-B4C01968D76E -name redim2.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 664 -mtime 1302507616 -attributes 1000 -filemethod 0
+File ::2F1071AF-68EE-4D3E-923D-4E699A9DBEDC -name redim3.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 1457 -mtime 1304505933 -attributes 1000 -filemethod 0
+File ::E219AA87-05DF-4AF0-905B-5B733EBE15B1 -name Runtime.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 768 -mtime 1260341802 -attributes 1000 -filemethod 0
+File ::DA1DC649-B925-4D48-8690-84EC68E500EE -name testFile.txt -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 43 -mtime 1316862341 -attributes 1000 -filemethod 0
+File ::DBB560AF-07CA-4C78-B6A5-38B3C0E0C9C0 -name while.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 250 -mtime 1318214734 -attributes 1000 -filemethod 0
+File ::60D8EE15-718A-4006-968A-25007EDBE4B5 -name help -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/help -type dir -attributes 0000 -filemethod 0
+File ::E3B97E55-EB68-4A8E-8679-D2E2D19B5CED -name {Macrobyte v1.0 Help.chm} -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/help -size 19723 -mtime 1300787753 -attributes 1000 -filemethod 0
+File ::BD0B8786-114B-4365-819B-F3193788186C -name Compiler -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Compiler -type dir -attributes 0000 -filemethod 0
+File ::F4190337-89E0-455F-81F6-96F49DFFC020 -name Compiler.exe -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Compiler -size 197632 -mtime 1348854146 -attributes 1000 -filemethod 0
 
 }
 } gui.tcl {proc ::InitGui {} {
@@ -21779,17 +21770,8 @@ return 1
 return 0
 }
 array set ::InstallJammer::CommandLineOptions {
-debug
-{Debugging Switch Yes No {} {run uninstaller in debug mode}}
-
-debugconsole
-{ShowConsole Switch Yes No {} {run uninstaller with a debug console open}}
-
 mode
 {UninstallMode Choice No No {Console Silent Standard} {set the mode to run the uninstaller in}}
-
-test
-{Testing Switch Yes No {} {run uninstaller without uninstalling any files}}
 
 }
 
@@ -22397,9 +22379,6 @@ E4C95C43-DD0D-449E-A46C-1EE93A018866,ShowConsoleProgress
 
 E55AC669-658A-4C71-902D-95906616368F,Active
 {Yes}
-
-E55AC669-658A-4C71-902D-95906616368F,Comment
-{Ask the user if they want to proceed with the uninstall.}
 
 E55AC669-658A-4C71-902D-95906616368F,Component
 {}
