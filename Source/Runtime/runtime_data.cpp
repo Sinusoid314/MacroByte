@@ -521,7 +521,6 @@ void CArray::Initialize(CArrayDef* arrayDef)
 //Initialize array properties using info in arrayDef
 {
     arrayDefPtr = arrayDef;
-
     ReDim(arrayDefPtr->dimSizeList);
 }
 
@@ -531,7 +530,7 @@ void CArray::ReDim(vector<int>& newDimSizeList)
 //items, and initialize their values
 {
     int newLinearSize;
-    
+
     //If this isn't the first redim, delete the current array data
     if(elementList.size() > 0)
     {
@@ -540,11 +539,13 @@ void CArray::ReDim(vector<int>& newDimSizeList)
             delete elementList[n];
         }
         elementList.clear();
+        dimSizeList.clear();
     }
-    
+   
     //Calcoolate new linear size
+    dimSizeList.resize(newDimSizeList.size());
     newLinearSize = 1;
-    for(int n=0; n < arrayDefPtr->dimSizeList.size(); n++)
+    for(int n=0; n < newDimSizeList.size(); n++)
     {
         //Check if new dimension size is greater than zero
         if(!(newDimSizeList[n] > 0))
@@ -556,7 +557,7 @@ void CArray::ReDim(vector<int>& newDimSizeList)
         dimSizeList[n] = newDimSizeList[n];
         newLinearSize *= dimSizeList[n];
     }
-    
+
     //Create new array with default data
     elementList.resize(newLinearSize);
     for(int n=0; n < elementList.size(); n++)
