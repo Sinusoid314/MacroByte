@@ -3,6 +3,11 @@ BETA 2
 =================
 
 
+July 21, 2024
+------------------
+[runtime_data] - Fixed bug in CArray::ReDim() with dimSizeList not being resized.
+- Completed runtime error handling.
+
 July 19, 2024
 ------------------
 [runtime_loader] - Added #include <deque>.
