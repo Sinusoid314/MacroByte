@@ -322,7 +322,8 @@ void CSubProg::Cmd_ADD(void)
     if(DataStack.size() < 2)
     {
         //ERROR
-        errorMsg = "Not enough operands on the data stack for ADD."; RuntimeError();
+        errorMsg = "Not enough operands on the data stack for ADD.";
+		RuntimeError();
     }
     DataStack[1]->Op_Add(DataStack[0], DataStack[1]);
     delete PopDataCell();
@@ -334,7 +335,8 @@ void CSubProg::Cmd_SUB(void)
     if(DataStack.size() < 2)
     {
         //ERROR
-        errorMsg = "Not enough operands on the data stack for SUB."; RuntimeError();
+        errorMsg = "Not enough operands on the data stack for SUB.";
+		RuntimeError();
     }
     DataStack[1]->Op_Subtract(DataStack[0], DataStack[1]);
     delete PopDataCell();
@@ -346,7 +348,8 @@ void CSubProg::Cmd_DIV(void)
     if(DataStack.size() < 2)
     {
         //ERROR
-        errorMsg = "Not enough operands on the data stack for DIV."; RuntimeError();
+        errorMsg = "Not enough operands on the data stack for DIV.";
+		RuntimeError();
     }
     DataStack[1]->Op_Divide(DataStack[0], DataStack[1]);
     delete PopDataCell();
@@ -358,7 +361,8 @@ void CSubProg::Cmd_MUL(void)
     if(DataStack.size() < 2)
     {
         //ERROR
-        errorMsg = "Not enough operands on the data stack for MUL."; RuntimeError();
+        errorMsg = "Not enough operands on the data stack for MUL.";
+		RuntimeError();
     }
     DataStack[1]->Op_Multiply(DataStack[0], DataStack[1]);
     delete PopDataCell();
@@ -370,7 +374,8 @@ void CSubProg::Cmd_MOD(void)
     if(DataStack.size() < 2)
     {
         //ERROR
-        errorMsg = "Not enough operands on the data stack for MOD."; RuntimeError();
+        errorMsg = "Not enough operands on the data stack for MOD.";
+		RuntimeError();
     }
     DataStack[1]->Op_Mod(DataStack[0], DataStack[1]);
     delete PopDataCell();
@@ -382,7 +387,8 @@ void CSubProg::Cmd_EXP(void)
     if(DataStack.size() < 2)
     {
         //ERROR
-        errorMsg = "Not enough operands on the data stack for EXP."; RuntimeError();
+        errorMsg = "Not enough operands on the data stack for EXP.";
+		RuntimeError();
     }
     DataStack[1]->Op_Exp(DataStack[0], DataStack[1]);
     delete PopDataCell();
@@ -394,7 +400,8 @@ void CSubProg::Cmd_STRCON(void)
     if(DataStack.size() < 2)
     {
         //ERROR
-        errorMsg = "Not enough operands on the data stack for STRCON."; RuntimeError();
+        errorMsg = "Not enough operands on the data stack for STRCON.";
+		RuntimeError();
     }
     DataStack[1]->Op_Add(DataStack[0], DataStack[1]);
     delete PopDataCell();
@@ -406,7 +413,8 @@ void CSubProg::Cmd_EQUAL(void)
     if(DataStack.size() < 2)
     {
         //ERROR
-        errorMsg = "Not enough operands on the data stack for EQUAL."; RuntimeError();
+        errorMsg = "Not enough operands on the data stack for EQUAL.";
+		RuntimeError();
     }
     DataStack[1]->Op_Equal(DataStack[0], DataStack[1]);
     delete PopDataCell();
@@ -418,7 +426,8 @@ void CSubProg::Cmd_LESS(void)
     if(DataStack.size() < 2)
     {
         //ERROR
-        errorMsg = "Not enough operands on the data stack for LESS."; RuntimeError();
+        errorMsg = "Not enough operands on the data stack for LESS.";
+		RuntimeError();
     }
     DataStack[1]->Op_Less(DataStack[0], DataStack[1]);
     delete PopDataCell();
@@ -430,7 +439,8 @@ void CSubProg::Cmd_GREATER(void)
     if(DataStack.size() < 2)
     {
         //ERROR
-        errorMsg = "Not enough operands on the data stack for GREATER."; RuntimeError();
+        errorMsg = "Not enough operands on the data stack for GREATER.";
+		RuntimeError();
     }
     DataStack[1]->Op_Greater(DataStack[0], DataStack[1]);
     delete PopDataCell();
@@ -442,7 +452,8 @@ void CSubProg::Cmd_LESSOREQUAL(void)
     if(DataStack.size() < 2)
     {
         //ERROR
-        errorMsg = "Not enough operands on the data stack for LESSOREQUAL."; RuntimeError();
+        errorMsg = "Not enough operands on the data stack for LESSOREQUAL.";
+		RuntimeError();
     }
     DataStack[1]->Op_LessOrEqual(DataStack[0], DataStack[1]);
     delete PopDataCell();
@@ -454,7 +465,8 @@ void CSubProg::Cmd_GREATEROREQUAL(void)
     if(DataStack.size() < 2)
     {
         //ERROR
-        errorMsg = "Not enough operands on the data stack for GREATEROREQUAL."; RuntimeError();
+        errorMsg = "Not enough operands on the data stack for GREATEROREQUAL.";
+		RuntimeError();
     }
     DataStack[1]->Op_GreaterOrEqual(DataStack[0], DataStack[1]);
     delete PopDataCell();
@@ -466,7 +478,8 @@ void CSubProg::Cmd_NOTEQUAL(void)
     if(DataStack.size() < 2)
     {
         //ERROR
-        errorMsg = "Not enough operands on the data stack for NOTEQUAL."; RuntimeError();
+        errorMsg = "Not enough operands on the data stack for NOTEQUAL.";
+		RuntimeError();
     }
     DataStack[1]->Op_NotEqual(DataStack[0], DataStack[1]);
     delete PopDataCell();
@@ -478,7 +491,8 @@ void CSubProg::Cmd_LAND(void)
     if(DataStack.size() < 2)
     {
         //ERROR
-        errorMsg = "Not enough operands on the data stack for LAND."; RuntimeError();
+        errorMsg = "Not enough operands on the data stack for LAND.";
+		RuntimeError();
     }
     DataStack[1]->Op_LogicalAND(DataStack[0], DataStack[1]);
     delete PopDataCell();
@@ -490,7 +504,8 @@ void CSubProg::Cmd_LOR(void)
     if(DataStack.size() < 2)
     {
         //ERROR
-        errorMsg = "Not enough operands on the data stack for LOR."; RuntimeError();
+        errorMsg = "Not enough operands on the data stack for LOR.";
+		RuntimeError();
     }
     DataStack[1]->Op_LogicalOR(DataStack[0], DataStack[1]);
     delete PopDataCell();
@@ -502,7 +517,8 @@ void CSubProg::Cmd_LXOR(void)
     if(DataStack.size() < 2)
     {
         //ERROR
-        errorMsg = "Not enough operands on the data stack for LXOR."; RuntimeError();
+        errorMsg = "Not enough operands on the data stack for LXOR.";
+		RuntimeError();
     }
     DataStack[1]->Op_LogicalXOR(DataStack[0], DataStack[1]);
     delete PopDataCell();
@@ -514,7 +530,8 @@ void CSubProg::Cmd_BAND(void)
     if(DataStack.size() < 2)
     {
         //ERROR
-        errorMsg = "Not enough operands on the data stack for BAND."; RuntimeError();
+        errorMsg = "Not enough operands on the data stack for BAND.";
+		RuntimeError();
     }
     DataStack[1]->Op_BitwiseAND(DataStack[0], DataStack[1]);
     delete PopDataCell();
@@ -526,7 +543,8 @@ void CSubProg::Cmd_BOR(void)
     if(DataStack.size() < 2)
     {
         //ERROR
-        errorMsg = "Not enough operands on the data stack for BOR."; RuntimeError();
+        errorMsg = "Not enough operands on the data stack for BOR.";
+		RuntimeError();
     }
     DataStack[1]->Op_BitwiseOR(DataStack[0], DataStack[1]);
     delete PopDataCell();
@@ -538,7 +556,8 @@ void CSubProg::Cmd_BXOR(void)
     if(DataStack.size() < 2)
     {
         //ERROR
-        errorMsg = "Not enough operands on the data stack for BXOR."; RuntimeError();
+        errorMsg = "Not enough operands on the data stack for BXOR.";
+		RuntimeError();
     }
     DataStack[1]->Op_BitwiseXOR(DataStack[0], DataStack[1]);
     delete PopDataCell();
@@ -1447,6 +1466,8 @@ void CSubProg::Cmd_Redim(void)
             break;
         default:
             //ERROR
+            errorMsg = "Unrecognized DATAREF value.";
+            RuntimeError();
             break;
     }
     
@@ -1489,6 +1510,8 @@ void CSubProg::Cmd_RedimAdd(void)
             break;
         default:
             //ERROR
+            errorMsg = "Unrecognized DATAREF value.";
+            RuntimeError();
             break;
     }
     
@@ -1520,6 +1543,8 @@ void CSubProg::Cmd_RedimRemove(void)
             break;
         default:
             //ERROR
+            errorMsg = "Unrecognized DATAREF value.";
+            RuntimeError();
             break;
     }
     

@@ -599,10 +599,13 @@ void CArray::ReDimAdd(CDataCell* newDatPtr, int beforeIdx)
     if(arrayDefPtr->dimSizeList.size() != 1)
     {
         //ERROR
+        errorMsg = "CArray::RedimAdd(): Array must have one dimension.";
+        RuntimeError();
     }
 
     //Make sure beforeIdx is in the correct range
-    if((beforeIdx < 0) || (beforeIdx > elementList.size())) beforeIdx = elementList.size();
+    if((beforeIdx < 0) || (beforeIdx > elementList.size()))
+	    beforeIdx = elementList.size();
     
     //Add new element
     elementList.insert(elementList.begin() + beforeIdx, newDatPtr);
@@ -618,12 +621,16 @@ void CArray::ReDimRemove(int itemIdx)
     if(arrayDefPtr->dimSizeList.size() != 1)
     {
         //ERROR
+        errorMsg = "CArray::RedimRemove(): Array must have one dimension.";
+        RuntimeError();
     }
 
     //Make sure itemIdx is in the correct range
     if((itemIdx < 0) || (itemIdx > (elementList.size()-1)))
     {
         //ERROR
+        errorMsg = "CArray::RedimRemove(): Index out of bounds.";
+        RuntimeError();
     }
     
     //Delete array element
