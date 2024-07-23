@@ -180,9 +180,9 @@ void RuntimeError(void)
     }
     
     errorFlag = true;
-    
+
     if(errorSubProgIdx > 0)
-    {   
+    {
         //Load errorMsg onto DataStack
         if(spDefList[errorSubProgIdx]->paramNum == 1)
         {

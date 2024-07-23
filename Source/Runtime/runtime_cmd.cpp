@@ -899,7 +899,7 @@ void CSubProg::Cmd_Message(void)
     tmpTitle = (char*)DataStack[0]->dataPtr;
     delete PopDataCell();
     
-    MessageBoxA(NULL, tmpMessage.c_str(), tmpTitle.c_str(), MB_OK);
+    MessageBoxA(NULL, tmpMessage.c_str(), tmpTitle.c_str(), MB_OK | MB_SETFOREGROUND);
 }
 
 void CSubProg::Cmd_OpenFile(void)

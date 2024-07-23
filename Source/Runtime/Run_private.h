@@ -5,13 +5,13 @@
 #define RUN_PRIVATE_H
 
 /* VERSION DEFINITIONS */
-#define VER_STRING	"1.0.2.109"
+#define VER_STRING	"1.0.2.110"
 #define VER_MAJOR	1
 #define VER_MINOR	0
 #define VER_RELEASE	2
-#define VER_BUILD	109
+#define VER_BUILD	110
 #define COMPANY_NAME	"SinuSoft"
-#define FILE_VERSION	"1.0.2.109"
+#define FILE_VERSION	"1.0.2.110"
 #define FILE_DESCRIPTION	"Runtime engine for MacroByte Programming Extreme .Developed using the Dev-C++ IDE"
 #define INTERNAL_NAME	"MacroByte"
 #define LEGAL_COPYRIGHT	""
