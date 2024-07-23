@@ -3,6 +3,10 @@ BETA 2
 =================
 
 
+July 22, 2024
+------------------
+[runtime_cmd] - Fixed bug with Message command not displaying message box in the foreground.
+
 July 21, 2024
 ------------------
 [runtime_data] - Fixed bug in CArray::ReDim() with dimSizeList not being resized.
