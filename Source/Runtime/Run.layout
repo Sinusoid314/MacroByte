@@ -1,6 +1,6 @@
 [Editors]
-Focused=10
-Order=
+Focused=16
+Order=16
 [Editor_0]
 Open=0
 Top=0
@@ -94,11 +94,11 @@ LeftChar=1
 Open=0
 Top=0
 [Editor_16]
-Open=0
-Top=0
-CursorCol=25
-CursorRow=61
-TopLine=61
+Open=1
+Top=1
+CursorCol=31
+CursorRow=50
+TopLine=23
 LeftChar=1
 [Editor_17]
 Open=0

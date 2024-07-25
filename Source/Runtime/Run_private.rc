@@ -5,18 +5,11 @@
 
 
 //
-// SUPPORT FOR WINDOWS XP THEMES:
-// THIS WILL MAKE THE PROGRAM USE THE COMMON CONTROLS
-// LIBRARY VERSION 6.0 (IF IT IS AVAILABLE)
-//
-1 24 "../../Distribution/Runtime/Debug.exe.Manifest"
-
-//
 // TO CHANGE VERSION INFORMATION, EDIT PROJECT OPTIONS...
 //
 1 VERSIONINFO
-FILEVERSION 1,0,2,110
-PRODUCTVERSION 1,0,2,110
+FILEVERSION 1,0,2,128
+PRODUCTVERSION 1,0,2,128
 FILETYPE VFT_APP
 {
   BLOCK "StringFileInfo"
@@ -24,7 +17,7 @@ FILETYPE VFT_APP
     BLOCK "040904E4"
     {
       VALUE "CompanyName", "SinuSoft"
-      VALUE "FileVersion", "1.0.2.110"
+      VALUE "FileVersion", "1.0.2.128"
       VALUE "FileDescription", "Runtime engine for MacroByte Programming Extreme .Developed using the Dev-C++ IDE"
       VALUE "InternalName", "MacroByte"
       VALUE "LegalCopyright", ""

@@ -49,9 +49,6 @@ void LoadRunFile(void)
     //Split data into lines
     SplitLines(dat, lineList);
     
-    //Skip past number of lines (no longer used)
-    listPos++;
-    
     //Load version string
     tmpStr = lineList[listPos];
     listPos++;

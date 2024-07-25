@@ -1,18 +1,18 @@
-# Project: Debug
+# Project: Run
 # Makefile created by Dev-C++ 5.4.0
 
-CPP      = g++.exe
-CC       = gcc.exe
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
 RES      = ./obj/Run_private.res
 OBJ      = ./obj/basic_def.o ./obj/runtime_main.o ./obj/runtime_cmd.o ./obj/runtime_cui.o ./obj/runtime_data.o ./obj/runtime_debug.o ./obj/runtime_fileIO.o ./obj/runtime_loader.o ./obj/FileIO.o ./obj/stringExt.o $(RES)
 LINKOBJ  = ./obj/basic_def.o ./obj/runtime_main.o ./obj/runtime_cmd.o ./obj/runtime_cui.o ./obj/runtime_data.o ./obj/runtime_debug.o ./obj/runtime_fileIO.o ./obj/runtime_loader.o ./obj/FileIO.o ./obj/stringExt.o $(RES)
-LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib" -static-libstdc++ -static-libgcc -mwindows
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib" -static-libstdc++ -static-libgcc -mwindows -g3
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include"
-BIN      = ../../Distribution/Runtime/Debug.exe
-CXXFLAGS = $(CXXINCS) -D_COMPONENT_DEBUGGER -Wfatal-errors
-CFLAGS   = $(INCS)  -Wfatal-errors
+BIN      = ../../Distribution/Runtime/Run.exe
+CXXFLAGS = $(CXXINCS) -D_COMPONENT_RUN -Wfatal-errors -g3
+CFLAGS   = $(INCS)  -Wfatal-errors -g3
 RM       = rm -f
 
 .PHONY: all all-before all-after clean clean-custom
