@@ -72,7 +72,7 @@ End Sub
 Private Sub Form_Unload(Cancel As Integer)
 
 If hasChanged Then
-  r = MsgBox("Save changes made to '" & filename & "' ?", vbYesNoCancel, "Lithium BASIC")
+  r = MsgBox("Save changes made to '" & filename & "' ?", vbYesNoCancel, "MacroByte")
       If r = vbYes Then Call mainWin.mnuFileSave_Click
       If r = vbCancel Then Cancel = 1
 End If

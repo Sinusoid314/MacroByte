@@ -1,9 +1,9 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "Mscomctl.ocx"
 Begin VB.MDIForm mainWin 
    AutoShowChildren=   0   'False
    BackColor       =   &H8000000C&
-   Caption         =   "MacroByte v1.0"
+   Caption         =   "MacroByte v1.0.2"
    ClientHeight    =   9195
    ClientLeft      =   165
    ClientTop       =   450
@@ -29,7 +29,7 @@ Begin VB.MDIForm mainWin
       MaskColor       =   12632256
       _Version        =   393216
       BeginProperty Images {2C247F25-8591-11D1-B16A-00C0F0283628} 
-         NumListImages   =   10
+         NumListImages   =   9
          BeginProperty ListImage1 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "mainWin.frx":0442
             Key             =   "new"
@@ -64,10 +64,6 @@ Begin VB.MDIForm mainWin
          EndProperty
          BeginProperty ListImage9 {2C247F27-8591-11D1-B16A-00C0F0283628} 
             Picture         =   "mainWin.frx":2112
-            Key             =   "tools"
-         EndProperty
-         BeginProperty ListImage10 {2C247F27-8591-11D1-B16A-00C0F0283628} 
-            Picture         =   "mainWin.frx":24AC
             Key             =   "help"
          EndProperty
       EndProperty
@@ -92,22 +88,23 @@ Begin VB.MDIForm mainWin
    End
    Begin MSComctlLib.Toolbar toolbar1 
       Align           =   1  'Align Top
-      Height          =   420
+      Height          =   360
       Left            =   0
       TabIndex        =   0
       Top             =   0
       Width           =   12900
       _ExtentX        =   22754
-      _ExtentY        =   741
+      _ExtentY        =   635
       ButtonWidth     =   609
       ButtonHeight    =   582
       AllowCustomize  =   0   'False
       Wrappable       =   0   'False
       Appearance      =   1
+      Style           =   1
       ImageList       =   "img1"
       _Version        =   393216
       BeginProperty Buttons {66833FE8-8583-11D1-B16A-00C0F0283628} 
-         NumButtons      =   14
+         NumButtons      =   12
          BeginProperty Button1 {66833FEA-8583-11D1-B16A-00C0F0283628} 
             Key             =   "new"
             Object.ToolTipText     =   "New"
@@ -158,57 +155,11 @@ Begin VB.MDIForm mainWin
             Style           =   3
          EndProperty
          BeginProperty Button12 {66833FEA-8583-11D1-B16A-00C0F0283628} 
-            Enabled         =   0   'False
-            Key             =   "edittools"
-            Object.ToolTipText     =   "Edit Tools"
+            Key             =   "help"
+            Object.ToolTipText     =   "About MicroByte"
             ImageIndex      =   9
          EndProperty
-         BeginProperty Button13 {66833FEA-8583-11D1-B16A-00C0F0283628} 
-            Style           =   3
-         EndProperty
-         BeginProperty Button14 {66833FEA-8583-11D1-B16A-00C0F0283628} 
-            Key             =   "about"
-            Object.ToolTipText     =   "About MicroByte"
-            ImageIndex      =   10
-         EndProperty
       EndProperty
-      Begin VB.ComboBox tools 
-         Height          =   315
-         Left            =   5460
-         Style           =   2  'Dropdown List
-         TabIndex        =   3
-         TabStop         =   0   'False
-         Top             =   30
-         Width           =   3480
-      End
-      Begin VB.PictureBox Picture1 
-         BorderStyle     =   0  'None
-         Height          =   315
-         Left            =   4785
-         ScaleHeight     =   315
-         ScaleWidth      =   660
-         TabIndex        =   4
-         TabStop         =   0   'False
-         Top             =   30
-         Width           =   660
-         Begin VB.Label Label1 
-            Caption         =   "Tools:"
-            BeginProperty Font 
-               Name            =   "Times New Roman"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   400
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   210
-            Left            =   45
-            TabIndex        =   2
-            Top             =   45
-            Width           =   480
-         End
-      End
    End
    Begin VB.Menu mnuFile 
       Caption         =   "&File"
@@ -223,9 +174,6 @@ Begin VB.MDIForm mainWin
       End
       Begin VB.Menu mnuFileSaveAs 
          Caption         =   "Save &As..."
-      End
-      Begin VB.Menu mnuFilePrint 
-         Caption         =   "&Print"
       End
       Begin VB.Menu mnuFileSep1 
          Caption         =   "-"
@@ -285,12 +233,6 @@ Begin VB.MDIForm mainWin
       Begin VB.Menu mnuEditSelAll 
          Caption         =   "&Select All"
       End
-      Begin VB.Menu mnuEditSep3 
-         Caption         =   "-"
-      End
-      Begin VB.Menu mnuEditFind 
-         Caption         =   "&Find..."
-      End
    End
    Begin VB.Menu mnuProgram 
       Caption         =   "&Program"
@@ -299,35 +241,6 @@ Begin VB.MDIForm mainWin
       End
       Begin VB.Menu mnuProgramDebug 
          Caption         =   "&Debug Code"
-      End
-      Begin VB.Menu mnuProgramSep1 
-         Caption         =   "-"
-      End
-      Begin VB.Menu mnuProgramCreate 
-         Caption         =   "&Create Runtime File"
-      End
-   End
-   Begin VB.Menu mnuTools 
-      Caption         =   "&Tools"
-      Begin VB.Menu mnuToolsEdit 
-         Caption         =   "&Edit Tools"
-      End
-      Begin VB.Menu mnuToolsProgs 
-         Caption         =   "&Startup Programs"
-      End
-      Begin VB.Menu mnuToolsSep1 
-         Caption         =   "-"
-      End
-      Begin VB.Menu mnuToolsReg 
-         Caption         =   "Register Lithium BASIC"
-      End
-      Begin VB.Menu mnuToolsSep2 
-         Caption         =   "-"
-         Visible         =   0   'False
-      End
-      Begin VB.Menu mnuToolsOptions 
-         Caption         =   "&Options"
-         Visible         =   0   'False
       End
    End
    Begin VB.Menu mnuWindow 
@@ -339,20 +252,11 @@ Begin VB.MDIForm mainWin
       Begin VB.Menu mnuHelpContents 
          Caption         =   "&Contents..."
       End
-      Begin VB.Menu mnuHelpFeatures 
-         Caption         =   "Lithium BASIC 1.02 &Features"
-      End
       Begin VB.Menu mnuHelpSep1 
          Caption         =   "-"
       End
-      Begin VB.Menu mnuHelpSite 
-         Caption         =   "Visit the Lithium BASIC Web Site..."
-      End
-      Begin VB.Menu mnuHelpSep2 
-         Caption         =   "-"
-      End
       Begin VB.Menu mnuHelpAbout 
-         Caption         =   "&About Lithium BASIC"
+         Caption         =   "&About MacroByte"
       End
    End
 End
@@ -809,30 +713,6 @@ LoadFile tmpFile
   
 End Sub
 
-Private Sub mnuFilePrint_Click()
-
-On Error Resume Next
-
-Dim aWin As Form
-
-If mainWin.ActiveForm Is Nothing Then Exit Sub
-Set aWin = mainWin.ActiveForm
-
-'dialog.DialogTitle = "Print Code..."
-'dialog.CancelError = True
-'dialog.flags = cdlPDReturnDC + cdlPDNoPageNums
-'If aWin.editor.SelLength = 0 Then
-'    dialog.flags = dialog.flags + cdlPDAllPages
-'Else
-'    dialog.flags = dialog.flags + cdlPDSelection
-'End If
-'dialog.ShowPrinter
-'If Err <> cdlCancel Then
-'    aWin.editor.SelPrint dialog.hDC
-'End If
-
-End Sub
-
 Private Sub mnuFileRecent_Click(Index As Integer)
 
 On Error GoTo openError
@@ -843,7 +723,7 @@ LoadFile RecentFiles(Index)
 Exit Sub
 
 openError:
-    MsgBox "File not found", vbCritical, "Lithium BASIC Error"
+    MsgBox "File not found", vbCritical, "MacroByte Error"
     RemoveRecentFile Index
 
 End Sub
@@ -874,7 +754,6 @@ End If
 
 End Sub
 
-
 Private Sub mnuFileSaveAs_Click()
 
 Dim aWin As Form
@@ -894,34 +773,17 @@ AddRecentFile tmpFile
 
 End Sub
 
-
 Private Sub mnuHelpAbout_Click()
 
 about.Show vbModal
 
 End Sub
 
-
-
 Private Sub mnuHelpContents_Click()
 
-ShellExecute 0, "open", App.Path & "\Help\Macrobyte v1.0 Help.chm", "", "", 1
+ShellExecute 0, "open", App.Path & "\help\Macrobyte v1.0 Help.chm", "", "", 1
 
 End Sub
-
-Private Sub mnuHelpFeatures_Click()
-
-Shell "notepad " & App.Path & "\version 1.02.txt"
-
-End Sub
-
-Private Sub mnuHelpSite_Click()
-
-ShellExecute 0, "open", "http://sircodezalot.britcoms.com/", "", "", 1
-
-End Sub
-
-
 
 Private Sub mnuProgramDebug_Click()
 
@@ -1024,27 +886,6 @@ toolbar1.Buttons(10).Enabled = True
 
 End Sub
 
-
-
-Private Sub mnuToolsEdit_Click()
-
-editTools.Show vbModal
-
-End Sub
-
-Private Sub mnuToolsOptions_Click()
-
-Options.Show vbModal
-
-End Sub
-
-Private Sub mnuToolsReg_Click()
-
-Load regWin
-regWin.Show vbModal
-
-End Sub
-
 Private Sub toolbar1_ButtonClick(ByVal Button As MSComctlLib.Button)
 
 Select Case Button.Key
@@ -1064,19 +905,11 @@ Select Case Button.Key
     Call mnuProgramRun_Click
   Case "debug"
     Call mnuProgramDebug_Click
-  Case "tools"
-    Call mnuToolsEdit_Click
   Case "help"
-    Call mnuHelpAbout_Click
+    Call mnuHelpContents_Click
 End Select
 
 End Sub
 
-
-Private Sub tools_Click()
-
-RunToolProg tools.ListIndex + 1
-
-End Sub
 
 
