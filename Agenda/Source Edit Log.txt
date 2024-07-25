@@ -3,6 +3,14 @@ BETA 2
 =================
 
 
+July 24, 2024
+------------------
+- Removed findDlg.frm and starrtup.dlg from Editor.
+- Removed code from runtime_loader that reads in the line count of the runtime data file.
+- Cleaned up and updated Editor.
+- Recompiled all executables.
+- Recompiled installer.
+
 July 22, 2024
 ------------------
 [runtime_cmd] - Fixed bug with Message command not displaying message box in the foreground.
