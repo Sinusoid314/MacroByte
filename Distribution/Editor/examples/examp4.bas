@@ -1,8 +1,8 @@
-showconsol
+showconsole
 
 dim names(3,5) as string
 
-consoltitle "Running..."
+consoletitle "Running..."
 
 input "Enter first: ", names(0,0)
 input "Enter second: ", names(1,1)
@@ -20,4 +20,4 @@ print names(0,4)
 print
 print "End"
 
-consoltitle "Done."
+consoletitle "Done."

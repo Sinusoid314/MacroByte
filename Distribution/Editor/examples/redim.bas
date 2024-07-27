@@ -2,8 +2,8 @@ var a, b as number
 var stuffCount as number
 array stuff(1, 1) as string
 
-showconsol
-consoltitle "Redim Test 1"
+showconsole
+consoletitle "Redim Test 1"
 
 for a = 1 to 4
     input "Enter stuff size: ", stuffCount
@@ -21,4 +21,4 @@ for a = 1 to 4
     next b
 next a
 
-consoltitle "Done - Redim Test 1"
+consoletitle "Done - Redim Test 1"

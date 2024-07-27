@@ -1,4 +1,4 @@
-showconsol
+showconsole
 
 var inStr as string
 

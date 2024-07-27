@@ -1,7 +1,7 @@
 '**** LetterCount ****
 
-showconsol
-consoltitle "LetterCount"
+showconsole
+consoletitle "LetterCount"
 
 'Loop counters
 Var a,b As Number
@@ -66,5 +66,5 @@ Next a
 
 
 
-consoltitle "LetterCount - Done."
+consoletitle "LetterCount - Done."
 end

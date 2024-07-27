@@ -1,4 +1,4 @@
-showconsol
+showconsole
 
 var num as number
 

@@ -8,7 +8,7 @@
 var fileData as string
 var n as number
 
-showconsol
+showconsole
 
 'Compose file for input
 print "Writing test file..."

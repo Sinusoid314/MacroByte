@@ -8,9 +8,9 @@ var guess as number
 var count as number
 var play as string
 
-showconsol
+showconsole
 
-consoltitle "Now playing HiLo..."
+consoletitle "Now playing HiLo..."
 
 @start
     guessMe = int(rnd()*100) + 1
@@ -51,4 +51,4 @@ consoltitle "Now playing HiLo..."
     
     print
     print "Done."
-    consoltitle "HiLo - Done."
+    consoletitle "HiLo - Done."

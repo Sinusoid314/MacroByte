@@ -1,4 +1,4 @@
-showconsol
+showconsole
 
 var inVar as number
 var outVar as string

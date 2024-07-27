@@ -11,7 +11,7 @@
 var n as number
 var outStr as string
 
-showconsol
+showconsole
 
 for n = 1 to 100
 

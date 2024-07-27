@@ -1,11 +1,11 @@
-showconsol
+showconsole
 
 var name as string
 
-'consoltitle "Running..."
+consoletitle "Running..."
 
 input "Enter name: ", name
 
 print "Hello, " & name & "!"
 
-'consoltitle "Done."
+consoletitle "Done."

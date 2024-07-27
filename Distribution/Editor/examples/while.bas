@@ -1,8 +1,8 @@
-showconsol
+showconsole
 
 var tmpStr as string
 
-consoltitle "While/Wend Test"
+consoletitle "While/Wend Test"
 
 tmpStr = ""
 While lower(tmpStr) <> "exit"
@@ -13,4 +13,4 @@ Wend
 print
 print "While loop done."
 
-consoltitle "Done - While/Wend Test"
+consoletitle "Done - While/Wend Test"

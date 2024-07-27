@@ -1,4 +1,4 @@
-showconsol
+showconsole
 
 var tmpNum as number
 

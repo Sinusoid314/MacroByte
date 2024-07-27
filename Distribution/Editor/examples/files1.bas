@@ -2,7 +2,7 @@
 'File Handling Test #1
 'Open a file for output and write data to it
 
-showconsol
+showconsole
 
 print "Opening file..."
 '**Open "testFile.txt" For Output As #1

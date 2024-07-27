@@ -1,4 +1,4 @@
-showconsol
+showconsole
 
 var inStR as string
 var cutPos, cutLen as number

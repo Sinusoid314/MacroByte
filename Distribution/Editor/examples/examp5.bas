@@ -1,5 +1,4 @@
-
-showconsol
+showconsole
 
 var n as number
 

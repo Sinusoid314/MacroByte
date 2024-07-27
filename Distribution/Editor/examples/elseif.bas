@@ -1,6 +1,6 @@
-showconsol
-consoltitle "ElseIf Test"
+showconsole
+consoletitle "ElseIf Test"
 
 
 
-consoltitle "Done - ElseIf Test"
+consoletitle "Done - ElseIf Test"

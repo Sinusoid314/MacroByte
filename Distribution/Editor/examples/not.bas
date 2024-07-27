@@ -3,7 +3,7 @@
 
 var tmpStr as string
 
-showconsol
+showconsole
 
 input "Enter string: ", tmpStr
 print

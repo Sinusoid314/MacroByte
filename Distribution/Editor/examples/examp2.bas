@@ -1,4 +1,4 @@
-showconsol
+showconsole
 
 Var code As Number
 

@@ -1,5 +1,5 @@
-showconsol
-consoltitle "Redim Test 2"
+showconsole
+consoletitle "Redim Test 2"
 
 var xIdx, yIdx, zIdx as number
 var xCount, yCount, zCount as number
@@ -24,4 +24,4 @@ for zIdx = 0 to zCount-1
     print
 next zIdx
 
-consoltitle "Done - Redim Test 2"
+consoletitle "Done - Redim Test 2"

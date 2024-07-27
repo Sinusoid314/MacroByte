@@ -1,5 +1,5 @@
-showconsol
-consoltitle "OnError Test"
+showconsole
+consoletitle "OnError Test"
 
 array testArray(10) as string
 var itemIdx as number
@@ -11,7 +11,7 @@ input "Enter array index: ", itemIdx
 print
 print testArray(itemIdx)
 
-consoltitle "Done - OnError Test"
+consoletitle "Done - OnError Test"
 
 
 sub HandleError(errMsg as string)

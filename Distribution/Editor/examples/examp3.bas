@@ -1,4 +1,4 @@
-showconsol
+showconsole
 
 var num As Number
 var path As Number

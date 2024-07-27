@@ -3,7 +3,7 @@
 
 var tmpNum as number
 
-showconsol
+showconsole
 
 input "Enter number: ", tmpNum
 

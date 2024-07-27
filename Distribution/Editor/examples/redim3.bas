@@ -1,5 +1,5 @@
-showconsol
-consoltitle "Redim Test 3 - RedimAdd/RedimRemove"
+showconsole
+consoletitle "Redim Test 3 - RedimAdd/RedimRemove"
 
 var listSize as number
 array listNames(1) as string
@@ -90,6 +90,6 @@ end sub
 sub Exit()
     print
     print "Done."
-    consoltitle "Done - Redim Test 3"
+    consoletitle "Done - Redim Test 3"
     end
 end sub

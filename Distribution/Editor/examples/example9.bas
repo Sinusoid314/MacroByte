@@ -1,4 +1,4 @@
-showconsol
+showconsole
 
 var tmpStr as String
 var tmpNum as Number
