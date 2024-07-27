@@ -66,13 +66,13 @@
 #define IDC_GOSUB 28
 #define IDC_RETURN 29
 #define IDC_IF 30
-#define IDC_PrintToConsol 31
-#define IDC_InputFromConsol 32
-#define IDC_ShowConsol 33
-#define IDC_HideConsol 34
+#define IDC_PrintToConsole 31
+#define IDC_InputFromConsole 32
+#define IDC_ShowConsole 33
+#define IDC_HideConsole 34
 #define IDC_PrintBlank 35
 #define IDC_FOR 36
-#define IDC_ClearConsol 37
+#define IDC_ClearConsole 37
 #define IDC_InputEvents 38
 #define IDC_FlushEvents 39
 #define IDC_Pause 40
@@ -107,7 +107,7 @@
 #define IDC_Right 69
 #define IDC_OnError 70
 #define IDC_Redim 71
-#define IDC_ConsolTitle 72
+#define IDC_ConsoleTitle 72
 #define IDC_RedimAdd 73
 #define IDC_RedimRemove 74
 #define IDC_While 75

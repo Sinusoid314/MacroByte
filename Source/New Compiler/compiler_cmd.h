@@ -7,7 +7,7 @@ bool EvalFunction(std::string, CDataRefInfo&);
 void Cmd_Array(std::string);
 void Cmd_Call(std::string);
 void Cmd_Close(std::string);
-void Cmd_ConsolTitle(std::string);
+void Cmd_ConsoleTitle(std::string);
 void Cmd_ExitFor(std::string);
 void Cmd_ExitFunction(std::string);
 void Cmd_ExitSub(std::string);

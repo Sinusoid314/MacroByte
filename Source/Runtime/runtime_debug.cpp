@@ -19,7 +19,7 @@ bool DebugSetup(void)
 //Create debugging window class, create & display
 //debugging window
 {
-    char szClassName[ ] = "MacroByteDebugConsol";
+    char szClassName[ ] = "MacroByteDebugConsole";
     HINSTANCE hThisInstance = (HINSTANCE) GetModuleHandle(NULL);
     WNDCLASSEX wincl;
     int tmpWidth = int(GetSystemMetrics(SM_CXSCREEN) / 1.9);
@@ -51,11 +51,11 @@ bool DebugSetup(void)
         return false;
 
     /* The class is registered, let's create the program*/
-    hDebugWin = CreateWindowEx (0, szClassName, "MacroByte Debugging Consol",
+    hDebugWin = CreateWindowEx (0, szClassName, "MacroByte Debugging Console",
                                 WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN,
                                 tmpX, tmpY, tmpWidth, tmpHeight, HWND_DESKTOP,
                                 NULL, hThisInstance, NULL);
-              
+
     //Create breakpoint flag
     debugInBreakpoint = CreateEvent(NULL, TRUE, FALSE, NULL);
 
@@ -73,12 +73,12 @@ void DebugCleanup(void)
 {
     //Delete breakpoint flag
     CloseHandle(debugInBreakpoint);
-    
+
     //Destroy debug window
     DestroyWindow(hDebugWin);
-    
+
     //Unregister window class
-    UnregisterClass("MacroByteDebugConsol",(HINSTANCE)GetModuleHandle(NULL));
+    UnregisterClass("MacroByteDebugConsole",(HINSTANCE)GetModuleHandle(NULL));
 }
 
 LRESULT CALLBACK DebugWinProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
@@ -107,7 +107,7 @@ LRESULT CALLBACK DebugWinProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lPa
                                             (HINSTANCE) GetModuleHandle(NULL), NULL);
             retVal = 0;
             break;
-            
+
         case WM_COMMAND:
             if((HWND)lParam == hDebugStepBtn)
             {
@@ -124,24 +124,24 @@ LRESULT CALLBACK DebugWinProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lPa
         case WM_CLOSE:
             //Set asyncExitFlag to TRUE
             SetEvent(asyncExitFlag);
-            
+
             //Wait for hRtThread to finish running with WaitForSingleObject()
             while(WaitForSingleObject(hRtThread, 0) != WAIT_OBJECT_0)
-            {                
+            {
                 Sleep(1);
             }
-            
+
             //Signal main message loop to exit
             PostQuitMessage(0);
 
             retVal = 0;
             break;
-            
+
         case MBWM_RUN_THREAD_DONE:
             SetWindowText(hDebugWin, "Execution Complete - MacroByte Debugger");
             retVal = 0;
             break;
-            
+
         default:
             retVal = DefWindowProc (hwnd, message, wParam, lParam);
             break;

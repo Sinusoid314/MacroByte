@@ -1850,7 +1850,7 @@ Next a
 End Sub
 
 
-Private Sub Cmd_ConsolTitle(ByVal cmdStr As String)
+Private Sub Cmd_ConsoleTitle(ByVal cmdStr As String)
 
 Dim tmpParamList As New ArrayClass
 Dim expRef As DataRefClass
@@ -1862,7 +1862,7 @@ ParseParams cmdStr, tmpParamList, ",", True
 
 'Check argument # against parameter #
 If tmpParamList.itemCount <> 1 Then
-    CompileError "Wrong number of arguments for command COnsolTitle"
+    CompileError "Wrong number of arguments for command ConsoleTitle"
     Exit Sub
 End If
 
@@ -1872,12 +1872,12 @@ If exitFlag Then Exit Sub
 
 'Check argument type
 If expRef.drType <> DT_STRING Then
-    CompileError "Consol title should be a String"
+    CompileError "Console title should be a String"
     Exit Sub
 End If
 
 'Write bytecode for command call
-GenByteCodeFL IDC_ConsolTitle
+GenByteCodeFL IDC_ConsoleTitle
 
 End Sub
 Public Function Func_Int(ByVal cmdStr As String) As DataRefClass
@@ -3035,7 +3035,7 @@ Else
     
     'Write bytecode
       '[C++ CONVERSION: Adjusted for Base0]
-      GenByteCodeFL IDC_InputFromConsol, destRef.drID, destRef.drIdx - 1
+      GenByteCodeFL IDC_InputFromConsole, destRef.drID, destRef.drIdx - 1
 
 End If
 
@@ -3094,7 +3094,7 @@ Else
         Set expRef = EvalExpression(cmdStr)
         If exitFlag Then Exit Sub
         'Write bytecode
-          GenByteCodeFL IDC_PrintToConsol
+          GenByteCodeFL IDC_PrintToConsole
     End If
     If hasCR Then
         'Write bytecode
@@ -3190,7 +3190,7 @@ cmdStr = LCase(cmdStr)
 If (cmdStr = "print") Or (cmdStr = "input") Or (cmdStr = "let") Or (cmdStr = "var") _
     Or (cmdStr = "if") Or (cmdStr = "else") Or (cmdStr = "elseif") Or (cmdStr = "end") _
     Or (cmdStr = "while") Or (cmdStr = "wend") Or (cmdStr = "for") Or (cmdStr = "next") _
-    Or (cmdStr = "goto") Or (cmdStr = "gosub") Or (cmdStr = "return") Or (cmdStr = "consoltitle") _
+    Or (cmdStr = "goto") Or (cmdStr = "gosub") Or (cmdStr = "return") Or (cmdStr = "consoletitle") _
     Or (cmdStr = "array") Or (cmdStr = "redim") Or (cmdStr = "bindvar") Or (cmdStr = "unbindvar") _
     Or (cmdStr = "sub") Or (cmdStr = "call") Or (cmdStr = "function") Or (cmdStr = "dim") _
     Or (cmdStr = "open") Or (cmdStr = "close") Or (cmdStr = "onerror") Or (cmdStr = "rem") _
@@ -3530,7 +3530,7 @@ ElseIf LCase(Left(cmdStr, 4)) = "let " Then
   Cmd_Let Mid(cmdStr, 5)
   
 ElseIf LCase(cmdStr) = "cls" Then
-  GenByteCodeFL IDC_ClearConsol
+  GenByteCodeFL IDC_ClearConsole
 
 ElseIf LCase(Left(cmdStr, 5)) = "goto " Then
   Cmd_Goto Mid(cmdStr, 6)
@@ -3566,11 +3566,11 @@ ElseIf LCase(Left(cmdStr, 5)) = "next " Then
 ElseIf LCase(Left(cmdStr, 5)) = "call " Then
   Cmd_Call Mid(cmdStr, 6)
   
-ElseIf LCase(Trim(cmdStr)) = "showconsol" Then
-  GenByteCodeFL IDC_ShowConsol
+ElseIf LCase(Trim(cmdStr)) = "showconsole" Then
+  GenByteCodeFL IDC_ShowConsole
   
-ElseIf LCase(Trim(cmdStr)) = "hideconsol" Then
-  GenByteCodeFL IDC_HideConsol
+ElseIf LCase(Trim(cmdStr)) = "hideconsole" Then
+  GenByteCodeFL IDC_HideConsole
 
 ElseIf LCase(Trim(cmdStr)) = "inputevents" Then
   GenByteCodeFL IDC_InputEvents
@@ -3605,8 +3605,8 @@ ElseIf LCase(Left(cmdStr, 8)) = "onerror " Then
 ElseIf LCase(Left(cmdStr, 6)) = "redim " Then
   Cmd_Redim Mid(cmdStr, 7)
 
-ElseIf LCase(Left(cmdStr, 12)) = "consoltitle " Then
-  Cmd_ConsolTitle Mid(cmdStr, 13)
+ElseIf LCase(Left(cmdStr, 12)) = "consoletitle " Then
+  Cmd_ConsoleTitle Mid(cmdStr, 13)
   
 ElseIf LCase(Left(cmdStr, 9)) = "redimadd " Then
   Cmd_RedimAdd Mid(cmdStr, 10)

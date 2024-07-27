@@ -48,13 +48,13 @@ class CSubProg
              void Cmd_Gosub(void);
              void Cmd_Return(void);
              void Cmd_If(void);
-             void Cmd_PrintToConsol(void);
-             void Cmd_InputFromConsol(void);
-             void Cmd_ShowConsol(void);
-             void Cmd_HideConsol(void);
+             void Cmd_PrintToConsole(void);
+             void Cmd_InputFromConsole(void);
+             void Cmd_ShowConsole(void);
+             void Cmd_HideConsole(void);
              void Cmd_PrintBlank(void);
              void Cmd_For(void);
-             void Cmd_ClearConsol(void);
+             void Cmd_ClearConsole(void);
              void Cmd_InputEvents(void);
              void Cmd_FlushEvents(void);
              void Cmd_Pause(void);
@@ -70,7 +70,7 @@ class CSubProg
              void Cmd_GetFilePos(void);
              void Cmd_FileLength(void);
              void Cmd_EndOfFile(void);
-             
+
              void Cmd_Str(void);
              void Cmd_Int(void);
              void Cmd_Rnd(void);
@@ -88,10 +88,10 @@ class CSubProg
              void Cmd_Left(void);
              void Cmd_Mid(void);
              void Cmd_Right(void);
-             
+
              void Cmd_OnError(void);
              void Cmd_Redim(void);
-             void Cmd_ConsolTitle(void);
+             void Cmd_ConsoleTitle(void);
              void Cmd_RedimAdd(void);
              void Cmd_RedimRemove(void);
              void Cmd_While(void);

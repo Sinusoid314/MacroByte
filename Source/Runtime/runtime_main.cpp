@@ -34,7 +34,7 @@ int WINAPI WinMain (HINSTANCE hThisInstance, HINSTANCE hPrevInstance, LPSTR lpsz
 
     //Load main program data
     if(!WinSetup()) return 0;
-    
+
     //Launch main runtime thread
     hRtThread = CreateThread(NULL, 0, RuntimeMain, (LPVOID) 0, 0, &idRtThread);
 
@@ -44,10 +44,10 @@ int WINAPI WinMain (HINSTANCE hThisInstance, HINSTANCE hPrevInstance, LPSTR lpsz
         TranslateMessage(&messages);
         DispatchMessage(&messages);
     }
-    
+
     //Unload main program data
     WinCleanup();
-    
+
     return messages.wParam;
 }
 
@@ -59,9 +59,9 @@ bool WinSetup(void)
     if(!DebugSetup()) return false;
   #endif
 
-    //Create consol window
-    if(!ConsolSetup()) return false;
-    
+    //Create console window
+    if(!ConsoleSetup()) return false;
+
     //Create runtime-completion flag
     asyncExitFlag = CreateEvent(NULL, TRUE, FALSE, NULL);
 
@@ -73,10 +73,10 @@ void WinCleanup(void)
 {
     //Delete runtime-completion flag
     CloseHandle(asyncExitFlag);
-    
-    //Destroy consol window
-    ConsolCleanup();
-    
+
+    //Destroy console window
+    ConsoleCleanup();
+
   #ifdef _COMPONENT_DEBUGGER
     //Destroy debug window
     DebugCleanup();
@@ -88,31 +88,31 @@ DWORD WINAPI RuntimeMain(LPVOID rttParam)
 {
     //Load runtime data
     RuntimeSetup();
-    
+
     //Run main subprogram
     LoadSubProg(0);
-    
+
     spList.front()->RunProg();
-    
+
   #ifdef _COMPONENT_DEBUGGER
     //Make sure the selected item of hDebugCodeView is
     //the current breakpoint line of the main subprog
     PostMessage( hDebugCodeView, LB_SETCURSEL, (WPARAM)spList.front()->debugCurrBreakpointLine, 0 );
   #endif
-  
+
     UnloadSubProg();
-    
+
     //Unload runtime data
     RuntimeCleanup();
-    
+
   #ifdef _COMPONENT_DEBUGGER
     //Signal the Debug window that program execution has finished
     PostMessage(hDebugWin, MBWM_RUN_THREAD_DONE, 0, 0);
   #else
-    //Signal the Consol window that program execution has finished
-    PostMessage(hConsolWin, MBWM_RUN_THREAD_DONE, 0, 0);
+    //Signal the Console window that program execution has finished
+    PostMessage(hConsoleWin, MBWM_RUN_THREAD_DONE, 0, 0);
   #endif
-    
+
     return (DWORD)1;
 }
 
@@ -123,7 +123,7 @@ void RuntimeSetup(void)
     errorFlag = false;
     errorMsg = "";
     errorSubProgIdx = 0;
-    
+
     //Load the runtime file code/subprog defs/memory allocs/resources
     LoadRunFile();
 }
@@ -136,19 +136,19 @@ void RuntimeCleanup(void)
         delete spList[n];
     }
     spList.clear();
-    
+
     for(int n=0; n<fileList.size(); n++)
     {
         delete fileList[n];
     }
     fileList.clear();
-    
+
     for(int n=0; n<LiteralList.size(); n++)
     {
         delete LiteralList[n];
     }
     LiteralList.clear();
-    
+
     for(int n=0; n<spDefList.size(); n++)
     {
         delete spDefList[n];
@@ -171,14 +171,14 @@ void RuntimeError(void)
 //Then end the runtime process.
 {
     string msgStr;
-    
+
     //The error handler had an error (D'OH!)
     if(errorFlag)
     {
         MessageBoxA(NULL, "The error subroutine failed to run correctly.", "MacroByteRT", MB_OK | MB_ICONERROR | MB_SETFOREGROUND);
         ExitProcess(0);
     }
-    
+
     errorFlag = true;
 
     if(errorSubProgIdx > 0)
@@ -202,10 +202,10 @@ void RuntimeError(void)
         errorMsg += "    "; errorMsg += msgStr;
         errorMsg += "\r\n\r\n";
         errorMsg += "Awfully sorry about that. Please don't blame yourself.";
-        
+
         MessageBoxA(NULL, errorMsg.c_str(), "MacroByteRT", MB_OK | MB_ICONERROR | MB_SETFOREGROUND);
     }
-    
+
     //GET THE HELL OOT OF HERE!!!
     ExitProcess(0);
 }

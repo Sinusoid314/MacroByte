@@ -8,21 +8,21 @@
 
 using namespace std;
 
-const char* consolWinClassName = "MacroByteConsol";
+const char* consoleWinClassName = "MacroByteConsole";
 
 string userInput;
 HANDLE inputting;
-HWND hConsolWin;
-HWND hConsolDisplay;
+HWND hConsoleWin;
+HWND hConsoleDisplay;
 WNDPROC oldDisplayProc;
 HFONT dispFont;
 COLORREF dispBackColor;
 COLORREF dispTextColor;
 
 
-bool ConsolSetup(void)
-//Create consol window class, create & display
-//consol window
+bool ConsoleSetup(void)
+//Create console window class, create & display
+//console window
 {
     HINSTANCE hThisInstance = (HINSTANCE) GetModuleHandle(NULL);
     WNDCLASSEXA wincl;
@@ -33,8 +33,8 @@ bool ConsolSetup(void)
 
     /* The Window structure */
     wincl.hInstance = hThisInstance;
-    wincl.lpszClassName = consolWinClassName;
-    wincl.lpfnWndProc = ConsolWinProc;      /* This function is called by windows */
+    wincl.lpszClassName = consoleWinClassName;
+    wincl.lpfnWndProc = ConsoleWinProc;      /* This function is called by windows */
     wincl.style = CS_DBLCLKS;                 /* Catch double-clicks */
     wincl.cbSize = sizeof (WNDCLASSEX);
 
@@ -51,34 +51,34 @@ bool ConsolSetup(void)
     /* Register the window class, and if it fails quit the program */
     if (!RegisterClassExA(&wincl))
         return false;
-    
-    //Initialize consol input variables    
+
+    //Initialize console input variables
     userInput = "";
     inputting = CreateEvent(NULL, TRUE, FALSE, NULL);
 
-    //Create the consol window
-    hConsolWin = CreateWindowExA(0,consolWinClassName, "MacroByte Runtime Consol", WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN,
+    //Create the console window
+    hConsoleWin = CreateWindowExA(0,consoleWinClassName, "MacroByte Runtime Console", WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN,
                                 tmpX, tmpY, tmpWidth, tmpHeight, HWND_DESKTOP, NULL,
                                 hThisInstance, NULL);
 
     return true;
 }
 
-void ConsolCleanup(void)
-//Destroy consol window and unregister
+void ConsoleCleanup(void)
+//Destroy console window and unregister
 //its window class
 {
-    //Destroy consol window
-    DestroyWindow(hConsolWin);
-    
+    //Destroy console window
+    DestroyWindow(hConsoleWin);
+
     //Close the inputting flag
     CloseHandle(inputting);
-    
+
     //Unregister window class
-    UnregisterClassA(consolWinClassName,(HINSTANCE)GetModuleHandle(NULL));   
+    UnregisterClassA(consoleWinClassName,(HINSTANCE)GetModuleHandle(NULL));
 }
 
-LRESULT CALLBACK ConsolWinProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
+LRESULT CALLBACK ConsoleWinProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     MSG tmpMsg;
     RECT dispRect;
@@ -88,21 +88,21 @@ LRESULT CALLBACK ConsolWinProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lP
         case WM_ACTIVATE:
             if(LOWORD(wParam) != 0)
             {
-                SetFocus(hConsolDisplay);
+                SetFocus(hConsoleDisplay);
             }
             break;
-            
+
         case WM_CTLCOLORSTATIC:
             SetBkColor((HDC)wParam, dispBackColor);
 	        SetTextColor((HDC)wParam, dispTextColor);
             return (LRESULT)GetStockObject(BLACK_BRUSH);
 
         case WM_SIZE:
-            MoveWindow(hConsolDisplay, 0, 0, LOWORD(lParam), HIWORD(lParam), TRUE);
+            MoveWindow(hConsoleDisplay, 0, 0, LOWORD(lParam), HIWORD(lParam), TRUE);
             return TRUE;
 
         case WM_CREATE:
-            hConsolDisplay = CreateWindowExA(0, "EDIT", "",
+            hConsoleDisplay = CreateWindowExA(0, "EDIT", "",
                                             WS_VISIBLE|WS_CHILD|WS_BORDER|
                                             WS_VSCROLL|WS_HSCROLL|ES_READONLY|
                                             ES_MULTILINE|ES_WANTRETURN|
@@ -113,25 +113,25 @@ LRESULT CALLBACK ConsolWinProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lP
             dispBackColor = RGB(0,0,0);
             dispTextColor = RGB(255,255,255);
             dispFont = CreateFontA(13,0,0,0,0,0,0,0,0,0,0,0,0,"Lucida Console");
-            SendMessage(hConsolDisplay, WM_SETFONT, (WPARAM)dispFont, MAKELPARAM(TRUE, 0));
+            SendMessage(hConsoleDisplay, WM_SETFONT, (WPARAM)dispFont, MAKELPARAM(TRUE, 0));
 
             //Set display window procedure
-            oldDisplayProc = (WNDPROC) SetWindowLong(hConsolDisplay, GWL_WNDPROC, (LONG)ConsolDisplayProc);
+            oldDisplayProc = (WNDPROC) SetWindowLong(hConsoleDisplay, GWL_WNDPROC, (LONG)ConsoleDisplayProc);
 
             break;
 
         case WM_CLOSE:
             //Set asyncExitFlag to TRUE
             SetEvent(asyncExitFlag);
-            
+
             //Wait for hRtThread to finish running with WaitForSingleObject()
             while(WaitForSingleObject(hRtThread, 0) != WAIT_OBJECT_0)
-            {                
+            {
                 Sleep(1);
             }
-            
+
             #ifdef _COMPONENT_DEBUGGER
-              //Hide consol window
+              //Hide console window
               ShowWindow(hwnd, SW_HIDE);
             #else
               //Signal main message loop to exit
@@ -139,16 +139,16 @@ LRESULT CALLBACK ConsolWinProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lP
             #endif
 
             break;
-        
+
         case MBWM_RUN_THREAD_DONE:
-            //If hConsolWin is NOT visible, close it
+            //If hConsoleWin is NOT visible, close it
             if(IsWindowVisible(hwnd) == 0)
             {
                 //Send WM_CLOSE message
                 PostMessage(hwnd, WM_CLOSE, 0, 0);
             }
             break;
-        
+
         default:                      /* for messages that we don't deal with */
             return DefWindowProc (hwnd, message, wParam, lParam);
     }
@@ -156,7 +156,7 @@ LRESULT CALLBACK ConsolWinProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lP
     return 0;
 }
 
-LRESULT CALLBACK ConsolDisplayProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
+LRESULT CALLBACK ConsoleDisplayProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 
     int dispTextLen;
@@ -168,16 +168,16 @@ LRESULT CALLBACK ConsolDisplayProc(HWND hwnd, UINT message, WPARAM wParam, LPARA
             //Exit if inputting is FALSE
             if(WaitForSingleObject(inputting, 0) != WAIT_OBJECT_0)
                 {return CallWindowProc (oldDisplayProc, hwnd, message, wParam, lParam);}
-            
+
             switch(wParam)
             {
                 case 8:
-                      dispTextLen = GetWindowTextLength(hConsolDisplay);
+                      dispTextLen = GetWindowTextLength(hConsoleDisplay);
                       if((dispTextLen > 0) && (userInput.length() > 0))
                       {
                         //Remove last character from display
-                          SendMessage( hConsolDisplay, EM_SETSEL, (WPARAM)dispTextLen-1, (LPARAM)dispTextLen );
-                          SendMessage( hConsolDisplay, EM_REPLACESEL, 0, (LPARAM) ((LPSTR) "") );
+                          SendMessage( hConsoleDisplay, EM_SETSEL, (WPARAM)dispTextLen-1, (LPARAM)dispTextLen );
+                          SendMessage( hConsoleDisplay, EM_REPLACESEL, 0, (LPARAM) ((LPSTR) "") );
                         //Remove last character from userInput
                           userInput.erase(userInput.length()-1);
                       }
@@ -188,9 +188,9 @@ LRESULT CALLBACK ConsolDisplayProc(HWND hwnd, UINT message, WPARAM wParam, LPARA
                       outText[0] = (char)13;
                       outText[1] = (char)10;
                       outText[2] = '\0';
-                      dispTextLen = GetWindowTextLength( hConsolDisplay );
-                      SendMessage( hConsolDisplay, EM_SETSEL, (WPARAM)dispTextLen, (LPARAM)dispTextLen );
-                      SendMessage( hConsolDisplay, EM_REPLACESEL, 0, (LPARAM) ((LPSTR) outText) );
+                      dispTextLen = GetWindowTextLength( hConsoleDisplay );
+                      SendMessage( hConsoleDisplay, EM_SETSEL, (WPARAM)dispTextLen, (LPARAM)dispTextLen );
+                      SendMessage( hConsoleDisplay, EM_REPLACESEL, 0, (LPARAM) ((LPSTR) outText) );
                     //Set inputting to FALSE
                       ResetEvent(inputting);
                     //Cleanup
@@ -198,23 +198,23 @@ LRESULT CALLBACK ConsolDisplayProc(HWND hwnd, UINT message, WPARAM wParam, LPARA
                     break;
 
                 default:
-                    //Add user-entered character to display  
+                    //Add user-entered character to display
                       outText = new char[2];
                       outText[0] = (char)wParam;
                       outText[1] = '\0';
-                      dispTextLen = GetWindowTextLength( hConsolDisplay );
-                      SendMessage( hConsolDisplay, EM_SETSEL, (WPARAM)dispTextLen, (LPARAM)dispTextLen );
-                      SendMessage( hConsolDisplay, EM_REPLACESEL, 0, (LPARAM) ((LPSTR) outText) );
+                      dispTextLen = GetWindowTextLength( hConsoleDisplay );
+                      SendMessage( hConsoleDisplay, EM_SETSEL, (WPARAM)dispTextLen, (LPARAM)dispTextLen );
+                      SendMessage( hConsoleDisplay, EM_REPLACESEL, 0, (LPARAM) ((LPSTR) outText) );
                     //Add character to userInput
                       userInput += (char)wParam;
                     //Cleanup
                       delete [] outText;
             }
-            
-            //SendMessage(hConsolDisplay, EM_SETSEL, dispTextLen, dispTextLen);
-            //SendMessage(hConsolDisplay, EM_SCROLLCARET, 0, 0);
+
+            //SendMessage(hConsoleDisplay, EM_SETSEL, dispTextLen, dispTextLen);
+            //SendMessage(hConsoleDisplay, EM_SCROLLCARET, 0, 0);
             //delete [] dispText;
-            
+
             break;
     }
 

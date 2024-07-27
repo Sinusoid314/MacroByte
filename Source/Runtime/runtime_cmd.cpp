@@ -50,13 +50,13 @@ void (CSubProg::*cmdPtrList[80])() = {NULL,
                                       &CSubProg::Cmd_Gosub,
                                       &CSubProg::Cmd_Return,
                                       &CSubProg::Cmd_If,
-                                      &CSubProg::Cmd_PrintToConsol,
-                                      &CSubProg::Cmd_InputFromConsol,
-                                      &CSubProg::Cmd_ShowConsol,
-                                      &CSubProg::Cmd_HideConsol,
+                                      &CSubProg::Cmd_PrintToConsole,
+                                      &CSubProg::Cmd_InputFromConsole,
+                                      &CSubProg::Cmd_ShowConsole,
+                                      &CSubProg::Cmd_HideConsole,
                                       &CSubProg::Cmd_PrintBlank,
                                       &CSubProg::Cmd_For,
-                                      &CSubProg::Cmd_ClearConsol,
+                                      &CSubProg::Cmd_ClearConsole,
                                       &CSubProg::Cmd_InputEvents,
                                       &CSubProg::Cmd_FlushEvents,
                                       &CSubProg::Cmd_Pause,
@@ -91,7 +91,7 @@ void (CSubProg::*cmdPtrList[80])() = {NULL,
                                       &CSubProg::Cmd_Right,
                                       &CSubProg::Cmd_OnError,
                                       &CSubProg::Cmd_Redim,
-                                      &CSubProg::Cmd_ConsolTitle,
+                                      &CSubProg::Cmd_ConsoleTitle,
                                       &CSubProg::Cmd_RedimAdd,
                                       &CSubProg::Cmd_RedimRemove,
                                       &CSubProg::Cmd_While,
@@ -134,13 +134,13 @@ CSubProg::~CSubProg(void)
         delete varList[n];
     }
     varList.clear();
-    
+
     for(int n=0; n < arrayList.size(); n++)
     {
         delete arrayList[n];
     }
     arrayList.clear();
-    
+
     blockStack.clear();
 }
 
@@ -156,7 +156,7 @@ void CSubProg::Initialize(CSubProgDef* spdObj)
     {
         varList[n] = new CDataCell(spDefPtr->varTypeList[n], NULL, 0);
     }
-       
+
     //Load arrays
     arrayList.resize(spDefPtr->arrayDefList.size());
     for(int n=0; n < spDefPtr->arrayDefList.size(); n++)
@@ -164,10 +164,10 @@ void CSubProg::Initialize(CSubProgDef* spdObj)
         arrayList[n] = new CArray;
         arrayList[n]->Initialize( spDefPtr->arrayDefList[n] );
     }
-    
+
     //Load parameter values from the stack into variable list
     for(int n=0; n < spDefPtr->paramNum; n++)
-    {     
+    {
         varList[n] = PopDataCell();
     }
 }
@@ -190,14 +190,14 @@ bool CSubProg::SetBlockToExit(int blockID)
 //and returns FALSE if not found
 {
     int tmpID;
-    
+
     for(int n=0; n < blockStack.size(); n++)
     {
         tmpID = blockStack[n];
         blockStack[n] = IDBLOCK_VOID;
         if(tmpID == blockID) {return true;}
     }
-    
+
     return false;
 }
 
@@ -207,16 +207,16 @@ bool CSubProg::RunCodeBlock(int startLine, int endLine, int resetLine, bool exit
 //return TRUE if code block was run without exiting early
 {
     bool isComplete;
-    
+
     //Assume loop will complete without exiting early
     isComplete = true;
-    
+
     //Run selected code block
     for(currCodeLine=startLine; currCodeLine <= endLine; currCodeLine++)
     {
         //Run bytecode command at currCodeLine
         (this->*cmdPtrList[spDefPtr->byteCodeList[currCodeLine]->argList[0]])();
-        
+
         //Check early exit conditions
         if(WaitForSingleObject(asyncExitFlag, 0) == WAIT_OBJECT_0)
             {isComplete = false; break;}
@@ -232,11 +232,11 @@ bool CSubProg::RunCodeBlock(int startLine, int endLine, int resetLine, bool exit
             }
         }
     }
-    
+
     //Reset currCodeLine
     if(resetLine > 0)
         {currCodeLine = resetLine;}
-    
+
     return isComplete;
 }
 
@@ -247,10 +247,10 @@ void CSubProg::RunProg(void)
 {
     //Add block entry
     AddCodeBlock(IDBLOCK_ROOT);
-    
+
     //Run subprogram bytecode
     RunCodeBlock(0, spDefPtr->byteCodeList.size() - 1, 0, false);
-    
+
     //Remove block entry
     RemoveCodeBlock();
 
@@ -266,10 +266,10 @@ void CSubProg::Cmd_AddData(void)
 //
 {
     CDataRef srcDatRef;
-    
+
     srcDatRef.Initialize(spDefPtr->byteCodeList[currCodeLine]->argList[1],
                          spDefPtr->byteCodeList[currCodeLine]->argList[2]);
-    
+
     PushDataCell(new CDataCell(srcDatRef.dataCellPtr->dataType,
                                srcDatRef.dataCellPtr->dataPtr,
                                srcDatRef.dataCellPtr->dataSize));
@@ -296,15 +296,15 @@ void CSubProg::Cmd_CopyData(void)
 {
     CDataRef destDatRef;
     CDataCell* srcDatPtr;
-    
+
     destDatRef.Initialize(spDefPtr->byteCodeList[currCodeLine]->argList[1],
                           spDefPtr->byteCodeList[currCodeLine]->argList[2]);
     srcDatPtr = DataStack[0];
-    
+
     destDatRef.SetCellData(srcDatPtr->dataType,
                            srcDatPtr->dataPtr,
                            srcDatPtr->dataSize);
-    
+
     delete PopDataCell();
 }
 
@@ -574,11 +574,11 @@ void CSubProg::Cmd_ArrayIdx(void)
 {
     int indexVal;
     int indexCount;
-    
+
     indexCount = spDefPtr->byteCodeList[currCodeLine]->argList[1];
-    
+
     ArrayIdxStack.insert(ArrayIdxStack.begin(), indexCount, 0);
-    
+
     for(int n=0; n<indexCount; n++)
     {
         indexVal = int(*((double*)DataStack[0]->dataPtr));
@@ -598,17 +598,17 @@ void CSubProg::Cmd_Gosub(void)
 {
     //Add code block entry
     AddCodeBlock(IDBLOCK_GOSUB);
-    
+
     //Run bytecode starting at given line number
     RunCodeBlock(spDefPtr->byteCodeList[currCodeLine]->argList[1], spDefPtr->byteCodeList.size() - 1, currCodeLine, false);
-    
+
     //Remove block entry
     RemoveCodeBlock();
 }
 
 void CSubProg::Cmd_Return(void)
 //Exit most recent Gosub block
-{   
+{
     if(!SetBlockToExit(IDBLOCK_GOSUB))
     {
         //ERROR
@@ -624,17 +624,17 @@ void CSubProg::Cmd_If(void)
     int trueBLen;
     int falseBLen;
     int ifLine;
-    
+
     //Load condition and block data
     testRes = (bool)(*( (double*)(DataStack[0]->dataPtr) ));
     delete PopDataCell();
     trueBLen = spDefPtr->byteCodeList[currCodeLine]->argList[1];
     falseBLen = spDefPtr->byteCodeList[currCodeLine]->argList[2];
     ifLine = currCodeLine;
-    
+
     //Add block entry
     AddCodeBlock(IDBLOCK_IF);
-    
+
     //Test condition
     if( testRes )
     {
@@ -648,18 +648,18 @@ void CSubProg::Cmd_If(void)
         RunCodeBlock(ifLine + trueBLen + 1, ifLine + trueBLen + falseBLen,
                      ifLine + trueBLen + falseBLen, true);
     }
-    
+
     //Remove block entry
     RemoveCodeBlock();
 }
 
-void CSubProg::Cmd_PrintToConsol(void)
+void CSubProg::Cmd_PrintToConsole(void)
 //
 {
     int dispTextLen;
     string outputStr;
     double tmpNum;
-    
+
     if(DataStack[0]->dataType == DT_STRING)
     {
       //Get output text from top of DataStack as STRING
@@ -672,27 +672,27 @@ void CSubProg::Cmd_PrintToConsol(void)
         outputStr = static_cast<ostringstream*>(&(ostringstream() << tmpNum))->str();
     }
     delete PopDataCell();
-    
+
   //Add outText to display
-    dispTextLen = GetWindowTextLength( hConsolDisplay );
-    SendMessage( hConsolDisplay, EM_SETSEL, (WPARAM)dispTextLen, (LPARAM)dispTextLen );
-    SendMessage( hConsolDisplay, EM_REPLACESEL, 0, (LPARAM) ((LPSTR) outputStr.c_str()) );
+    dispTextLen = GetWindowTextLength( hConsoleDisplay );
+    SendMessage( hConsoleDisplay, EM_SETSEL, (WPARAM)dispTextLen, (LPARAM)dispTextLen );
+    SendMessage( hConsoleDisplay, EM_REPLACESEL, 0, (LPARAM) ((LPSTR) outputStr.c_str()) );
 }
 
-void CSubProg::Cmd_InputFromConsol(void)
+void CSubProg::Cmd_InputFromConsole(void)
 //
 {
     CDataRef destDatRef;
     MSG message;
     double tmpNum;
-    
+
     userInput = "";
     destDatRef.Initialize(spDefPtr->byteCodeList[currCodeLine]->argList[1],
                           spDefPtr->byteCodeList[currCodeLine]->argList[2]);
-    
+
     //Set inputting to TRUE
     SetEvent(inputting);
-    
+
     //DoEvents message pump
     while( (WaitForSingleObject(inputting, 0) == WAIT_OBJECT_0)
            && (WaitForSingleObject(asyncExitFlag, 0) != WAIT_OBJECT_0) )
@@ -708,7 +708,7 @@ void CSubProg::Cmd_InputFromConsol(void)
     ResetEvent(inputting);
     if(WaitForSingleObject(asyncExitFlag, 0) == WAIT_OBJECT_0)
         {return;}
-    
+
     if(destDatRef.dataCellPtr->dataType == DT_STRING)
     {
         //Add userInput to destDat as STRING
@@ -722,17 +722,17 @@ void CSubProg::Cmd_InputFromConsol(void)
     }
 }
 
-void CSubProg::Cmd_ShowConsol(void)
+void CSubProg::Cmd_ShowConsole(void)
 //
 {
-    ShowWindow(hConsolWin, SW_SHOW);
-    SetForegroundWindow(hConsolWin);
+    ShowWindow(hConsoleWin, SW_SHOW);
+    SetForegroundWindow(hConsoleWin);
 }
 
-void CSubProg::Cmd_HideConsol(void)
+void CSubProg::Cmd_HideConsole(void)
 //
 {
-    ShowWindow(hConsolWin, SW_HIDE);
+    ShowWindow(hConsoleWin, SW_HIDE);
 }
 
 void CSubProg::Cmd_PrintBlank(void)
@@ -740,15 +740,15 @@ void CSubProg::Cmd_PrintBlank(void)
 {
     char outText[3] = {(char)13, (char)10, '\0'};
     int dispTextLen;
-    
+
   //Add outText to display
-    dispTextLen = GetWindowTextLength( hConsolDisplay );
-    SendMessage( hConsolDisplay, EM_SETSEL, (WPARAM)dispTextLen, (LPARAM)dispTextLen );
-    SendMessage( hConsolDisplay, EM_REPLACESEL, 0, (LPARAM) ((LPSTR) outText) );
-    
-    //SendMessage(hConsolDisplay, EM_SETSEL, dispTextLen-1, dispTextLen-1);
-    //SendMessage(hConsolDisplay, EM_SCROLLCARET, 0, 0);
-    
+    dispTextLen = GetWindowTextLength( hConsoleDisplay );
+    SendMessage( hConsoleDisplay, EM_SETSEL, (WPARAM)dispTextLen, (LPARAM)dispTextLen );
+    SendMessage( hConsoleDisplay, EM_REPLACESEL, 0, (LPARAM) ((LPSTR) outText) );
+
+    //SendMessage(hConsoleDisplay, EM_SETSEL, dispTextLen-1, dispTextLen-1);
+    //SendMessage(hConsoleDisplay, EM_SCROLLCARET, 0, 0);
+
     //delete [] dispText;
 }
 
@@ -765,7 +765,7 @@ void CSubProg::Cmd_For(void)
     int startLine;
     int endLine;
     int resetLine;
-    
+
     //Load loop and block data
     fromVal = *( (double*)(DataStack[0]->dataPtr) );
       delete PopDataCell();
@@ -784,13 +784,13 @@ void CSubProg::Cmd_For(void)
     //Initialize counter to fromVal
     counter = fromVal;
     counterDatRef.SetCellData(DT_NUMBER, &counter, sizeof(double));
-    
+
     //Add code block entry
     AddCodeBlock(IDBLOCK_FOR);
-    
+
 
   loopStart:
-    
+
     //Check counter against toDat
     if( stepVal < 0 )
     //Decreasing counter
@@ -804,7 +804,7 @@ void CSubProg::Cmd_For(void)
         if( counter >  toVal )
             {goto loopEnd;}
     }
-    
+
     //Run loop code block
     if(!RunCodeBlock(startLine, endLine, resetLine, true))
     {
@@ -815,28 +815,28 @@ void CSubProg::Cmd_For(void)
     //Add stepDat to counter
     counter = counter + stepVal;
     counterDatRef.SetCellData(DT_NUMBER, &counter, sizeof(double));
-    
+
     //Jump back to loop beginning
     goto loopStart;
-    
+
   loopEnd:
-    
+
     //Remove code block entry
     RemoveCodeBlock();
-    
+
     //Reset currCodeLine
     currCodeLine = resetLine;
-    
+
     return;
 }
 
-void CSubProg::Cmd_ClearConsol(void)
-//Clear text of consol display
+void CSubProg::Cmd_ClearConsole(void)
+//Clear text of console display
 {
-    SetWindowTextA(hConsolDisplay, "");
-    
-    SendMessage(hConsolDisplay, EM_SETSEL, 0, 0);
-    SendMessage(hConsolDisplay, EM_SCROLLCARET, 0, 0);
+    SetWindowTextA(hConsoleDisplay, "");
+
+    SendMessage(hConsoleDisplay, EM_SETSEL, 0, 0);
+    SendMessage(hConsoleDisplay, EM_SCROLLCARET, 0, 0);
 }
 
 void CSubProg::Cmd_InputEvents(void)
@@ -844,7 +844,7 @@ void CSubProg::Cmd_InputEvents(void)
 //asyncExitFlag is set to TRUE
 {
     MSG message;
-    
+
     while(WaitForSingleObject(asyncExitFlag, 0) != WAIT_OBJECT_0)
     {
         while(PeekMessage(&message, NULL, 0, 0, PM_REMOVE))
@@ -860,7 +860,7 @@ void CSubProg::Cmd_FlushEvents(void)
 //Process all pending messages
 {
     MSG message;
-    
+
     while(PeekMessage(&message, NULL, 0, 0, PM_REMOVE))
     {
         TranslateMessage(&message);
@@ -872,11 +872,11 @@ void CSubProg::Cmd_Pause(void)
 //
 {
     int pauseLen;
-    
+
     //Get pause length from top of data stack
     pauseLen = (int) *((double*)(DataStack[0]->dataPtr));
     delete PopDataCell();
-    
+
     //Pause for given time length
     Sleep(pauseLen);
 }
@@ -893,12 +893,12 @@ void CSubProg::Cmd_Message(void)
 {
     string tmpMessage;
     string tmpTitle;
-    
+
     tmpMessage = (char*)DataStack[0]->dataPtr;
     delete PopDataCell();
     tmpTitle = (char*)DataStack[0]->dataPtr;
     delete PopDataCell();
-    
+
     MessageBoxA(NULL, tmpMessage.c_str(), tmpTitle.c_str(), MB_OK | MB_SETFOREGROUND);
 }
 
@@ -909,16 +909,16 @@ void CSubProg::Cmd_OpenFile(void)
     string tmpName = "";
     int tmpID;
     int tmpType;
-    
+
     //Get name & ID from DataStack
     tmpName = (char*)DataStack[0]->dataPtr;
     delete PopDataCell();
     tmpID = int(*((double*)DataStack[0]->dataPtr));
     delete PopDataCell();
-    
+
     //Get file type from command argument #2
     tmpType = spDefPtr->byteCodeList[currCodeLine]->argList[1];
-    
+
     //Open new file
     AddFile(tmpName, tmpID, tmpType);
 }
@@ -928,11 +928,11 @@ void CSubProg::Cmd_CloseFile(void)
 {
     //Declare variables
     int tmpID;
-    
+
     //Get file ID from DataStack
     tmpID = int(*((double*)DataStack[0]->dataPtr));
     delete PopDataCell();
-    
+
     //Close file
     RemoveFile(tmpID);
 }
@@ -945,15 +945,15 @@ void CSubProg::Cmd_PrintToFile(void)
     bool hasCR;
     string outputStr;
     double tmpNum;
-    
+
     //Get boolean indicating whether or not output string should
     //be printed with it's return characters
     hasCR = (bool) spDefPtr->byteCodeList[currCodeLine]->argList[1];
-    
+
     //Get file ID
     fileID = (int)*((double*)(DataStack[0]->dataPtr));
     delete PopDataCell();
-    
+
     //Get output data
     if(DataStack[0]->dataType == DT_STRING)
     {
@@ -967,10 +967,10 @@ void CSubProg::Cmd_PrintToFile(void)
         outputStr = static_cast<ostringstream*>(&(ostringstream() << tmpNum))->str();
     }
     delete PopDataCell();
-    
+
     //Add line end
     if(hasCR) outputStr += "\r\n";
-    
+
     //Get file object's index from ID
     if(!GetFileIndex(fileID, fileIdx))
     {
@@ -978,7 +978,7 @@ void CSubProg::Cmd_PrintToFile(void)
         errorMsg = "File handle #" + NumToStr(fileID) + " not found.";
         RuntimeError();
     }
-    
+
     //Print output string to file
     if( !(fileList[fileIdx]->Print(outputStr)) )
     {
@@ -996,11 +996,11 @@ void CSubProg::Cmd_InputFieldFromFile(void)
     CDataRef destDatRef;
     string inputStr = "";
     double tmpNum;
-    
+
     //Get file ID from DataStack
     fileID = (int)*((double*)(DataStack[0]->dataPtr));
     delete PopDataCell();
-    
+
     //Get destination data-cell reference from bytecode
     destDatRef.Initialize(spDefPtr->byteCodeList[currCodeLine]->argList[1],
                           spDefPtr->byteCodeList[currCodeLine]->argList[2]);
@@ -1012,7 +1012,7 @@ void CSubProg::Cmd_InputFieldFromFile(void)
         errorMsg = "File handle #" + NumToStr(fileID) + " not found.";
         RuntimeError();
     }
-    
+
     //Get the next data field from file
     if( !(fileList[fileIdx]->InputField(inputStr)) )
     {
@@ -1020,7 +1020,7 @@ void CSubProg::Cmd_InputFieldFromFile(void)
         errorMsg = fileList[fileIdx]->fileErrorStr;
         RuntimeError();
     }
-    
+
     if(destDatRef.dataCellPtr->dataType == DT_STRING)
     {
         //Add inputStr to destDat as STRING
@@ -1042,11 +1042,11 @@ void CSubProg::Cmd_InputLineFromFile(void)
     CDataRef destDatRef;
     string inputStr = "";
     double tmpNum;
-    
+
     //Get file handle from DataStack
     fileID = (int)*((double*)(DataStack[0]->dataPtr));
     delete PopDataCell();
-    
+
     //Get destination data-cell reference from bytecode
     destDatRef.Initialize(spDefPtr->byteCodeList[currCodeLine]->argList[1],
                              spDefPtr->byteCodeList[currCodeLine]->argList[2]);
@@ -1058,7 +1058,7 @@ void CSubProg::Cmd_InputLineFromFile(void)
         errorMsg = "File handle #" + NumToStr(fileID) + " not found.";
         RuntimeError();
     }
-    
+
     //Get the next data line from file
     if( !(fileList[fileIdx]->InputLine(inputStr)) )
     {
@@ -1066,7 +1066,7 @@ void CSubProg::Cmd_InputLineFromFile(void)
         errorMsg = fileList[fileIdx]->fileErrorStr;
         RuntimeError();
     }
-    
+
     if(destDatRef.dataCellPtr->dataType == DT_STRING)
     {
         //Add inputStr to destDat as STRING
@@ -1087,15 +1087,15 @@ void CSubProg::Cmd_InputBytesFromFile(void)
     int fileIdx;
     int byteLen;
     string inputStr = "";
-    
+
     //Get file handle from DataStack
     fileID = (int)*((double*)(DataStack[0]->dataPtr));
     delete PopDataCell();
-    
+
     //Get byte length from DataStack
     byteLen = (int)*((double*)(DataStack[0]->dataPtr));
     delete PopDataCell();
-    
+
     //Get file index from handle
     if(!GetFileIndex(fileID, fileIdx))
     {
@@ -1103,7 +1103,7 @@ void CSubProg::Cmd_InputBytesFromFile(void)
         errorMsg = "File handle #" + NumToStr(fileID) + " not found.";
         RuntimeError();
     }
-    
+
     //Read in bytes from file
     if( !(fileList[fileIdx]->InputBytes(inputStr, byteLen)) )
     {
@@ -1111,7 +1111,7 @@ void CSubProg::Cmd_InputBytesFromFile(void)
         errorMsg = fileList[fileIdx]->fileErrorStr;
         RuntimeError();
     }
-    
+
     //Add inputStr to DataStack
     PushDataCell(new CDataCell(DT_STRING, (void*)inputStr.c_str(), inputStr.length()+1));
 }
@@ -1122,15 +1122,15 @@ void CSubProg::Cmd_SetFilePos(void)
     int fileID;
     int fileIdx;
     int filePos;
-    
+
     //Get file handle from DataStack
     fileID = (int)*((double*)(DataStack[0]->dataPtr));
     delete PopDataCell();
-    
+
     //Get new read/write position from DataStack
     filePos = (int)*((double*)(DataStack[0]->dataPtr));
     delete PopDataCell();
-    
+
     //Get file index from handle
     if(!GetFileIndex(fileID, fileIdx))
     {
@@ -1138,7 +1138,7 @@ void CSubProg::Cmd_SetFilePos(void)
         errorMsg = "File handle #" + NumToStr(fileID) + " not found.";
         RuntimeError();
     }
-    
+
     //Set read/write position
     fileList[fileIdx]->SetFilePos(filePos);
 }
@@ -1149,11 +1149,11 @@ void CSubProg::Cmd_GetFilePos(void)
     int fileID;
     int fileIdx;
     double filePos;
-    
+
     //Get file handle from DataStack
     fileID = (int)*((double*)(DataStack[0]->dataPtr));
     delete PopDataCell();
-    
+
     //Get file index from handle
     if(!GetFileIndex(fileID, fileIdx))
     {
@@ -1161,10 +1161,10 @@ void CSubProg::Cmd_GetFilePos(void)
         errorMsg = "File handle #" + NumToStr(fileID) + " not found.";
         RuntimeError();
     }
-    
+
     //Get read/write position
     filePos = (double)fileList[fileIdx]->GetFilePos();
-    
+
     //Add read/write position to DataStack
     PushDataCell(new CDataCell(DT_NUMBER, &filePos, sizeof(double)));
 }
@@ -1175,11 +1175,11 @@ void CSubProg::Cmd_FileLength(void)
     int fileID;
     int fileIdx;
     double fileLen;
-    
+
     //Get file handle from DataStack
     fileID = (int)*((double*)(DataStack[0]->dataPtr));
     delete PopDataCell();
-    
+
     //Get file index from handle
     if(!GetFileIndex(fileID, fileIdx))
     {
@@ -1187,26 +1187,26 @@ void CSubProg::Cmd_FileLength(void)
         errorMsg = "File handle #" + NumToStr(fileID) + " not found.";
         RuntimeError();
     }
-    
+
     //Get file length
     fileLen = (double)fileList[fileIdx]->GetFileLength();
-    
+
     //Add file length to DataStack
     PushDataCell(new CDataCell(DT_NUMBER, &fileLen, sizeof(double)));
 }
 
 void CSubProg::Cmd_EndOfFile(void)
-//Return TRUE if a file's read/write pointer is 
+//Return TRUE if a file's read/write pointer is
 //at the end of the file, FALSE if not
 {
     int fileID;
     int fileIdx;
     double isAtEnd;
-    
+
     //Get file handle from DataStack
     fileID = (int)*((double*)(DataStack[0]->dataPtr));
     delete PopDataCell();
-    
+
     //Get file index from handle
     if(!GetFileIndex(fileID, fileIdx))
     {
@@ -1214,10 +1214,10 @@ void CSubProg::Cmd_EndOfFile(void)
         errorMsg = "File handle #" + NumToStr(fileID) + " not found.";
         RuntimeError();
     }
-    
+
     //Get end-of-file flag
     isAtEnd = (double)fileList[fileIdx]->EndOfFile();
-    
+
     //Add end-of-file flag to DataStack
     PushDataCell(new CDataCell(DT_NUMBER, &isAtEnd, sizeof(double)));
 }
@@ -1227,12 +1227,12 @@ void CSubProg::Cmd_Str(void)
 {
     double tmpNum;
     string strRes;
-    
+
     tmpNum = *((double*)(DataStack[0]->dataPtr));
     delete PopDataCell();
-    
+
     strRes = static_cast<ostringstream*>(&(ostringstream() << tmpNum))->str();
-    
+
     PushDataCell(new CDataCell(DT_STRING, (void*)strRes.c_str(), strRes.length()+1));
 }
 
@@ -1259,10 +1259,10 @@ void CSubProg::Cmd_Val(void)
 {
     double numRes = 0;
     string tmpStr = "";
-    
+
     tmpStr = (char*)DataStack[0]->dataPtr;
     numRes = StrToNum(tmpStr);
-    
+
     delete PopDataCell();
     PushDataCell(new CDataCell(DT_NUMBER, &numRes, sizeof(double)));
 }
@@ -1300,12 +1300,12 @@ void CSubProg::Cmd_Not(void)
 {
     double numRes;
     numRes = *((double*)DataStack[0]->dataPtr);
-    
+
     if(numRes == 0)
         { numRes = 1; }
     else
         { numRes = 0; }
-    
+
     delete PopDataCell();
     PushDataCell(new CDataCell(DT_NUMBER, &numRes, sizeof(double)));
 }
@@ -1324,7 +1324,7 @@ void CSubProg::Cmd_Upper(void)
 {
     string inStr;
     string outStr;
-    
+
     inStr = (char*)DataStack[0]->dataPtr;
     delete PopDataCell();
 
@@ -1338,7 +1338,7 @@ void CSubProg::Cmd_Lower(void)
 {
     string inStr;
     string outStr;
-    
+
     inStr = (char*)DataStack[0]->dataPtr;
     delete PopDataCell();
 
@@ -1352,7 +1352,7 @@ void CSubProg::Cmd_LTrim(void)
 {
     string inStr;
     string outStr;
-    
+
     inStr = (char*)DataStack[0]->dataPtr;
     delete PopDataCell();
 
@@ -1366,7 +1366,7 @@ void CSubProg::Cmd_RTrim(void)
 {
     string inStr;
     string outStr;
-    
+
     inStr = (char*)DataStack[0]->dataPtr;
     delete PopDataCell();
 
@@ -1380,7 +1380,7 @@ void CSubProg::Cmd_Trim(void)
 {
     string inStr;
     string outStr;
-    
+
     inStr = (char*)DataStack[0]->dataPtr;
     delete PopDataCell();
 
@@ -1395,14 +1395,14 @@ void CSubProg::Cmd_Left(void)
     string inStr;
     string outStr;
     unsigned int cutLen;
-    
+
     inStr = (char*)DataStack[0]->dataPtr;
       delete PopDataCell();
     cutLen = (unsigned int)*((double*)DataStack[0]->dataPtr);
       delete PopDataCell();
-      
+
     outStr = LeftStr(inStr, cutLen);
-    
+
     PushDataCell(new CDataCell(DT_STRING, (char*)outStr.c_str(), outStr.length()+1));
 }
 
@@ -1413,16 +1413,16 @@ void CSubProg::Cmd_Mid(void)
     string outStr;
     unsigned int cutPos;
     unsigned int cutLen;
-    
+
     inStr = (char*)DataStack[0]->dataPtr;
       delete PopDataCell();
     cutPos = (unsigned int)*((double*)DataStack[0]->dataPtr);
       delete PopDataCell();
     cutLen = (unsigned int)*((double*)DataStack[0]->dataPtr);
       delete PopDataCell();
-      
+
     outStr = MidStr(inStr, cutPos-1, cutLen);
-    
+
     PushDataCell(new CDataCell(DT_STRING, (char*)outStr.c_str(), outStr.length()+1));
 }
 
@@ -1432,14 +1432,14 @@ void CSubProg::Cmd_Right(void)
     string inStr;
     string outStr;
     unsigned int cutLen;
-    
+
     inStr = (char*)DataStack[0]->dataPtr;
       delete PopDataCell();
     cutLen = (unsigned int)*((double*)DataStack[0]->dataPtr);
       delete PopDataCell();
-    
+
     outStr = RightStr(inStr, cutLen);
-    
+
     PushDataCell(new CDataCell(DT_STRING, (char*)outStr.c_str(), outStr.length()+1));
 }
 
@@ -1454,7 +1454,7 @@ void CSubProg::Cmd_Redim(void)
 {
     CArray* arrayPtr;
     vector<int> newDimList;
-    
+
     //Get pointer to the array
     switch(spDefPtr->byteCodeList[currCodeLine]->argList[1])
     {
@@ -1470,25 +1470,25 @@ void CSubProg::Cmd_Redim(void)
             RuntimeError();
             break;
     }
-    
+
     //Get new dimension sizes from the DataStack
     for(int n=0; n < arrayPtr->arrayDefPtr->dimSizeList.size(); n++)
     {
         newDimList.push_back( (int)*((double*)DataStack[0]->dataPtr) );
         delete PopDataCell();
     }
-    
+
     //Re-dimension the array
     arrayPtr->ReDim(newDimList);
-    
+
     //Cleanup
     newDimList.clear();
 }
 
-void CSubProg::Cmd_ConsolTitle(void)
-//Change the caption of the consol window
+void CSubProg::Cmd_ConsoleTitle(void)
+//Change the caption of the console window
 {
-    SetWindowTextA(hConsolWin, (char*)DataStack[0]->dataPtr);
+    SetWindowTextA(hConsoleWin, (char*)DataStack[0]->dataPtr);
     delete PopDataCell();
 }
 
@@ -1498,7 +1498,7 @@ void CSubProg::Cmd_RedimAdd(void)
     CArray* arrayPtr;
     CDataCell* newItemPtr;
     int beforeIdx;
-    
+
     //Get pointer to the array
     switch(spDefPtr->byteCodeList[currCodeLine]->argList[1])
     {
@@ -1514,14 +1514,14 @@ void CSubProg::Cmd_RedimAdd(void)
             RuntimeError();
             break;
     }
-    
+
     //Get new item pointer from DataStack
     newItemPtr = PopDataCell();
-    
+
     //Get beforeIdx from DataStack
     beforeIdx = (int)*((double*)DataStack[0]->dataPtr);
     delete PopDataCell();
-    
+
     //Add new item to array
     arrayPtr->ReDimAdd(newItemPtr, beforeIdx);
 }
@@ -1531,7 +1531,7 @@ void CSubProg::Cmd_RedimRemove(void)
 {
     CArray* arrayPtr;
     int itemIdx;
-    
+
     //Get pointer to the array
     switch(spDefPtr->byteCodeList[currCodeLine]->argList[1])
     {
@@ -1547,11 +1547,11 @@ void CSubProg::Cmd_RedimRemove(void)
             RuntimeError();
             break;
     }
-    
+
     //Get itemIdx from DataStack
     itemIdx = (int)*((double*)DataStack[0]->dataPtr);
     delete PopDataCell();
-    
+
     //Remove item from array
     arrayPtr->ReDimRemove(itemIdx);
 }
@@ -1569,7 +1569,7 @@ void CSubProg::Cmd_While(void)
     int codeStartLine;
     int codeEndLine;
     int resetLine;
-    
+
     testBLen = spDefPtr->byteCodeList[currCodeLine]->argList[1];
     codeBLen = spDefPtr->byteCodeList[currCodeLine]->argList[2];
     whileLine = currCodeLine;
@@ -1578,43 +1578,43 @@ void CSubProg::Cmd_While(void)
     codeStartLine = whileLine + testBLen + 1;
     codeEndLine = whileLine + testBLen + codeBLen;
     resetLine = codeEndLine;
-    
+
     //Add code block entry
     AddCodeBlock(IDBLOCK_WHILE);
-    
+
   whileTest:
-    
+
     //Run testBlock bytecode
     if(!RunCodeBlock(testStartLine, testEndLine, resetLine, false))
     {
         //Code block exited without completing
         goto whileDone;
     }
-    
+
     //Extract test result value from top of DataStack
     testRes = (bool)*((double*)DataStack[0]->dataPtr);
     delete PopDataCell();
-    
+
     //If test result is zero, GoTo WhileDone
     if(!testRes) goto whileDone;
-    
+
     //Run codeBlock bytecode
     if(!RunCodeBlock(codeStartLine, codeEndLine, resetLine, true))
     {
         //Code block exited without completing
         goto whileDone;
     }
-    
+
     goto whileTest;
-    
+
   whileDone:
-    
+
     //Remove code block entry
     RemoveCodeBlock();
-    
+
     //Reset currCodeLine
     currCodeLine = resetLine;
-    
+
     return;
 }
 
@@ -1653,19 +1653,19 @@ void CSubProg::Cmd_DebugBreakpoint(void)
 #ifdef _COMPONENT_DEBUGGER
     MSG message;
     int sourceLineIdx;
-    
+
     //Get debug source-code line number
     sourceLineIdx = spDefPtr->byteCodeList[currCodeLine]->argList[1];
-    
+
     //Update debugger window displays
     SendMessage( hDebugCodeView, LB_SETCURSEL, (WPARAM)sourceLineIdx, 0 );
-    
+
     //Set the current subprog's debug breakpoint line to sourceLineIdx.
     debugCurrBreakpointLine = sourceLineIdx;
-    
+
     //Set debugInBreakpoint to TRUE
     SetEvent(debugInBreakpoint);
-    
+
     //Wait for either debugInBreakPoint to be FALSE, or asyncExitFlag to be TRUE
     while( (WaitForSingleObject(debugInBreakpoint, 0) == WAIT_OBJECT_0)
            && (WaitForSingleObject(asyncExitFlag, 0) != WAIT_OBJECT_0) )
@@ -1677,7 +1677,7 @@ void CSubProg::Cmd_DebugBreakpoint(void)
         }
         Sleep(1);
     }
-    
+
     //Set debugInBreakPoint to FALSE
     ResetEvent(debugInBreakpoint);
 #endif
