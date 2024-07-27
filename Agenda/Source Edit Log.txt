@@ -1,7 +1,7 @@
-=================
-BETA 2
-=================
-
+July 26, 2024
+------------------
+- Changed all spellings of 'consol' to 'console' in the help files.
+- Changed all spellings of 'consol' to 'console' in Runtime and Compiler.
 
 July 24, 2024
 ------------------
