@@ -21,7 +21,6 @@ commands\FOR...NEXT.html
 commands\FUNCTION.html
 commands\GOSUB.html
 commands\GOTO.html
-commands\HIDECONSOL.html
 commands\IF...THEN.html
 commands\INPUT.html
 commands\LET.html
@@ -33,7 +32,6 @@ commands\PRINT.html
 commands\REM.html
 commands\RETURN.html
 commands\SEEK.html
-commands\SHOWCONSOL.html
 commands\SUB.html
 commands\VAR.html
 functions\ABS.html
@@ -59,6 +57,8 @@ index.html
 commands\LineInput.html
 commands\FlushEvents.html
 commands\InputEvents.html
+commands\HIDECONSOLE.html
+commands\SHOWCONSOLE.html
 
 [INFOTYPES]
 

@@ -85,9 +85,9 @@
 		<param name="Local" value="commands\GOTO.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="HideConsol">
-		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\HIDECONSOL.html">
-		<param name="Local" value="commands\HIDECONSOL.html">
+		<param name="Name" value="HideConsole">
+		<param name="Name" value="Untitled: c:\Users\sinus\Code\MacroByte\Docs\Compiler\commands\HIDECONSOLE.html">
+		<param name="Local" value="commands\HIDECONSOLE.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="If...Then">
@@ -206,9 +206,9 @@
 		<param name="Local" value="commands\SEEK.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="ShowConsol">
-		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\SHOWCONSOL.html">
-		<param name="Local" value="commands\SHOWCONSOL.html">
+		<param name="Name" value="ShowConsole">
+		<param name="Name" value="Untitled: c:\Users\sinus\Code\MacroByte\Docs\Compiler\commands\SHOWCONSOLE.html">
+		<param name="Local" value="commands\SHOWCONSOLE.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Str">

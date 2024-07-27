@@ -81,8 +81,8 @@
 			<param name="Local" value="commands\GOTO.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="HideConsol">
-			<param name="Local" value="commands\HIDECONSOL.html">
+			<param name="Name" value="HideConsole">
+			<param name="Local" value="commands\HIDECONSOLE.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="If...Then">
@@ -137,8 +137,8 @@
 			<param name="Local" value="commands\SEEK.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="ShowConsol">
-			<param name="Local" value="commands\SHOWCONSOL.html">
+			<param name="Name" value="ShowConsole">
+			<param name="Local" value="commands\SHOWCONSOLE.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Sub">
