@@ -4,6 +4,7 @@ July 26, 2024
 - Changed all spellings of 'consol' to 'console' in Runtime and Compiler.
 - Recompiled all distribution binaries.
 - Recompiled installer.
+- Changed all spellings of 'consol' to 'console' in the example programs.
 
 July 24, 2024
 ------------------
