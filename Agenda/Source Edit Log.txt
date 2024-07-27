@@ -1,5 +1,7 @@
 July 27, 2024
 ------------------
+- Changed all remaining spellings of 'consol' to 'console' in the help files.
+- Recompiled help file.
 - Fixed bug in Compiler that caused ConsoleTitle command to result in a syntax error.
 - Recompiled Compiler.
 - Recompiled installer.
