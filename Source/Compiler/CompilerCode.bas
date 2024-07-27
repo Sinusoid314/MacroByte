@@ -3605,8 +3605,8 @@ ElseIf LCase(Left(cmdStr, 8)) = "onerror " Then
 ElseIf LCase(Left(cmdStr, 6)) = "redim " Then
   Cmd_Redim Mid(cmdStr, 7)
 
-ElseIf LCase(Left(cmdStr, 12)) = "consoletitle " Then
-  Cmd_ConsoleTitle Mid(cmdStr, 13)
+ElseIf LCase(Left(cmdStr, 13)) = "consoletitle " Then
+  Cmd_ConsoleTitle Mid(cmdStr, 14)
   
 ElseIf LCase(Left(cmdStr, 9)) = "redimadd " Then
   Cmd_RedimAdd Mid(cmdStr, 10)
