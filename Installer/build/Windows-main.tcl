@@ -74,7 +74,7 @@ namespace eval ::InstallAPI {}
 namespace eval ::InstallJammer {}
 set conf(version)     1.2.15
 set info(Platform)    Windows
-set info(InstallerID) A89D45BD-7CB9-4CC7-9706-88386F90D4CC
+set info(InstallerID) AAA0E91D-E016-4382-B595-9FB218E21612
 array set ::InstallJammer::languagecodes {ca CatalÃ cs Czech de German en English es Spanish fr French hu Magyar it Italian lt Lithuanian nl Nederlands pl Polish pt_br {Brazilian Portuguese} ru Russian}
 array set info {
 AllowLanguageSelection
@@ -2503,7 +2503,7 @@ B5C7506B-8444-4685-8CCA-2E041A8BB55B,DisplayName
 {}
 
 B5C7506B-8444-4685-8CCA-2E041A8BB55B,FileSize
-{7490383}
+{7492159}
 
 B5C7506B-8444-4685-8CCA-2E041A8BB55B,FileUpdateMethod
 {0}
@@ -3933,11 +3933,11 @@ proc CreateWindow.CustomBlankPane1 {wizard id} {
 
 array set ::InstallJammer::files {files.tcl {proc ::InstallJammer::InitFiles {} {
 File ::664C525B-07BC-455E-80EA-127E8FD6CA99 -name Runtime -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Runtime -type dir -attributes 0000 -filemethod 0
-File ::5EA9E729-B2A4-40FB-A55F-A42F7C3D2470 -name Debug.exe -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Runtime -size 1647697 -mtime 1721861706 -attributes 1000 -filemethod 0
+File ::5EA9E729-B2A4-40FB-A55F-A42F7C3D2470 -name Debug.exe -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Runtime -size 1647711 -mtime 1722052368 -attributes 1000 -filemethod 0
 File ::59935568-842C-42FB-AA58-C61EA5D44CF5 -name mbcDat.mbr -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Runtime -size 1160 -mtime 1721862450 -attributes 1000 -filemethod 0
-File ::A382E99F-7ABC-4881-9607-9AF64E2A01FB -name Run.exe -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Runtime -size 5363254 -mtime 1721861825 -attributes 1000 -filemethod 0
+File ::A382E99F-7ABC-4881-9607-9AF64E2A01FB -name Run.exe -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Runtime -size 5363780 -mtime 1722052351 -attributes 1000 -filemethod 0
 File ::B5F3C1FF-9D8A-4ED3-9567-79D8A2FD7C75 -name Editor -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor -type dir -attributes 0000 -filemethod 0
-File ::DA3D033A-F3A4-41E4-BA9F-B3E927A23E46 -name Editor.exe -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor -size 71680 -mtime 1721867045 -attributes 1000 -filemethod 0
+File ::DA3D033A-F3A4-41E4-BA9F-B3E927A23E46 -name Editor.exe -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor -size 71680 -mtime 1722052291 -attributes 1000 -filemethod 0
 File ::A12FA787-EFA7-4746-8A8A-E91DF4BAB82B -name mbcRes.txt -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor -size 23 -mtime 1721862450 -attributes 1000 -filemethod 0
 File ::D6DD55E1-0524-4ABD-9D64-2A08B94E015D -name tmpSrc.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor -size 602 -mtime 1721862450 -attributes 1000 -filemethod 0
 File ::A84B2411-9775-4464-B823-20F57C377739 -name examples -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -type dir -attributes 0000 -filemethod 0
@@ -3974,9 +3974,9 @@ File ::E219AA87-05DF-4AF0-905B-5B733EBE15B1 -name Runtime.bas -parent B5C7506B-8
 File ::DA1DC649-B925-4D48-8690-84EC68E500EE -name testFile.txt -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 43 -mtime 1721588735 -attributes 1000 -filemethod 0
 File ::DBB560AF-07CA-4C78-B6A5-38B3C0E0C9C0 -name while.bas -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/examples -size 250 -mtime 1318214734 -attributes 1000 -filemethod 0
 File ::60D8EE15-718A-4006-968A-25007EDBE4B5 -name help -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/help -type dir -attributes 0000 -filemethod 0
-File ::E3B97E55-EB68-4A8E-8679-D2E2D19B5CED -name {Macrobyte v1.0 Help.chm} -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/help -size 19723 -mtime 1300787753 -attributes 1000 -filemethod 0
+File ::E3B97E55-EB68-4A8E-8679-D2E2D19B5CED -name {Macrobyte v1.0 Help.chm} -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Editor/help -size 20959 -mtime 1722052140 -attributes 1000 -filemethod 0
 File ::BD0B8786-114B-4365-819B-F3193788186C -name Compiler -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Compiler -type dir -attributes 0000 -filemethod 0
-File ::F4190337-89E0-455F-81F6-96F49DFFC020 -name Compiler.exe -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Compiler -size 197120 -mtime 1721862130 -attributes 1000 -filemethod 0
+File ::F4190337-89E0-455F-81F6-96F49DFFC020 -name Compiler.exe -parent B5C7506B-8444-4685-8CCA-2E041A8BB55B -directory <%InstallDir%>/Compiler -size 197120 -mtime 1722052316 -attributes 1000 -filemethod 0
 
 }
 } gui.tcl {proc ::InitGui {} {
