@@ -1,7 +1,13 @@
+July 31, 2024
+------------------
+- Modified index, ARRAY, CLOSE, and DIM help files.
+- Removed FlushEvents and InputEvents help files.
+
 July 27, 2024
 ------------------
-- Changed all remaining spellings of 'consol' to 'console' in the help files.
+- Recompiled installer.
 - Recompiled help file.
+- Changed all remaining spellings of 'consol' to 'console' in the help files.
 - Fixed bug in Compiler that caused ConsoleTitle command to result in a syntax error.
 - Recompiled Compiler.
 - Recompiled installer.

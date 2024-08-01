@@ -1,0 +1,23 @@
+EDIT
+-----------
+Function
+Line Input #
+Eof()
+Input()
+Loc()
+Lof()
+LTrim()
+RTrim()
+Trim()
+
+ADD
+-----------
+While
+Redim
+RedimAdd
+RedimRemove
+ExitFor
+ExitWhile
+ExitSub
+ExitFunction
+ConsoleTitle
