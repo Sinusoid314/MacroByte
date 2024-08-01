@@ -1,3 +1,8 @@
+August 1, 2024
+------------------
+- Modified FUNCTION, LINE INPUT, Loc(), Eof(), Lof(), Input(), LTrim(), RTrim(), and Trim() help files.
+- Added While...Wend, ConsoleTitle, ExitFunction, and ExitSub help files.
+
 July 31, 2024
 ------------------
 - Modified index, ARRAY, CLOSE, and DIM help files.
