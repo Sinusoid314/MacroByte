@@ -57,6 +57,15 @@ index.html
 commands\LineInput.html
 commands\HIDECONSOLE.html
 commands\SHOWCONSOLE.html
+commands\ExitFunction.html
+commands\ExitSub.html
+commands\ExitWhile.html
+commands\ExitFor.html
+commands\RedimRemove.html
+commands\RedimAdd.html
+commands\Redim.html
+commands\ConsoleTitle.html
+commands\While...Wend.html
 
 [INFOTYPES]
 

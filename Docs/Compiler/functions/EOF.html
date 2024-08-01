@@ -6,12 +6,12 @@
 </head>
 <body>
 
-<h3>EOF(#handle)</h3>
+<h3>EOF(handle)</h3>
 <br>
 <b><u>Description:</u></b>
 <br>
 <br>
-Returns -1 if the end of the file specified by <b>#handle</b> has been reached, or 0 if it hasn't.
+Returns -1 if the end of the file specified by <b>handle</b> has been reached, or 0 if it hasn't.
 <br>
 <br>
 <br>
@@ -19,12 +19,28 @@ Returns -1 if the end of the file specified by <b>#handle</b> has been reached, 
 <br>
 <br>
 showconsole <br>
-open "file.txt" for input as #file <br>
-while <b>EOF(#file)</b> = 0 <br>
-input #file, entry <br>
+<br>
+var entry as string <br>
+<br>
+open "test.txt" for output as #1 <br>
+print #1, "One,Two" <br>
+print #1, "Three,Four" <br>
+close #1 <br>
+<br>
+open "test.txt" for input as #1 <br>
+while <b>EOF(1)</b> = 0 <br>
+&nbsp;&nbsp;
+input #1, entry <br>
+&nbsp;&nbsp;
 print entry <br>
 wend <br>
-close #file <br>
+close #1 <br>
+<br>
+<u>Produces:</u> <br>
+One <br>
+Two <br>
+Three <br>
+Four <br>
 
 </body>
 </html>

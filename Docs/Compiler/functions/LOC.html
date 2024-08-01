@@ -5,13 +5,13 @@
 </head>
 <body>
 
-<h3>LOC(#handle)</h3>
+<h3>LOC(handle)</h3>
 <br>
 <b><u>Description:</u></b>
 <br>
 <br>
 Returns the current read/write position of an open file specified
-by <b>#handle</b>. This function is intended for files opened in <b>binary</b>
+by <b>handle</b>. This function is intended for files opened in <b>binary</b>
 mode.
 <br>
 <br>
@@ -21,13 +21,22 @@ mode.
 <br>
 showconsole <br>
 <br>
-var ff as string <br>
+var entry as string <br>
 <br>
-open "test.txt" for binary as #file <br>
-    input #file, ff <br>
-    print <b>LOC(#file)</b> <br>
-close #file <br>
-
+open "test.txt" for output as #1 <br>
+print #1, "One,Two" <br>
+print #1, "Three,Four" <br>
+close #1 <br>
+<br>
+open "test.txt" for binary as #1 <br>
+input #1, entry <br>
+print entry <br>
+print <b>LOC(1)</b> <br>
+close #1 <br>
+<br>
+<u>Produces:</u> <br>
+One<br>
+4<br>
 
 </body>
 </html>

@@ -18,14 +18,12 @@ Removes any trailing blank spaces from <b>string</b>.
 <br>
 <br>
 showconsole <br>
-print "Before: " & len(" aBc  ") <br>
-print "After: " & len(<b>RTRIM(" aBc  ")</b>) <br>
+print "Before: " & str(len(" aBc ")) <br>
+print "After: " & str(len(<b>RTRIM(" aBc ")</b>)) <br>
 <br>
 <u>Produces:</u> <br>
-<b>
-Before: 6 <br>
+Before: 5 <br>
 After: 4
-</b>
 
 </body>
 </html>

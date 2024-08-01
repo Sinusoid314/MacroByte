@@ -10,14 +10,30 @@
 <b><u>Description:</u></b>
 <br>
 <br>
-
+Reads in a line of data from the file specified by <b>#handle</b> and assigns it to <b>variable</b>.
+A line of data is defined as being terminated by both a carriage return and newline character together.
 <br>
 <br>
 <br>
 <b><u>Usage:</u></b>
 <br>
 <br>
-
+showconsole <br>
+var entry as string <br>
+<br>
+open "file.txt" for output as #1 <br>
+print #1, "One, Two" <br>
+print #1, "Three, Four" <br>
+close #1 <br>
+<br>
+open "file.txt" for input as #1 <br>
+<b>Line Input #1, entry</b> <br>
+close #1 <br>
+<br>
+print entry <br>
+<br>
+<u>Produces:</u> <br>
+<b>One, Two</b>
 
 </body>
 </html>

@@ -17,6 +17,42 @@
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="While...Wend">
+			<param name="Local" value="commands\While...Wend.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Exit Function">
+			<param name="Local" value="commands\ExitFunction.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Exit Sub">
+			<param name="Local" value="commands\ExitSub.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Exit While">
+			<param name="Local" value="commands\ExitWhile.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Exit For">
+			<param name="Local" value="commands\ExitFor.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="RedimRemove">
+			<param name="Local" value="commands\RedimRemove.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="RedimAdd">
+			<param name="Local" value="commands\RedimAdd.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Redim">
+			<param name="Local" value="commands\Redim.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="ConsoleTitle">
+			<param name="Local" value="commands\ConsoleTitle.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="@branchLabel">
 			<param name="Local" value="commands\@branchLabel.html">
 			</OBJECT>

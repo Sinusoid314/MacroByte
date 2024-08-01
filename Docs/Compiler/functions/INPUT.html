@@ -5,12 +5,12 @@
 </head>
 <body>
 
-<h3>INPUT(#handle, length)</h3>
+<h3>INPUT(handle, length)</h3>
 <br>
 <b><u>Description:</u></b>
 <br>
 <br>
-Returns a string containing a section of bytes from the file <b>#handle</b>. The number
+Returns a string containing a section of bytes from the file <b>handle</b>. The number
 of bytes to retrieve from the file is specified by <b>length</b>.
 <br>
 <br>
@@ -19,20 +19,24 @@ of bytes to retrieve from the file is specified by <b>length</b>.
 <br>
 <br>
 var n as number <br>
-var fn as string <br>
 <br>
 showconsole <br>
 <br>
-fn = fileopen("Open...","Text Files (*.txt) | *.txt") <br>
+open "test.txt" for output as #1 <br>
+print #1, "One,Two" <br>
+print #1, "Three,Four" <br>
+close #1 <br>
 <br>
-open fn for input as #file <br>
-<br>
-for n = 1 to lof(#file) <br>
-&nbsp;&nbsp;&nbsp;&nbsp;
-print <b>Input(#file, 1)</b> <br>
+open "test.txt" for input as #1 <br>
+for n = 1 to lof(1) <br>
+&nbsp;&nbsp;
+print <b>Input(1, 1);</b> <br>
 next n <br>
+close #1 <br>
 <br>
-close #file <br>
+<u>Produces:</u> <br>
+One,Two <br>
+Three,Four <br>
 
 </body>
 </html>
