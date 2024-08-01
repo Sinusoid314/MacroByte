@@ -5,13 +5,13 @@
 </head>
 <body>
 
-<h3>DIM arrayName(maxIdx1 [,maxIdx2]) AS type</h3>
+<h3>DIM arrayName(dimSize1, dimSize2, ...) AS type</h3>
 <br>
 <b><u>Description:</u></b>
 <br>
 <br>
-Creates an array whose lower boundry is 0 and whose upper boundry is specified
-by <b>maxIdx1</b>. Specify <b>maxIdx2</b> to create a double-dimensioned array.
+Creates an array with the given dimensions. Each <b>dimSize</b> specifies
+the total number of elements for that dimension of the array.
 <b>type</b> can be either <b>Number</b> or <b>String</b> depending on what type
 you want all the values of the array to be.
 <br>

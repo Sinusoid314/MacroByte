@@ -60,11 +60,6 @@
 		<param name="Local" value="functions\EOF.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="FlushEvents">
-		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\FlushEvents.html">
-		<param name="Local" value="commands\FlushEvents.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="For...Next">
 		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\FOR...NEXT.html">
 		<param name="Local" value="commands\FOR...NEXT.html">
@@ -102,11 +97,6 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Input">
 		<param name="Local" value="functions\INPUT.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="InputEvents">
-		<param name="Name" value="Untitled: c:\Documents and Settings\MrBudGood\My Documents\[Programs]\MacroByte\Docs\Compiler\commands\InputEvents.html">
-		<param name="Local" value="commands\InputEvents.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Int">

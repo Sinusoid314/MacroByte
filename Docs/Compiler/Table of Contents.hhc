@@ -93,10 +93,6 @@
 			<param name="Local" value="commands\INPUT.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="InputEvents">
-			<param name="Local" value="commands\InputEvents.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Let">
 			<param name="Local" value="commands\LET.html">
 			</OBJECT>
