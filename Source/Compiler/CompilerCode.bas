@@ -1,4 +1,6 @@
 Attribute VB_Name = "CompilerCode"
+Option Explicit
+
 Public rtMode As Long
 Public workingDir As String
 
@@ -199,7 +201,7 @@ End Function
 
 Public Sub Cmd_ExitFor()
 
-If forBlockNum > 0 Then
+If currDefObj.forBlockNum > 0 Then
     GenByteCodeFL IDC_ExitFor
 Else
     CompileError "Exit For outside of For block"
@@ -209,7 +211,7 @@ End Sub
 
 Public Sub Cmd_ExitWhile()
 
-If whileBlockNum > 0 Then
+If currDefObj.whileBlockNum > 0 Then
     GenByteCodeFL IDC_ExitWhile
 Else
     CompileError "Exit While outside of While block"
@@ -642,6 +644,8 @@ Next a
 End Sub
 
 Public Sub CompilerCleanup()
+
+Dim n As Integer
 
 'Delete currDefObj
 Set currDefObj = Nothing
@@ -1369,14 +1373,15 @@ forLine = currCodeLine
 
 
 'Loop through raw code directly after FOR command
-
-forBlockNum = forBlockNum + 1
-
 With currDefObj
+
+.forBlockNum = .forBlockNum + 1
+
 For currCodeLine = currCodeLine + 1 To .sourceCodeList.itemCount
     If LCase(.sourceCodeList.Item(currCodeLine)) = "next" Then
         'Set codeBLen in FOR byte-command
         .byteCodeList.Item(forPos).Item(4) = (.byteCodeList.itemCount - forPos)
+        .forBlockNum = .forBlockNum - 1
         Exit Sub
     ElseIf LCase(Left(.sourceCodeList.Item(currCodeLine), 5)) = "next " Then
         If LCase(Trim(Mid(.sourceCodeList.Item(currCodeLine), 6))) = LCase(params.Item(1)) Then
@@ -1386,6 +1391,7 @@ For currCodeLine = currCodeLine + 1 To .sourceCodeList.itemCount
             CompileError "NEXT variable '" & Trim(Mid(.sourceCodeList.Item(currCodeLine), 6)) & _
                      "' does not match variable '" & params.Item(1) & "' given in FOR"
         End If
+        .forBlockNum = .forBlockNum - 1
         Exit Sub
     Else
         'Compile command
@@ -1393,9 +1399,8 @@ For currCodeLine = currCodeLine + 1 To .sourceCodeList.itemCount
         If exitFlag Then Exit Sub
     End If
 Next currCodeLine
-End With
 
-forBlockNum = forBlockNum - 1
+End With
 
 'Restore currCodeLine to the beginning of FOR block
 currCodeLine = forLine
@@ -1614,12 +1619,13 @@ codeBlockPos = .byteCodeList.itemCount
 
 'Loop through raw code directly after WHILE command
 
-whileBlockNum = whileBlockNum + 1
+.whileBlockNum = .whileBlockNum + 1
 
 For currCodeLine = currCodeLine + 1 To .sourceCodeList.itemCount
     If LCase(.sourceCodeList.Item(currCodeLine)) = "wend" Then
         'Set codeBlockLen in WHILE byte-command
         .byteCodeList.Item(whilePos).Item(3) = (.byteCodeList.itemCount - codeBlockPos)
+        .whileBlockNum = .whileBlockNum - 1
         Exit Sub
     Else
         'Compile command
@@ -1627,8 +1633,6 @@ For currCodeLine = currCodeLine + 1 To .sourceCodeList.itemCount
         If exitFlag Then Exit Sub
     End If
 Next currCodeLine
-
-whileBlockNum = whileBlockNum - 1
 
 End With
 
@@ -3617,6 +3621,10 @@ ElseIf LCase(Left(cmdStr, 12)) = "redimremove " Then
 ElseIf LCase(Left(cmdStr, 6)) = "while " Then
   Cmd_While Mid(cmdStr, 7)
   
+'Check for Wend outside of While block
+ElseIf LCase(Left(cmdStr, 5)) = "wend " Then
+    CompileError "Wend without matching While statement."
+  
 ElseIf LCase(Trim(cmdStr)) = "exit for" Then
   Cmd_ExitFor
 
@@ -3852,6 +3860,7 @@ Public Function GetString(ByVal start As Integer, ByVal str As String, ByVal end
 
 Dim inString As Boolean
 Dim parNum As Integer
+Dim a As Integer
 
 inString = False
 parNum = 0
@@ -3965,6 +3974,7 @@ End Function
 Public Function ETask(ByVal dat As String) As String
 
 Dim eData, eKey, tmpDat As String
+Dim n As Long
 
 Randomize
 eKey = Chr(Int((Rnd * 10) + 10))
