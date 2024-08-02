@@ -1,7 +1,0 @@
-ADD
------------
-Redim
-RedimAdd
-RedimRemove
-ExitFor
-ExitWhile
