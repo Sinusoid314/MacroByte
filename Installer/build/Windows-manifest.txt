@@ -40,4 +40,6 @@ C:/Users/sinus/Code/MacroByte/Distribution/Editor/examples/testFile.txt DA1DC649
 C:/Users/sinus/Code/MacroByte/Distribution/Editor/examples/while.bas DBB560AF-07CA-4C78-B6A5-38B3C0E0C9C0 zlib
 {C:/Users/sinus/Code/MacroByte/Distribution/Editor/help/Macrobyte v1.0 Help.chm} E3B97E55-EB68-4A8E-8679-D2E2D19B5CED zlib
 {C:/Users/sinus/Code/MacroByte/Distribution/Editor/help/Macrobyte v1.0 Help.chw} 15A75FD3-478B-40A4-B6AF-0D51A9F8D329 zlib
+C:/Users/sinus/Code/MacroByte/Distribution/Editor/file.txt 7610F82B-F35E-4139-879D-E15B5C206A7E zlib
+C:/Users/sinus/Code/MacroByte/Distribution/Editor/test.txt 141DB3A7-EBD9-48E8-B1C6-BAB8336024FC zlib
 C:/Users/sinus/Code/MacroByte/Distribution/Compiler/Compiler.exe F4190337-89E0-455F-81F6-96F49DFFC020 zlib
