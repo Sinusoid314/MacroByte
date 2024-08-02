@@ -1,3 +1,13 @@
+August 2, 2024
+------------------
+- Recompiled installer.
+- Recompiled help file.
+- Recompiled Compiler.
+- Added ExitFor, ExitWhile, Redim, RedimAdd, and RedimRemove help files.
+- Fixed bug in Compiler with Exit For and Exit While resulting in a compile error.
+- Turned on Option Explicit in Compiler and added a few missing variable declarations.
+- Added check in Compiler for Wend without While.
+
 August 1, 2024
 ------------------
 - Modified FUNCTION, LINE INPUT, Loc(), Eof(), Lof(), Input(), LTrim(), RTrim(), and Trim() help files.
