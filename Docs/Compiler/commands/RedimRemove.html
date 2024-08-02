@@ -4,22 +4,40 @@
 </head>
 <body>
 
-<h3></h3>
+<h3>RedimRemove arrayName, itemIndex</h3>
 <br>
 <b><u>Description:</u></b>
 <br>
 <br>
-
+Removes the item at <b>itemIndex</b> from the array given by <b>arrayName</b>.
+This command only works on one-dimensional arrays.
 <br>
 <br>
 <br>
 <b><u>Usage:</u></b>
 <br>
 <br>
-
+var n as number <br>
+array names(4) as string <br>
+<br>
+showconsole <br>
+<br>
+names(0) = "Alice" <br>
+names(1) = "Bob" <br>
+names(2) = "Chris" <br>
+names(3) = "Dan" <br>
+<br>
+<b>RedimRemove names, 1</b> <br>
+<br>
+for n = 0 to 2 <br>
+&nbsp;&nbsp;
+print names(n) <br>
+next n <br>
 <br>
 <u>Produces:</u> <br>
-
+Alice <br>
+Chris <br>
+Dan <br>
 
 </body>
 </html>

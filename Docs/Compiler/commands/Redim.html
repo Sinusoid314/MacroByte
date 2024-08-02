@@ -4,22 +4,52 @@
 </head>
 <body>
 
-<h3></h3>
+<h3>Redim arrayName(dimSize1, dimSize2, ...)</h3>
 <br>
 <b><u>Description:</u></b>
 <br>
 <br>
-
+Resizes an array to the given dimensions. Each <b>dimSize</b> specifies the total number of elements
+for that dimension of the array. The number of <b>dimSize</b>s specified must match the number of
+dimensions with which the array was initially declared.
 <br>
 <br>
 <br>
 <b><u>Usage:</u></b>
 <br>
 <br>
-
+var a, b as number <br>
+var stuffCount as number <br>
+array stuff(1, 1) as string <br>
 <br>
-<u>Produces:</u> <br>
-
+showconsole <br>
+<br>
+for a = 1 to 4 <br>
+&nbsp;&nbsp;
+input "Enter stuff size: ", stuffCount <br>
+<br>
+&nbsp;&nbsp;
+<b>ReDim stuff(stuffCount, 3)</b> <br>
+<br>
+&nbsp;&nbsp;
+for b = 0 to stuffCount-1 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+stuff(b, 0) = str(b*1) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+stuff(b, 1) = str(b*2) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+stuff(b, 2) = str(b*3) <br>
+&nbsp;&nbsp;
+next b <br>
+<br>
+&nbsp;&nbsp;
+for b = 0 to stuffCount-1 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+print stuff(b, 0) + " - " & stuff(b, 1) + " - " + stuff(b, 2) <br>
+&nbsp;&nbsp;
+next b <br>
+next a <br>
+<br>
 
 </body>
 </html>
